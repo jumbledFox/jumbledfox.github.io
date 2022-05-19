@@ -10,6 +10,11 @@
     image-rendering: pixelated;
 }
 
+/* html */
+html {
+    margin: 0;
+    padding: 0;
+}
 
 /* Define font */
 @font-face {
@@ -38,20 +43,23 @@ body {
     background-color: transparent;
 }
 
-/* My really hacky solution for a gradient background... it works though... enough.. */
+/* My really hacky solution for a gradient background... it works though... */
 #gradient {
     position: fixed;
     background: var(--color-background-gradient);
     background-color: black;
 
-    margin-top: -1%;
-    margin-left: -1%;
     background-repeat: no-repeat;
     
-    width: 110%;
-    height: 110%;
+    width: 100%;
+    height: 100%;
 
     z-index: -50;
+
+    top:0px;
+    right:0px;
+    bottom:0px;
+    left:0px;
 }
 
 /* Make all headers have a cool rainbow effect */
