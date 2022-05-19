@@ -18,8 +18,11 @@ html {
 
 /* Define font */
 @font-face {
-    font-family: Simvoni, sans-serif;
-    src: url("Simvoni.ttf");
+    font-family: Simvoni, Arial, Helvetica, sans-serif sans-serif;
+    src: url("fonts/Simvoni.ttf"),
+         url("fonts/Simvoni.otf"),
+         url("fonts/Simvoni.woff"),
+         url("fonts/Simvoni.woff2");
 }
 
 /* Body */
