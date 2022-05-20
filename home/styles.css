@@ -25,6 +25,7 @@ html {
 
 /* Body */
 body {
+    background-color: black;
     overflow: scroll;
     overflow: overlay;  
 }
@@ -63,6 +64,7 @@ body {
     left:0px;
 }
 
+
 /* Make all headers have a cool rainbow effect */
 h1, h2, h3, h4, h5, h6 {
     color: rgb(var(--color-rainbow));
@@ -70,10 +72,37 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
 
     margin: 0.25em;
+
+    transition-duration: 100ms;
 }
+
 /* Set header sizes */
 h1 { font-size: 4.5em; }
 h2 { font-size: 2.5em; }
+
+
+/* Hyperlinks */
+a {
+    color: rgb(var(--color-rainbow));
+    text-decoration: underline;
+    transition-duration: 100ms;
+}
+/* unvisited link */
+a:link { }
+  
+/* visited link */
+a:visited { }
+  
+/* mouse over link */
+a:hover {
+    filter: brightness(140%);
+
+    text-shadow: 0 0 3px rgb(var(--color-rainbow));
+}
+/* selected link */
+a:active { }
+
+
 
 /* Text */
 p { 
