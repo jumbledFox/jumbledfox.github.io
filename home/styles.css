@@ -1,6 +1,6 @@
 /* Set font and variables */
 :root {
-    font-family: Simvoni;
+    font-family: "eSimvoni", Arial;
     color: white;
 
     --color-rainbow: 255, 0, 255;
@@ -18,11 +18,9 @@ html {
 
 /* Define font */
 @font-face {
-    font-family: Simvoni, Arial, Helvetica, sans-serif sans-serif;
-    src: url("fonts/Simvoni.ttf"),
-         url("fonts/Simvoni.otf"),
-         url("fonts/Simvoni.woff"),
-         url("fonts/Simvoni.woff2");
+    font-family: "eSimvoni";
+    src: url('fonts/simvoni-webfont.woff2') format('woff2'),
+         url('fonts/simvoni-webfont.woff') format('woff');
 }
 
 /* Body */
@@ -74,11 +72,13 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0.25em;
 }
 /* Set header sizes */
-h1 { font-size: 5em; }
+h1 { font-size: 4.5em; }
 h2 { font-size: 2.5em; }
 
 /* Text */
 p { 
+    text-align: center;
+
     /* Increase paragraph gap */
     margin-top: 1em ;
     margin-bottom: 1em ;
@@ -87,22 +87,19 @@ p {
     line-height: 130%;
 
     font-size: 1.5em; /* Font size */
-
-    width: 50rem;
-    text-align: center;
-    padding-left: auto;
-    padding-right: auto;
-    
-    word-wrap: break-word;
 }
 
 /* Container for the main bit*/
-#container {
+#centerer {
     justify-content: space-between;
 
     flex-wrap: nowrap;
 
     display: flex;
+}
+
+#main-container {
+    width: 50rem;
 }
 
 
