@@ -21,8 +21,8 @@ html {
     font-family: Simvoni, Arial, Helvetica, sans-serif sans-serif;
     src: url("fonts/Simvoni.ttf"),
          url("fonts/Simvoni.otf"),
-         url("fonts/Simvoni.woff"),
-         url("fonts/Simvoni.woff2");
+         url("fonts/simvoni-webfont.woff"),
+         url("fonts/simvoni-webfont.woff2");
 }
 
 /* Body */
