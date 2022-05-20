@@ -87,21 +87,13 @@ a {
     text-decoration: underline;
     transition-duration: 100ms;
 }
-/* unvisited link */
-a:link { }
-  
-/* visited link */
-a:visited { }
-  
+
 /* mouse over link */
 a:hover {
     filter: brightness(140%);
 
     text-shadow: 0 0 3px rgb(var(--color-rainbow));
 }
-/* selected link */
-a:active { }
-
 
 
 /* Text */
