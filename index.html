@@ -64,7 +64,7 @@
             }
             
             function manageLinks(event) {
-                console.log(event);
+                console.log(event.path[0]);
                 if (event.path[0] == "a") {
                     var pagePath = event.path[0].href.replace("https://" + event.path[0].host, "");
                     console.log(pagePath[0]);
