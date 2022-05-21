@@ -96,7 +96,7 @@ a:hover {
 
 
 /* Text */
-p { 
+p, i, b { 
     text-align: center;
 
     /* Increase paragraph gap */
