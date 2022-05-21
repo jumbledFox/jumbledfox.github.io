@@ -25,7 +25,7 @@ $(document).ready(function() {
         top = rand(0, 100) + "%",
         opacity = rand(0.05, 0.1),
         index = rand(-49, -29),
-        duration = rand(8, 12),
+        duration = rand(10, 15),
         fromLeft = Math.round(rand(0, 1));
         
         var fox = $("<div></div>").css({
