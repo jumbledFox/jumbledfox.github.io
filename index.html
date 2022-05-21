@@ -64,6 +64,7 @@
             }
             
             function manageLinks(event) {
+                console.log(event);
                 var pagePath = event.path[0].href.replace("https://" + event.path[0].host, "");
                 console.log(pagePath[0]);
                 if(pagePath[0] == "/" || pagePath.length == 0) {
