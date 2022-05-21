@@ -35,24 +35,36 @@
 
                 }, false);
 
-                const md = new Remarkable({
-                    html:true
-                });
+            const md = new Remarkable({
+                html:true
+            });
 
-                // Loading pages
-                function loadPage(filelocation) {
-                    fileLoc = "pages/" + filelocation + ".md";
-                    try {
-                        $.get(fileLoc, function(data) {
-                            $("#main").html(md.render(data));
-                        });
-                    } catch (error) {
-                        $.get("pages/404.md", function(data) {
-                            $("#main").html(md.render(data));
-                        });
-                    }
+            // Loading pages
+            function loadPage(filelocation) {
+                fileLoc = "pages/" + filelocation + ".md";
+                try { // TODO - Make this piece of shit work
+                    $.get(fileLoc, function(data) {
+                        $("#main").html(md.render(data));
+                    });
+                } catch (error) {
+                    $.get("pages/404.md", function(data) {
+                        $("#main").html(md.render(data));
+                    });
                 }
+            }
 
+            // Intercepting links
+            document.addEventListener("DOMContentLoaded", () => {
+                [].forEach.call(document.getElementsByTagName("a"), (element) => {
+                    element.addEventListener("click", (event) => {
+                        if(element.href[0] == "/") {
+                            event.preventDefault(); // Block the page from loading
+                            alert(element.href); // Show an alert with the url in the href
+                        }
+                    });
+                });
+            });
+            
 
         </script>
     </head>
