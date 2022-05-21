@@ -57,7 +57,7 @@
                 console.log(event);
                 var pagePath = event.path[0].href.replace("https://" + event.path[0].host, "")
                 if(pagePath[0] == "/") {
-                    loadPage(pagePath.slice(0));
+                    loadPage(pagePath.slice(1));
                     return false;
                 }
             } document.onclick = manageLinks;
