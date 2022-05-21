@@ -8,6 +8,8 @@
                 let decoded = loc.search.slice(1).split("&").map(function(s) {
                     return s.replace(/~and~/g, "&");
                 }).join("?");
+
+                console.log(decoded);
             }
         </script>
     </head>
