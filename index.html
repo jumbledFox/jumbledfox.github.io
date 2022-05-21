@@ -52,10 +52,12 @@
                     });
                 }
 
-                $('body').find('a').each ( function(){
-                    $(this).click(function(){
-                        console.log('custom-action');
-                        return false;
+                document.addEventListener("DOMContentLoaded", () => {
+                    [].forEach.call(document.getElementsByTagName("a"), (element) => {
+                        element.addEventListener("click", (event) => {
+                        event.preventDefault(); // Block the page from loading
+                        alert(element.href); // Show an alert with the url in the href
+                        });
                     });
                 });
             }
