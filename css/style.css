@@ -19,8 +19,8 @@ html {
 /* Define font */
 @font-face {
     font-family: "eSimvoni";
-    src: url('../fonts/simvoni-webfont.woff2') format('woff2'),
-         url('../fonts/simvoni-webfont.woff') format('woff');
+    src: url('/fonts/simvoni-webfont.woff2') format('woff2'),
+         url('/fonts/simvoni-webfont.woff') format('woff');
 }
 
 /* Body */
@@ -169,7 +169,7 @@ p {
 
     background-size: 7rem;
 
-	background-image: url("../images/foxhead.png");
+	background-image: url("/images/foxhead.png");
 
     overscroll-behavior: contain;
 }
