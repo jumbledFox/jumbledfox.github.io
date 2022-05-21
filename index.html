@@ -11,7 +11,7 @@
 
                 console.log(decoded);
 
-                window.history.replaceState(null, "", decoded);
+                window.onload(window.history.replaceState(null, "", decoded));
             }
         </script>
     </head>
