@@ -41,7 +41,7 @@
 
             // Loading pages
             function loadPage(filelocation) {
-                fileLoc = (!(filelocation == "index" || filelocation == "")) ? "pages/" + filelocation + ".md" : "pages/index.md";
+                fileLoc = (filelocation == "index" || filelocation == "") ? "pages/index.md" : "pages/" + filelocation + ".md";
 
                 $.ajax({
                     type: 'HEAD',
