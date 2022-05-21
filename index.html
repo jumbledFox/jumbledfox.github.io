@@ -41,7 +41,7 @@
 
             // Loading pages
             function loadPage(filelocation) {
-                fileLoc = "pages/" + filelocation + ".md";
+                fileLoc = (filelocation != "index") ? "pages/" + filelocation + ".md" : "pages/index.md";
                 try { // TODO - Make this piece of shit work
                     $.get(fileLoc, function(data) {
                         $("#main").html(md.render(data));
