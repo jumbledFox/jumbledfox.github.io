@@ -10,6 +10,8 @@
                 }).join("?") + loc.hash;
 
                 console.log(decoded);
+
+                window.history.replaceState(null, "", decoded);
             }
         </script>
     </head>
