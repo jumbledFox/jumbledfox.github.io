@@ -26,8 +26,6 @@
                         // Push the new URL to the history stack
                         window.history.pushState(decoded.slice(1), ``, decoded);
 
-                        // Load and format
-                        loadAndFormat();
                     }
                 }, false);
 
@@ -36,16 +34,6 @@
                 html:true
             });
 
-            function loadAndFormat() {
-                let name = window.location.search.slice(1);
-                let file = "pages/" + name + ".md";
-
-                $.get(file, function(data) {
-                    let html = md.render(data);
-
-                    $("#main").html(html);
-                });
-            }
         </script>
     </head>
     <body>
