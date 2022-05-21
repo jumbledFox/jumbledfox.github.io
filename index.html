@@ -19,7 +19,7 @@
                     if(loc.search[1] == "/") { // If we need to redirect
                         let decoded = loc.search.slice(1).split("&").map(function(s) {
                             return s.replace(/~and~/g, "&");
-                        }).join((loc.search) ? "?" : "") + loc.hash;
+                        }).join((loc.search.includes("&")) ? "?" : "") + loc.hash;
 
                         console.log(decoded);
 
