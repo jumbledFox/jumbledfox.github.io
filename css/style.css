@@ -169,7 +169,7 @@ p {
 
     background-size: 7rem;
 
-	background-image: url(foxhead.png);
+	background-image: url(images/foxhead.png);
 
     overscroll-behavior: contain;
 }
