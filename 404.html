@@ -5,7 +5,7 @@
             var loc = window.location;
 
             var l = loc.protocol + '//' + loc.hostname + (loc.port ? ':' + loc.port : '') // Main address
-            + "?" + loc.pathname // Pathname
+            + "/?" + loc.pathname // Pathname
             + "&" + (loc.search.slice(1)).replace(/&/g, "~and~") // Search
             + loc.hash; // Hash
 
