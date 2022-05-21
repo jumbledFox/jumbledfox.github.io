@@ -16,14 +16,14 @@
             if(loc.search[1] == "/") { // If we need to redirect
                 let decoded = loc.search.slice(1).split("&").map(function(s) {
                     return s.replace(/~and~/g, "&");
-                }).join("?") + loc.hash;
+                }).join((loc.search) ? "?" : "") + loc.hash;
 
                 console.log(decoded);
 
                 window.addEventListener('load', 
                     function() { 
                         // Push the new URL to the history stack
-                        window.history.pushState(name, ``, '/'+name);
+                        window.history.pushState(decoded.slice(1), ``, '/'+decoded);
 
                         // Load and format
                         loadAndFormat();
@@ -54,7 +54,7 @@
         <div id="centerer">
             <div></div>
             <div id="main">
-                <h1>Index</h1>
+                <h1>Uhhh.....</h1>
                 <p>You shouldn't be reading this...</p>
                 <p><i>Send Yours truly a message if you somehow end up here~</i></p>
             </div>
