@@ -51,8 +51,8 @@
                         $("#main").html(md.render(data));
                     });
                 }
-                
-                $('.block').find('a').each ( function(){
+
+                $('body').find('a').each ( function(){
                     $(this).click(function(){
                         console.log('custom-action');
                         return false;
