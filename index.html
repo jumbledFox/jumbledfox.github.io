@@ -2,7 +2,13 @@
 <html lang="en">
     <head>
         <script>
-            window.onload(window.history.pushState(null, "", "poo/wee"));
+            //window.onload(window.history.pushState(null, "", "poo/wee"));
+            let loc = window.location;
+            if(loc.search[1] == "/") { // If we need to redirect
+                let decoded = loc.search.slice(1).split("&").map(function(s) {
+                    return s.replace(/~and~/g, "&");
+                }).join("?");
+            }
         </script>
     </head>
     <body>

@@ -9,9 +9,8 @@
             + "&" + (loc.search.slice(1)).replace(/&/g, "~and~") // Search
             + loc.hash; // Hash
 
-            console.log(l);
-            console.log(loc);
-            //window.location = l;
+            console.log("Redirecting to `" + l + "`!");
+            window.location = l;
         </script>
     </head>
     <body>
