@@ -10,12 +10,14 @@ the index page checks if the url has a ?, if so it decodes the current url and g
 \/
 then the main div has all of its children killed and, in their place, elements from the corresponding markdown file are loaded
 \/
-the page url is then set to site.com/example/test?a=1&b=2#hash
+replace history, the page url is then set to site.com/example/test?a=1&b=2#hash
 
 
 clicks link on page
 \/
 link gets disabled (https://stackoverflow.com/a/66661893)
+\/
+add previous page to history
 \/
 instead it deletes everything from the main div and loads elements from the corresponding markdown file
 \/
