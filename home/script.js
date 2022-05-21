@@ -1,3 +1,19 @@
+gsap.to("html", {
+    keyframes: {
+        "0%"  : { "--color-rainbow": "69 , 163, 229" },
+        "12%" : { "--color-rainbow": "51 , 204, 204" },
+        "25%" : { "--color-rainbow": "102, 191, 57 " },
+        "38%" : { "--color-rainbow": "255, 166, 2  " },
+        "50%" : { "--color-rainbow": "235, 103, 15 " },
+        "62%" : { "--color-rainbow": "255, 51 , 85 " },
+        "76%" : { "--color-rainbow": "134, 76 , 191" },
+        "100%": { "--color-rainbow": "69 , 163, 229" }
+    },
+    duration: 7,
+    repeat: -1,
+    ease: "none"
+});
+
 $(document).ready(function() {
     var flyholder = $('#fly-holder');
 
