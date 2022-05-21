@@ -45,8 +45,8 @@
 
                 $.ajax({
                     type: 'HEAD',
-                    url: 'http://yoursite.com/page.html',
-                    
+                    url: 'https://jumbledFox.github.io/pages/' + filelocation + '.md',
+
                 success: function() {
                     $.get(fileLoc, function(data) {
                         $("#main").html(md.render(data));
