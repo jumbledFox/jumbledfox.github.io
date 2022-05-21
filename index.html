@@ -55,6 +55,10 @@
             
             function manageLinks(event) {
                 console.log(event);
+                console.log(event.path[0].href.replace("https://" + event.path[0].host, ""));
+                if(event.path[0].href.replace("https://" + event.path[0].host, "")[0] == "/") {
+
+                }
                 return false;
             } document.onclick = manageLinks;
 
