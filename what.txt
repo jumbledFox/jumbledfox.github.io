@@ -1,0 +1,22 @@
+clicks link outside of page
+\/
+goes to site.com/example/test?a=1&b=2#hash
+\/
+404s, the 404 page redirects you to site.com/?/example/test&a=1~and~b=2#hash
+\/
+this redirect takes you to the index (because of the ?)
+\/
+the index page checks if the url has a ?, if so it decodes the current url and gets a markdown file
+\/
+then the main div has all of its children killed and, in their place, elements from the corresponding markdown file are loaded
+\/
+the page url is then set to site.com/example/test?a=1&b=2#hash
+
+
+clicks link on page
+\/
+link gets disabled (https://stackoverflow.com/a/66661893)
+\/
+instead it deletes everything from the main div and loads elements from the corresponding markdown file
+\/
+the page url is also set
