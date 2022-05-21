@@ -12,23 +12,24 @@
         <script src="scripts/main-stuff.js"></script>
 
         <script>
-            let loc = window.location;
-            if(loc.search[1] == "/") { // If we need to redirect
-                let decoded = loc.search.slice(1).split("&").map(function(s) {
-                    return s.replace(/~and~/g, "&");
-                }).join((loc.search) ? "?" : "") + loc.hash;
 
-                console.log(decoded);
+            window.addEventListener('load', 
+                function() { 
+                let loc = window.location;
+                    if(loc.search[1] == "/") { // If we need to redirect
+                        let decoded = loc.search.slice(1).split("&").map(function(s) {
+                            return s.replace(/~and~/g, "&");
+                        }).join((loc.search) ? "?" : "") + loc.hash;
 
-                window.addEventListener('load', 
-                    function() { 
+                        console.log(decoded);
+
                         // Push the new URL to the history stack
-                        window.history.pushState(decoded.slice(1), ``, '/'+decoded);
+                        window.history.pushState(decoded.slice(1), ``, decoded);
 
                         // Load and format
                         loadAndFormat();
-                    }, false);
-            }
+                    }
+                }, false);
 
 
             const md = new Remarkable({
