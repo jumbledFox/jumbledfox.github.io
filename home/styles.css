@@ -72,8 +72,6 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
 
     margin: 0.25em;
-
-    transition-duration: 100ms;
 }
 
 /* Set header sizes */
@@ -85,11 +83,12 @@ h2 { font-size: 2.5em; }
 a {
     color: rgb(var(--color-rainbow));
     text-decoration: underline;
-    transition-duration: 100ms;
 }
 
 /* mouse over link */
 a:hover {
+    transition-duration: 100ms;
+
     filter: brightness(140%);
 
     text-shadow: 0 0 3px rgb(var(--color-rainbow));
@@ -119,8 +118,32 @@ p {
     display: flex;
 }
 
-#main-container {
-    width: 50rem;
+@media (min-width: 500px) {
+    #main-container { max-width: 450px; } 
+    p { font-size: 1.2em;}
+    h1 { font-size: 3em; }
+    h2 { font-size: 2em; }
+}
+
+@media (min-width: 600px) {
+    #main-container { max-width: 530px; } 
+    p { font-size: 1.4em;}
+    h1 { font-size: 3.5em; }
+    h2 { font-size: 2em; }
+}
+
+@media (min-width: 700px) {
+    #main-container { max-width: 650px; } 
+    p { font-size: 1.5em;}
+    h1 { font-size: 4em; }
+    h2 { font-size: 2em; }
+}
+
+@media (min-width: 830px) {
+    #main-container { max-width: 800px; } 
+    p { font-size: 1.5em;}
+    h1 { font-size: 4.5em; }
+    h2 { font-size: 2.5em; }
 }
 
 
