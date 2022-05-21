@@ -26,13 +26,33 @@
                         // Push the new URL to the history stack
                         window.history.pushState(decoded.slice(1), ``, decoded);
 
+                        // Load page
+                        loadPage(loc.pathname.slice(1));
+                    } else {
+                        // Load index
+                        loadPage("index");
                     }
+
                 }, false);
 
+                const md = new Remarkable({
+                    html:true
+                });
 
-            const md = new Remarkable({
-                html:true
-            });
+                // Loading pages
+                function loadPage(filelocation) {
+                    fileLoc = "pages/" + filelocation + ".md";
+                    try {
+                        $.get(fileLoc, function(data) {
+                            $("#main").html(md.render(data));
+                        });
+                    } catch (error) {
+                        $.get("pages/404.md", function(data) {
+                            $("#main").html(md.render(data));
+                        });
+                    }
+                }
+
 
         </script>
     </head>
