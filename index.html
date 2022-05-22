@@ -31,12 +31,16 @@
                     } else { }
                     console.log("location after:" + location);
                     
+                    // Titlise location
+                    titliseL = l.split("/").slice(-1)[0].split("-").map(
+                        function(w) { if (l.length != 0) return w[0].toUpperCase() + w.substr(1); }
+                        ).join(" "), // this makes "poo/wee/page-three" into "Page Three"
+                    
+                    // Set title
+                    document.title = titliseL + " | jumbledFox's Website";
+                    
                     // This sets the url to the location and adds it to the history stack
-                    window.history.pushState(l, 
-                        l.split("/").slice(-1)[0].split("-").map(
-                            function(w) { if (l.length != 0) return w[0].toUpperCase() + w.substr(1); }
-                            ).join(" "), // this makes "poo/wee/page-three" into "Page Three"
-                        l);
+                    window.history.pushState(l, titliseL, l);
 
                     // Then, delete everything in #main and load the markdown file
                     const md = new Remarkable({
