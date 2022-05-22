@@ -47,9 +47,9 @@
                     type: 'HEAD',
                     url: 'https://jumbledFox.github.io/pages/' + filelocation + '.md',
 
-                error: function() {
-                    fileLoc = "pages/404.md";
-                }
+                    error: function() {
+                        fileLoc = "pages/404.md";
+                    }
                 });
 
                 $.get(fileLoc, function(data) {
@@ -57,7 +57,8 @@
                 });
 
                 // Push the new URL to the history stack
-                window.history.pushState(fileLoc, ``, fileLoc);
+                
+                window.history.pushState(null, ``, (filelocation != "index") ? fileLoc.slice(6, 3) : "");
             }
             
             function manageLinks(event) {
