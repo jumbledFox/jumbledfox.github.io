@@ -9,13 +9,15 @@
         <script>
             var loc = window.location;
 
-            var l = loc.protocol + '//' + loc.hostname + (loc.port ? ':' + loc.port : '') // Main address
-            + "/?" + loc.pathname // Pathname
-            + ((loc.search) ? "&" + (loc.search.slice(1)).replace(/&/g, "~and~") : "") // Search
-            + loc.hash; // Hash
+            if (!loc.endsWith(".md")) {
+                var l = loc.protocol + '//' + loc.hostname + (loc.port ? ':' + loc.port : '') // Main address
+                + "/?" + loc.pathname // Pathname
+                + ((loc.search) ? "&" + (loc.search.slice(1)).replace(/&/g, "~and~") : "") // Search
+                + loc.hash; // Hash
 
-            console.log("Redirecting to `" + l + "`!");
-            window.location = l;
+                console.log("Redirecting to `" + l + "`!");
+                window.location = l;
+            }
         </script>
     </head>
     <body>
