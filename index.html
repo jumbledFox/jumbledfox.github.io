@@ -62,7 +62,7 @@
 
                 console.log("fileloc: " + fileLoc.slice(8, 3) + " slice:" + fileLoc.slice(8, 3) + " dc:" + dc);
 
-                window.history.pushState(dc, "", "/" + dc); // Push the new URL to the history stack
+                window.history.replaceState(null, null, "/" + dc); // Push the new URL to the history stack
             }
             
             function manageLinks(event) {
