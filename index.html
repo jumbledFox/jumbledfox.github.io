@@ -47,19 +47,12 @@
                     
                     // TODO: This might not work, I'm not sure if it's the best way to do this
                     
-                    document.getElementById("main").innerHTML = md.render(
-                        fetch(location).then(response => response.text())
-                        .then(result => document.getElementById('content').innerHTML)
-                    );
-
-                    /*
-                        // If the file exists, load it
-                        fetch(location).then(function(response) {
-                            response.text().then(function(text) {
-                                document.getElementById("main").innerHTML = markdown.toHTML(text);
-                            });
+                    fetch(location).then(function(response) {
+                        response.text().then(function(text) {
+                            document.getElementById("main").innerHTML = md.render(text);
                         });
-                    */
+                    });
+
                 });
 
             }
