@@ -60,7 +60,7 @@
 
                     // This sets the url to the location and adds it to the history stack if it's not already there
                     if (window.history.state?.urlPath != l) {
-                        window.history.pushState({urlPath: l}, "", window.location.origin + "" + l);
+                        window.history.pushState({urlPath: l}, "", window.location.origin + (l[0] == "/") ? "" : "/" + l);
                     }
 
                     // Then, delete everything in #main and load the markdown file
