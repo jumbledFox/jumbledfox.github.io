@@ -34,7 +34,7 @@
                     // This sets the url to the location and adds it to the history stack
                     window.history.pushState(l, 
                         l.split("/").slice(-1)[0].split("-").map(
-                            function(w) { console.log(w); return w[0].toUpperCase() + w.substr(1); }
+                            function(w) { if (l.length != 0) return w[0].toUpperCase() + w.substr(1); }
                             ).join(" "), // this makes "poo/wee/page-three" into "Page Three"
                         l);
 
