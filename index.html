@@ -59,6 +59,7 @@
                 // Push the new URL to the history stack
                 
                 let dc = (filelocation != "index") ? fileLoc.slice(8, 3) : "";
+                console.log(dc);
                 window.history.pushState(dc.slice(1), "", dc);
                 //window.history.pushState(null, ``, (filelocation != "index") ? fileLoc.slice(6, 3) : "");
             }
