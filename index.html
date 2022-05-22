@@ -66,6 +66,8 @@
             }
             
             function manageLinks(event) {
+                return false;
+
                 if (event.path[0].nodeName && event.path[0].nodeName.toLowerCase() == "a") {
                     
                     var pagePath = event.path[0].href.replace("https://" + event.path[0].host, "");
