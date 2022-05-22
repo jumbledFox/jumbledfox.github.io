@@ -28,45 +28,41 @@
                             // Some other error...
                             location = window.location.origin + "/errorpages/othererror.md";
                         }
-                    } else {
-                        console.log("location after:" + location);
-                        
-                        // This sets the url to the location and adds it to the history stack
+                    } else { }
+                    console.log("location after:" + location);
+                    
+                    // This sets the url to the location and adds it to the history stack
+                    /*
+                    window.history.pushState(l, 
+                        l.split("/").slice(-1)[0].split("-").map(
+                            function(w) { return w[0].toUpperCase() +     w.substr(1)}
+                            ).join(" "), // this makes "poo/wee/page-three" into "Page Three"
+                        l);
+                    */
+
+                    // Then, delete everything in #main and load the markdown file
+                    const md = new Remarkable({
+                        html:true
+                    });
+                    
+                    // TODO: This might not work, I'm not sure if it's the best way to do this
+                    
+                    document.getElementById("main").innerHTML = md.render(
                         /*
-                        window.history.pushState(l, 
-                            l.split("/").slice(-1)[0].split("-").map(
-                                function(w) { return w[0].toUpperCase() +     w.substr(1)}
-                                ).join(" "), // this makes "poo/wee/page-three" into "Page Three"
-                            l);
+                        fetch(location).then(response => response.text())
+                        .then(result => document.getElementById('content').innerHTML)
                         */
+                    location
+                    );
 
-                        // Then, delete everything in #main and load the markdown file
-                        const md = new Remarkable({
-                            html:true
-                        });
-                        
-                        // TODO: This might not work, I'm not sure if it's the best way to do this
-                        
-                        document.getElementById("main").innerHTML = md.render(
-                            /*
-                            fetch(location).then(response => response.text())
-                            .then(result => document.getElementById('content').innerHTML)
-                            */
-                        location
-                        );
-                        
-                        
-                        
-
-                        /*
-                            // If the file exists, load it
-                            fetch(location).then(function(response) {
-                                response.text().then(function(text) {
-                                    document.getElementById("main").innerHTML = markdown.toHTML(text);
-                                });
+                    /*
+                        // If the file exists, load it
+                        fetch(location).then(function(response) {
+                            response.text().then(function(text) {
+                                document.getElementById("main").innerHTML = markdown.toHTML(text);
                             });
-                        */
-                    }
+                        });
+                    */
                 });
 
             }
