@@ -61,10 +61,14 @@
                     // This sets the url to the location and adds it to the history stack if it's not already there
                     console.log("window.history.state?.urlPath: " + window.history.state?.urlPath);
                     console.log("l: " + l);
+
+
+                    window.history.pushState(l, "", (l[0] == "/") ? "" : "/" + l);
+                    /*
                     if (window.history.state?.urlPath != l) {
 
                         window.history.pushState({urlPath: l}, "", window.location.origin + (l[0] == "/") ? "" : "/" + l);
-                    }
+                    }*/
 
                     // Then, delete everything in #main and load the markdown file
                     const md = new Remarkable({
@@ -109,7 +113,7 @@
                 // If the event has a state
                 if (event.state != undefined) {
                     // If the state has a urlPath
-                    loadPage((event.state == null) ? "" : event.state.urlPath);
+                    loadPage((event.state == null) ? "" : event.state);
                 }
             }
 
