@@ -58,13 +58,10 @@
             }
 
             function interceptClick(event) {
-                console.log(event);
-                return false;
-
-                if (event.path[0].nodename) { // if you clicked on an <a>
-                    if (event.path[0].nodename.toLowerCase() == "a") {
+                if (event.target.nodeName != undefined) { // if you clicked on an <a>
+                    if (event.target.nodeName.toLowerCase() == "a") {
                         console.log("Clicked on an <a>");
-                        pagepath = event.path[0].href
+                        pagepath = event.target.href
                         if (pagepath.startsWith(window.location.origin)) {
                             console.log("Link internal, " + window.location.origin);
                             
