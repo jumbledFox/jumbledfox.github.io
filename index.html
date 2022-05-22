@@ -36,7 +36,7 @@
                     
 
                     // This sets the url to the location and adds it to the history stack
-                    window.history.pushState({Title: titliseL, Location: l}, null, l);
+                    window.history.pushState({urlPath: l}, "", "/" + l);
 
                     // Then, delete everything in #main and load the markdown file
                     const md = new Remarkable({
@@ -81,7 +81,7 @@
             window.onpopstate = function(event) {
                 // If the event has a state
                 if (event.state != undefined) {
-                    loadPage(event.state.Location);
+                    loadPage(event.state.urlPath);
                 }
             }
 
