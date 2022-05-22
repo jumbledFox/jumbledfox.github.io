@@ -64,16 +64,15 @@
             }
             
             function manageLinks(event) {
-                console.log(event.path[0]);
-                if (event.path[0] == "a") {
+                if (event.path[0].nodeName && event.path[0].nodeName.toLowerCase() == "a") {
+                    
                     var pagePath = event.path[0].href.replace("https://" + event.path[0].host, "");
-                    console.log(pagePath[0]);
+
                     if(pagePath[0] == "/" || pagePath.length == 0) {
                         loadPage(pagePath.slice(1));
                         return false;
                     }
                 }
-                return false;
 
             } document.onclick = manageLinks;
 
