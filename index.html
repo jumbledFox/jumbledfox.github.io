@@ -47,8 +47,11 @@
                     type: 'HEAD',
                     url: 'https://jumbledFox.github.io/pages/' + filelocation + '.md',
 
-                    success: function() { },
+                    success: function() { 
+                        console.log("SUCCESS!");
+                    },
                     error: function() {
+                        console.log("ERROR!");
                         fileLoc = "pages/404.md";
                     }
                 });
