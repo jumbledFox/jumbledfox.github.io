@@ -36,6 +36,8 @@
                     
 
                     // This sets the url to the location and adds it to the history stack if it's not already there
+                    console.log("window.history.state.urlPath: " + window.history.state.urlPath);
+                    console.log("l: " + l);
                     if (window.history.state.urlPath != l) {
                         window.history.pushState({urlPath: l}, "", "/" + l);
                     }
