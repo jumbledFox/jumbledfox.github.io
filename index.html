@@ -68,18 +68,20 @@
             }
 
             function interceptClick(event) {
-                if (event.path[0].nodename.toLowerCase() == "a") { // if you clicked on an <a>
-                    pagepath = event.path[0].href
-                    if (pagepath.startsWith(window.location.origin)) {
-                        // Link is internal - remove the origin
-                        pagepath.slice(window.location.origin.length)
-                        // Now if the link starts with "/" or is empty, load the page
-                        if (pagepath.startsWith("/") || pagepath == "") {
-                            loadPage(pagepath);
-                            return false;
+                if (event.path[0].nodename) { // if you clicked on an <a>
+                    if (event.path[0].nodename.toLowerCase() == "a") {
+                        pagepath = event.path[0].href
+                        if (pagepath.startsWith(window.location.origin)) {
+                            // Link is internal - remove the origin
+                            pagepath.slice(window.location.origin.length)
+                            // Now if the link starts with "/" or is empty, load the page
+                            if (pagepath.startsWith("/") || pagepath == "") {
+                                loadPage(pagepath);
+                                return false;
+                            }
+                        } else {
+                            // Link is external, L + Ratio + Didn't ask
                         }
-                    } else {
-                        // Link is external, L + Ratio + Didn't ask
                     }
                 }
             } document.onclick = interceptClick;
