@@ -35,8 +35,10 @@
                     document.title = titliseL + (titliseL == "") ? "" : " | " + "jumbledFox's Website";
                     
 
-                    // This sets the url to the location and adds it to the history stack
-                    window.history.pushState({urlPath: l}, "", "/" + l);
+                    // This sets the url to the location and adds it to the history stack if it's not already there
+                    if (window.history.state.urlPath != l) {
+                        window.history.pushState({urlPath: l}, "", "/" + l);
+                    }
 
                     // Then, delete everything in #main and load the markdown file
                     const md = new Remarkable({
