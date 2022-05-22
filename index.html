@@ -60,7 +60,7 @@
                 
                 let dc = (filelocation != "index") ? fileLoc.slice(6, -3) : ""; // Slice to remove "pages/" and ".md"
 
-                console.log("fileloc: " + fileLoc.slice(8, 3) + " slice:" + fileLoc.slice(8, 3) + " dc:" + dc);
+                console.log("filelocation:" + filelocation + " fileloc: " + fileLoc.slice(8, 3) + " slice:" + fileLoc.slice(8, 3) + " dc:" + dc);
 
                 window.history.replaceState(null, null, "https://jumbledFox.github.io/" + dc); // Push the new URL to the history stack
             }
