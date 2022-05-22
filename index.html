@@ -60,12 +60,17 @@
             function interceptClick(event) {
                 if (event.path[0].nodename) { // if you clicked on an <a>
                     if (event.path[0].nodename.toLowerCase() == "a") {
+                        console.log("Clicked on an <a>");
                         pagepath = event.path[0].href
                         if (pagepath.startsWith(window.location.origin)) {
+                            console.log("Link internal, " + window.location.origin);
+                            
                             // Link is internal - remove the origin
                             pagepath.slice(window.location.origin.length)
                             // Now if the link starts with "/" or is empty, load the page
                             if (pagepath.startsWith("/") || pagepath == "") {
+                                console.log("It starts with / or is empty, loading page: " + pagepath);
+
                                 loadPage(pagepath);
                                 return false;
                             }
