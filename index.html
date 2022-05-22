@@ -28,11 +28,13 @@
                 });
 
                 // This sets the url to the location and adds it to the history stack
+                /*
                 window.history.pushState(l, 
                     l.split("/").slice(-1)[0].split("-").map(
                         function(w) { return w[0].toUpperCase() +     w.substr(1)}
                         ).join(" "), // this makes "poo/wee/page-three" into "Page Three"
                     l);
+                */
 
                 // Then, delete everything in #main and load the markdown file
                 const md = new Remarkable({
