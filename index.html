@@ -58,13 +58,11 @@
 
                 // Push the new URL to the history stack
                 
-                let dc = (filelocation != "index") ? fileLoc.slice(5, -3) : ""; // Slice to remove "pages/" and ".md"
+                let dc = /*(filelocation != "index") ? */fileLoc.slice(5, -3);// : ""; // Slice to remove "pages/" and ".md"
 
                 console.log("fileloc: " + fileLoc.slice(8, 3) + " slice:" + fileLoc.slice(8, 3) + " dc:" + dc);
 
                 window.history.pushState(dc, "", "/" + dc); // Push the new URL to the history stack
-
-                //window.history.pushState(null, ``, (filelocation != "index") ? fileLoc.slice(6, 3) : "");
             }
             
             function manageLinks(event) {
