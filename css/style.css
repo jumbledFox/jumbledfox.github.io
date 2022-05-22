@@ -15,10 +15,11 @@
 
 @media (prefers-color-scheme: dark){
     body {color:#fff;background:#000}
-    a:link {color: rgb(var(--color-rainbow));}
-    a:hover, a:visited:hover {transition-duration: 100ms; filter: brightness(140%); text-shadow: 0 0 3px rgb(var(--color-rainbow));}
-    a:visited {filter: brightness(70%);}
 }
+
+a:link {color: rgb(var(--color-rainbow));}
+a:hover, a:visited:hover {transition-duration: 100ms; filter: brightness(140%); text-shadow: 0 0 3px rgb(var(--color-rainbow));}
+a:visited {filter: brightness(70%);}
 
 body{
     margin:1em auto;
