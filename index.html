@@ -47,6 +47,7 @@
                     type: 'HEAD',
                     url: 'https://jumbledFox.github.io/pages/' + filelocation + '.md',
 
+                    success: function() { },
                     error: function() {
                         fileLoc = "pages/404.md";
                     }
@@ -59,7 +60,7 @@
                 // Push the new URL to the history stack
                 
                 let dc = (filelocation != "index") ? fileLoc.slice(6, -3) : ""; // Slice to remove "pages/" and ".md"
-
+                // FUTURE ME - Something is wrong with this, it keeps redirecting you home when 404 - TODO, MAKE THIS WORK!!!!
                 console.log("filelocation:" + filelocation + " fileloc: " + fileLoc.slice(8, 3) + " slice:" + fileLoc.slice(8, 3) + " dc:" + dc);
 
                 window.history.replaceState(null, null, "https://jumbledFox.github.io/" + dc); // Push the new URL to the history stack
