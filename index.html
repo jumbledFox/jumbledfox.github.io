@@ -59,6 +59,8 @@
 
             function interceptClick(event) {
                 console.log(event);
+                return false;
+
                 if (event.path[0].nodename) { // if you clicked on an <a>
                     if (event.path[0].nodename.toLowerCase() == "a") {
                         console.log("Clicked on an <a>");
