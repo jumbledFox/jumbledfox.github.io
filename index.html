@@ -39,7 +39,7 @@
                     console.log("window.history.state.urlPath: " + window.history.state?.urlPath);
                     console.log("l: " + l);
                     if (window.history.state?.urlPath != l) {
-                        window.history.pushState({urlPath: l}, "", "/" + l);
+                        window.history.pushState({urlPath: l}, "", window.location.origin + "/" + l);
                     }
 
                     // Then, delete everything in #main and load the markdown file
