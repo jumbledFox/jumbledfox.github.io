@@ -20,6 +20,8 @@
                 repeat: -1,
                 ease: "none"
             });
+
+            
         </script>
         <script src="https://cdn.jsdelivr.net/remarkable/1.7.1/remarkable.min.js"></script> <!-- Remarkable - markdown -->
 
@@ -50,7 +52,7 @@
                     // Titlise location
                     titliseL = l.split("/").slice(-1)[0].split("-").map(
                         function(w) { if (l.length != 0) return w[0].toUpperCase() + w.substr(1); }
-                        ).join(" "), // this makes "poo/wee/page-three" into "Page Three"
+                        ).join(" "); // this makes "poo/wee/page-three" into "Page Three"
                     
                     // Set title
                     document.title = titliseL + (titliseL == "") ? "" : " | " + "jumbledFox's Website";
