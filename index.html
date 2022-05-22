@@ -51,15 +51,18 @@
                     
                     // Titlise location
                     titliseL = l.split("/").slice(-1)[0].split("-").map(
-                        function(w) { if (l.length != 0) return w[0].toUpperCase() + w.substr(1); }
-                        ).join(" "); // this makes "poo/wee/page-three" into "Page Three"
+                        function (w) { if (l.length != 0) return w[0].toUpperCase() + w.substr(1); }
+                    ).join(" "); // this makes "poo/wee/page-three" into "Page Three"
                     
                     // Set title
                     document.title = titliseL + (titliseL == "") ? "" : " | " + "jumbledFox's Website";
                     
 
                     // This sets the url to the location and adds it to the history stack if it's not already there
+                    console.log("window.history.state?.urlPath: " + window.history.state?.urlPath);
+                    console.log("l: " + l);
                     if (window.history.state?.urlPath != l) {
+
                         window.history.pushState({urlPath: l}, "", window.location.origin + (l[0] == "/") ? "" : "/" + l);
                     }
 
