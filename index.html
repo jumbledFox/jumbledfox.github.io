@@ -37,8 +37,9 @@
                         ).join(" "), // this makes "poo/wee/page-three" into "Page Three"
                     
                     // Set title
-                    document.title = titliseL + " | jumbledFox's Website";
+                    document.title = titliseL + (titliseL == "") ? "" : " | " + "jumbledFox's Website";
                     
+
                     // This sets the url to the location and adds it to the history stack
                     window.history.pushState(l, titliseL, l);
 
@@ -59,7 +60,7 @@
 
             }
 
-            function interceptClick(event) {
+            document.onclick = function(event) {
                 // If the event has a nodeName
                 if (event.target.nodeName != undefined) {
                     // If the nodeName is a link
@@ -80,7 +81,19 @@
                         }
                     }
                 }
-            } document.onclick = interceptClick;
+            }
+
+            window.onpopstate = function(event) {
+                // If the event has a state
+                if (event.state != undefined) {
+                    // If the state is a string
+                    if (typeof event.state == "string") {
+                        // Load the page
+                        loadPage(event.state);
+                    }
+                }
+            }
+
 
 
         </script>
