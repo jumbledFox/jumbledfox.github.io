@@ -1,0 +1,64 @@
+functions - INDEX.HTML
+window.onload = function() { } This happens when the window is loaded
+load the current url
+  // This decodes the url
+  loadPage((window.location.search + window.location.hash)u.slice(2)
+    .replace("&", "?").replace(/~and~/g, "&"););
+
+
+loadPage(l) {
+l is the location of the markdown file, e.g. "index" or "404",
+var location = window.location.origin + "/pages/" +  ((l == "") ? "index" : l) + ".md" 
+  So if l is "post3", location is "https://jumbledFox.github.io/pages/post3.md
+  This also goes to index if l is ""
+
+  // checks if location exists
+
+  fetch("location").then(function(response) {
+    if (!response.ok) {
+      l = "404";
+      location = window.location.origin + "/errorpages/404.md";
+    }
+  }).catch(function(err) {
+    // hmm :/
+  });
+
+
+  // This will set the url to something and add it to the history
+  window.history.pushState(l, 
+    l.split("/").slice(-1)[0].split("-").map(function(w) { return w[0].toUpperCase() +     w.substr(1)}).join(" "), // this makes "poo/wee/page-three" into "Page Three"
+    l)
+  
+
+  // Then, delete everything in #main and use remarkable to render `file` inside of #main
+  const md = new Remarkable({
+    html:true
+  });
+  
+  document.getElementById("main").innerHTML = md.render(location);
+}
+
+
+
+
+
+interceptClick(event) {
+  if event.path[0].nodename.toLowerCase() == "a" // if its an a
+    pagepath = event.path[0].href
+    if pagepath.startsWith(event.path[0].origin) // if it starts with origin
+      if pagepath.length == 0 || pagepath[0] == "/" // if length = 0 or starts with /
+        loadPage(pagePath.slice(1)); // load the page
+        return false; // stop the link being clicked
+} document.onclick = interceptClick;
+
+
+functions - 404.HTML
+  var loc = window.location;
+
+  var l = loc.origin // Main address
+  + "/?" + loc.pathname // Pathname
+  + loc.search.slice(1)).replace(/&/g, "~and~") // Search
+  + loc.hash; // Hash
+
+  console.log("Redirecting to `" + l + "`!");
+  window.location = l;

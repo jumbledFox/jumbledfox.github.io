@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="icon" type="image/x-icon" href="images/favicon.png">
+    
+        <link rel="stylesheet" href="css/style.css">
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/remarkable/1.7.1/remarkable.min.js"></script>
+
+        <script src="scripts/main-stuff.js"></script>
+
+        <script>
+
+            window.addEventListener('load', 
+                function() { 
+                let loc = window.location;
+                    if(loc.search[1] == "/") { // If we need to redirect
+                        let decoded = loc.search.slice(1).split("&").map(function(s) {
+                            return s.replace(/~and~/g, "&");
+                        }).join((loc.search.includes("&")) ? "?" : "") + loc.hash;
+
+                        console.log(decoded);
+
+                        // Load page
+                        loadPage(loc.pathname.slice(1));
+                    } else {
+                        // Load index
+                        loadPage("");
+                    }
+
+                }, false);
+
+            const md = new Remarkable({
+                html:true
+            });
+
+            // Loading pages
+            function loadPage(filelocation) {
+                if(filelocation == "") {
+                    filelocation = "index";
+                }
+                fileLoc = "pages/" + filelocation + ".md";
+
+                $.ajax({
+                    type: 'HEAD',
+                    url: 'https://jumbledFox.github.io/pages/' + filelocation + '.md',
+
+                    success: function() { 
+                        console.log("SUCCESS!");
+                    },
+                    error: function() {
+                        console.log("ERROR!");
+                    }
+                });
+
+                $.get(fileLoc, function(data) {
+                    $("#main").html(md.render(data));
+                });
+
+                // Push the new URL to the history stack
+                
+                let dc = (filelocation != "index") ? fileLoc.slice(6, -3) : ""; // Slice to remove "pages/" and ".md"
+                // FUTURE ME - Something is wrong with this, it keeps redirecting you home when 404 - TODO, MAKE THIS WORK!!!!
+                console.log("filelocation:" + filelocation + " fileloc: " + fileLoc.slice(8, 3) + " slice:" + fileLoc.slice(8, 3) + " dc:" + dc);
+
+                window.history.replaceState(null, null, "https://jumbledFox.github.io/" + dc); // Push the new URL to the history stack
+            }
+            
+            function manageLinks(event) {
+                if (event.path[0].nodeName && event.path[0].nodeName.toLowerCase() == "a") {
+                    
+                    var pagePath = event.path[0].href.replace("https://" + event.path[0].host, "");
+
+                    if(pagePath[0] == "/" || pagePath.length == 0) {
+                        loadPage(pagePath.slice(1));
+                        return false;
+                    }
+                }
+
+            } document.onclick = manageLinks;
+
+        </script>
+    </head>
+    <body>
+        <div id="main">
+            
+        </div>
+    </body>
+</html>

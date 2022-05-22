@@ -1,99 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
-        <link rel="icon" type="image/x-icon" href="images/favicon.png">
-    
-        <link rel="stylesheet" href="css/style.css">
-    
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/remarkable/1.7.1/remarkable.min.js"></script>
-
-        <script src="scripts/main-stuff.js"></script>
-
+        <script src="https://cdn.jsdelivr.net/remarkable/1.7.1/remarkable.min.js"></script> <!-- Remarkable - markdown -->
         <script>
-
-            window.addEventListener('load', 
-                function() { 
-                let loc = window.location;
-                    if(loc.search[1] == "/") { // If we need to redirect
-                        let decoded = loc.search.slice(1).split("&").map(function(s) {
-                            return s.replace(/~and~/g, "&");
-                        }).join((loc.search.includes("&")) ? "?" : "") + loc.hash;
-
-                        console.log(decoded);
-
-                        // Load page
-                        loadPage(loc.pathname.slice(1));
-                    } else {
-                        // Load index
-                        loadPage("");
-                    }
-
-                }, false);
-
-            const md = new Remarkable({
-                html:true
+            window.onload = (function() {
+                loadPage((window.location.searxh + window.location.hash).slice(2)
+                .replace("&", "?").replace(/~and~/g, "&"));
             });
 
-            // Loading pages
-            function loadPage(filelocation) {
-                if(filelocation == "") {
-                    filelocation = "index";
-                }
-                fileLoc = "pages/" + filelocation + ".md";
+            function loadPage(l) {
+                // l is the location of the markdown file, e.g. "index" or "about"
+                var location = window.location.origin + "/pages/" + ((l == "") ? "index" : l) + ".md";
+                // E.g. if l is "posts/post3", location is "https://jumbledFox.github.io/pages/posts/post3.md"
+                // However if l is "", location is "https://jumbledFox.github.io/pages/index.md"
 
-                $.ajax({
-                    type: 'HEAD',
-                    url: 'https://jumbledFox.github.io/pages/' + filelocation + '.md',
-
-                    success: function() { 
-                        console.log("SUCCESS!");
-                    },
-                    error: function() {
-                        console.log("ERROR!");
-                        fileLoc = "pages/404.md";
-                    }
+                // This checks if location exists, if it doesnt or some other error happens it brings up an error page
+                fetch(location).then(function(response) {
+                    if(!response.ok) {
+                        if (response.status == 404) {
+                            // If the file doesn't exist, redirect to 404
+                            location = window.location.origin + "/errorpages/404.md";
+                        } else {
+                            // Some other error...
+                            location = window.location.origin + "/errorpages/othererror.md";
+                        }
+                    } else { /* File exists...*/ }
                 });
 
-                $.get(fileLoc, function(data) {
-                    $("#main").html(md.render(data));
-                });
+                // This sets the url to the location and adds it to the history stack
+                window.history.pushState(l, 
+                    l.split("/").slice(-1)[0].split("-").map(
+                        function(w) { return w[0].toUpperCase() +     w.substr(1)}
+                        ).join(" "), // this makes "poo/wee/page-three" into "Page Three"
+                    l);
 
-                // Push the new URL to the history stack
+                // Then, delete everything in #main and load the markdown file
+                const md = new Remarkable({
+                    html:true
+                });
                 
-                let dc = (filelocation != "index") ? fileLoc.slice(6, -3) : ""; // Slice to remove "pages/" and ".md"
-                // FUTURE ME - Something is wrong with this, it keeps redirecting you home when 404 - TODO, MAKE THIS WORK!!!!
-                console.log("filelocation:" + filelocation + " fileloc: " + fileLoc.slice(8, 3) + " slice:" + fileLoc.slice(8, 3) + " dc:" + dc);
+                // TODO: This might not work, I'm not sure if it's the best way to do this
+                document.getElementById("main").innerHTML = md.render(
+                    fetch(location).then(response => response.text())
+                    .then(result => document.getElementById('content').innerHTML)
+                );
+                
+                
 
-                window.history.replaceState(null, null, "https://jumbledFox.github.io/" + dc); // Push the new URL to the history stack
+                /*
+                    // If the file exists, load it
+                    fetch(location).then(function(response) {
+                        response.text().then(function(text) {
+                            document.getElementById("main").innerHTML = markdown.toHTML(text);
+                        });
+                    });
+                */
             }
-            
-            function manageLinks(event) {
-                if (event.path[0].nodeName && event.path[0].nodeName.toLowerCase() == "a") {
-                    
-                    var pagePath = event.path[0].href.replace("https://" + event.path[0].host, "");
 
-                    if(pagePath[0] == "/" || pagePath.length == 0) {
-                        loadPage(pagePath.slice(1));
-                        return false;
+            function interceptClick(event) {
+                if (event.path[0].nodename.toLowerCase() == "a") { // if you clicked on an <a>
+                    pagepath = event.path[0].href
+                    if (pagepath.startsWith(window.location.origin)) {
+                        // Link is internal - remove the origin
+                        pagepath.slice(window.location.origin.length)
+                        // Now if the link starts with "/" or is empty, load the page
+                        if (pagepath.startsWith("/") || pagepath == "") {
+                            loadPage(pagepath);
+                            return false;
+                        }
+                    } else {
+                        // Link is external, L + Ratio + Didn't ask
                     }
                 }
+            } document.onclick = interceptClick;
 
-            } document.onclick = manageLinks;
-
+            
         </script>
     </head>
     <body>
-        <div id="fly-holder"></div>
-        <div id="gradient"></div>
-
-        <div id="centerer">
-            <div></div>
-            <div id="main">
-
-            </div>
-            <div></div>
-        </div>
+        <div id="main"></div>
     </body>
 </html>
