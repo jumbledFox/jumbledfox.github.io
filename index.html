@@ -32,13 +32,11 @@
                     console.log("location after:" + location);
                     
                     // This sets the url to the location and adds it to the history stack
-                    /*
                     window.history.pushState(l, 
                         l.split("/").slice(-1)[0].split("-").map(
                             function(w) { return w[0].toUpperCase() +     w.substr(1)}
                             ).join(" "), // this makes "poo/wee/page-three" into "Page Three"
                         l);
-                    */
 
                     // Then, delete everything in #main and load the markdown file
                     const md = new Remarkable({
@@ -58,23 +56,23 @@
             }
 
             function interceptClick(event) {
-                if (event.target.nodeName != undefined) { // if you clicked on an <a>
+                // If the event has a nodeName
+                if (event.target.nodeName != undefined) {
+                    // If the nodeName is a link
                     if (event.target.nodeName.toLowerCase() == "a") {
-
+                        // Set pagepath to the href of the <a>
                         pagepath = event.target.href;
-
+                        // If the pagepath is local
                         if (pagepath.startsWith(window.location.origin)) {
-                            // Link is internal - remove the origin
+                            // Remove the origin 
                             pagepath = pagepath.slice(window.location.origin.length);
                             // Now if the link starts with "/" or is empty, load the page
                             if (pagepath.startsWith("/") || pagepath == "") {
-                                console.log("It starts with / or is empty, loading page: " + pagepath);
-
+                                // Load the page
                                 loadPage(pagepath);
+                                // Prevent the default action
                                 return false;
                             }
-                        } else {
-                            // Link is external, L + Ratio + Didn't ask
                         }
                     }
                 }
