@@ -9,7 +9,7 @@
         <script>
             var loc = window.location;
 
-            if (!loc.endsWith(".md")) {
+            if (!loc.href.endsWith(".md")) {
                 var l = loc.protocol + '//' + loc.hostname + (loc.port ? ':' + loc.port : '') // Main address
                 + "/?" + loc.pathname // Pathname
                 + ((loc.search) ? "&" + (loc.search.slice(1)).replace(/&/g, "~and~") : "") // Search
