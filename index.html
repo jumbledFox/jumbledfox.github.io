@@ -18,6 +18,8 @@
 
                 // This checks if location exists, if it doesnt or some other error happens it brings up an error page
                 fetch(location).then(function(response) {
+                    console.log("Response: " + response);
+                    console.log("Response Status: " + response.status);
                     if(!response.ok) {
                         if (response.status == 404) {
                             // If the file doesn't exist, redirect to 404
@@ -28,7 +30,7 @@
                         }
                     } else { /* File exists...*/ }
                 });
-                console.log("location:" + location);
+                console.log("location after:" + location);
 
                 // This sets the url to the location and adds it to the history stack
                 /*
