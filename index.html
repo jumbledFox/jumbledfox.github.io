@@ -9,8 +9,10 @@
             });
 
             function loadPage(l) {
+                console.log("l:" + l);
                 // l is the location of the markdown file, e.g. "index" or "about"
                 var location = window.location.origin + "/pages/" + ((l == "") ? "index" : l) + ".md";
+                console.log("location:" + location);
                 // E.g. if l is "posts/post3", location is "https://jumbledFox.github.io/pages/posts/post3.md"
                 // However if l is "", location is "https://jumbledFox.github.io/pages/index.md"
 
@@ -26,6 +28,7 @@
                         }
                     } else { /* File exists...*/ }
                 });
+                console.log("location:" + location);
 
                 // This sets the url to the location and adds it to the history stack
                 /*
