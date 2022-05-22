@@ -23,9 +23,6 @@
 
                         console.log(decoded);
 
-                        // Push the new URL to the history stack
-                        window.history.pushState(decoded.slice(1), ``, decoded);
-
                         // Load page
                         loadPage(loc.pathname.slice(1));
                     } else {
@@ -50,17 +47,17 @@
                     type: 'HEAD',
                     url: 'https://jumbledFox.github.io/pages/' + filelocation + '.md',
 
-                success: function() {
-                    $.get(fileLoc, function(data) {
-                        $("#main").html(md.render(data));
-                    });
-                },
                 error: function() {
-                    $.get("pages/404.md", function(data) {
-                        $("#main").html(md.render(data));
-                    });
+                    fileLoc = "pages/404.md";
                 }
                 });
+
+                $.get(fileLoc, function(data) {
+                    $("#main").html(md.render(data));
+                });
+
+                // Push the new URL to the history stack
+                window.history.pushState(fileLoc, ``, fileLoc);
             }
             
             function manageLinks(event) {
