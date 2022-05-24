@@ -66,15 +66,15 @@
 
                     //window.history.pushState(l, "e", (l[0] == "/") ? "" : "/" + l);
                     console.log("before");
-                    console.log(window.history.state?.urlPath);
-                    if (window.history.state?.urlPath != l) {
+                    console.log(window.history.state);
+                    if (window.history.state != l) {
                         console.log("YES");
-                        window.history.pushState({urlPath: l}, "", window.location.origin + (l[0] == "/") ? "" : "/" + l);
+                        window.history.pushState(l, "", window.location.origin + (l[0] == "/") ? "" : "/" + l);
                     } else {
                         console.log("NO");
                     }
                     console.log("after");
-                    console.log(window.history.state?.urlPath);
+                    console.log(window.history.state);
 
                     // Then, delete everything in #main and load the markdown file
                     const md = new Remarkable({
