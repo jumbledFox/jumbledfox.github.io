@@ -5,4 +5,8 @@ Sorry, but this is driving me insane, I think I might remake it completely, I'm 
 
 One day I'll get this done, it's not too hard, it's just that I've spent all weekend doing it and I need a break - I'll probably get this up and running in the holidays or something.
 
+## Edit:
+The gears are turning again!..
+Expect this place to actually serve a purpose soon
+
 ### jumbledFox, 22/05/22
