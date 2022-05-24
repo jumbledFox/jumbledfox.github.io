@@ -63,13 +63,14 @@
                     
 
                     // This sets the url to the location and adds it to the history stack if it's not already there
-
+                    
                     //window.history.pushState(l, "e", (l[0] == "/") ? "" : "/" + l);
                     console.log("before");
                     console.log(window.history.state);
-                    if (window.history.state != l) {
+                    if (window.history.state?.urlPath != l) {
                         console.log("YES");
-                        window.history.pushState(l, "", window.location.origin + (l[0] == "/") ? "" : "/" + l);
+                        // window.history.pushState('page2', 'Title', '/page2.php'); https://stackoverflow.com/a/3503206
+                        window.history.pushState(l, title, (l[0] == "/") ? "" : "/" + l);
                     } else {
                         console.log("NO");
                     }
@@ -118,10 +119,14 @@
 
             window.onpopstate = function(event) {
                 // If the event has a state
-                if (event.state != undefined) {
+                if (event.state?.urlPath != undefined) {
                     // If the state has a urlPath
-                    loadPage((event.state == null) ? "" : event.state);
+                    loadPage((event.state?.urlPath == null) ? "" : event.state?.urlPath);
                 }
+            }
+            
+            function setURL(l, title = "") {
+                
             }
 
         </script>
