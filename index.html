@@ -68,8 +68,10 @@
                     console.log("before");
                     console.log(window.history.state?.urlPath);
                     if (window.history.state?.urlPath != l) {
-
+                        console.log("YES");
                         window.history.pushState({urlPath: l}, "", window.location.origin + (l[0] == "/") ? "" : "/" + l);
+                    } else {
+                        console.log("NO");
                     }
                     console.log("after");
                     console.log(window.history.state?.urlPath);
