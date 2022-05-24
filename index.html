@@ -67,12 +67,12 @@
                     console.log("l: " + l);
 
 
-                    window.history.pushState(l, "e", (l[0] == "/") ? "" : "/" + l);
-                    /*
+                    //window.history.pushState(l, "e", (l[0] == "/") ? "" : "/" + l);
+                    
                     if (window.history.state?.urlPath != l) {
 
                         window.history.pushState({urlPath: l}, "", window.location.origin + (l[0] == "/") ? "" : "/" + l);
-                    }*/
+                    }
 
                     // Then, delete everything in #main and load the markdown file
                     const md = new Remarkable({
