@@ -54,12 +54,10 @@
                     } else { }
                     
                     // Titlise location
-                    titliseL = /*l.split("/").slice(-1)[0].split("-").map(
-                        function (w) { if (l.length != 0 && w != undefined) return w[0].toUpperCase() + w.substr(1); }
-                    ).join(" "); // this makes "poo/wee/page-three" into "Page Three"*/ l;
-                    
+                    title = titlise(l);
+
                     // Set title
-                    document.title = titliseL + (titliseL == "") ? "" : " | " + "jumbledFox's Website";
+                    document.title = title + (title == "") ? "" : " | " + "jumbledFox's Website";
                     
 
                     // This sets the url to the location and adds it to the history stack if it's not already there
@@ -125,8 +123,10 @@
                 }
             }
             
-            function setURL(l, title = "") {
-                
+            function titlise(l) {
+                return l.split("/").slice(-1)[0].split("-").map(
+                    function (w) { if (l.length != 0 && w != undefined) return w[0].toUpperCase() + w.substr(1); }
+                    ).join(" "); // this makes "poo/wee/page-three" into "Page Three"
             }
 
         </script>
