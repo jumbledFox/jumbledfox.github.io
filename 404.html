@@ -7,17 +7,16 @@
             }
         </style>
         <script>
-            var loc = window.location;
+            var pathSegmentsToKeep = 0;
 
-            if (!loc.href.endsWith(".md")) {
-                var l = loc.protocol + '//' + loc.hostname + (loc.port ? ':' + loc.port : '') // Main address
-                + "/?" + loc.pathname // Pathname
-                + ((loc.search) ? "&" + (loc.search.slice(1)).replace(/&/g, "~and~") : "") // Search
-                + loc.hash; // Hash
-
-                console.log("Redirecting to `" + l + "`!");
-                document.location.replace(l);
-            }
+            var l = window.location;
+            l.replace(
+            l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+            l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+            l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+            (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+            l.hash
+            );
         </script>
     </head>
     <body>

@@ -1,139 +1,18 @@
-<!DOCTYPE html>
-<!--
-    God damn, this is tiring and a bit of a mess.
-    I think I may need to remake this AGAIN.
--->
 <html>
     <head>
-        <link rel="stylesheet" href="css/style.css">
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script> <!-- GSAP - rainbow -->
         <script>
-            gsap.to("html", {
-                keyframes: {
-                    "0%"  : { "--color-rainbow": "69 , 163, 229" },
-                    "12%" : { "--color-rainbow": "51 , 204, 204" },
-                    "25%" : { "--color-rainbow": "102, 191, 57 " },
-                    "38%" : { "--color-rainbow": "255, 166, 2  " },
-                    "50%" : { "--color-rainbow": "235, 103, 15 " },
-                    "62%" : { "--color-rainbow": "255, 51 , 85 " },
-                    "76%" : { "--color-rainbow": "134, 76 , 191" },
-                    "100%": { "--color-rainbow": "69 , 163, 229" }
-                },
-                duration: 7,
-                repeat: -1,
-                ease: "none"
-            });
-
-            
-        </script>
-        <script src="https://cdn.jsdelivr.net/remarkable/1.7.1/remarkable.min.js"></script> <!-- Remarkable - markdown -->
-
-        <script>
-            window.onload = (function() {
-                loadPage((window.location.search + window.location.hash).slice(2)
-                .replace("&", "?").replace(/~and~/g, "&"));
-            });
-
-            function loadPage(l) {
-                // l is the location of the markdown file, e.g. "index" or "about"
-                var loc = window.location.origin + "/pages/" + ((l == "") ? "index" : l) + ".md";
-                // E.g. if l is "posts/post3", location is "https://jumbledFox.github.io/pages/posts/post3.md"
-                // However if l is "", location is "https://jumbledFox.github.io/pages/index.md"
-
-                // This checks if location exists, if it doesnt or some other error happens it brings up an error page
-                fetch(loc).then(function(response) {
-                    if(!response.ok) {
-                        if (response.status == 404) {
-                            // If the file doesn't exist, redirect to 404
-                            loc = window.location.origin + "/errorpages/404.md";
-                        } else {
-                            // Some other error...
-                            loc = window.location.origin + "/errorpages/othererror.md";
-                        }
-                    } else { }
-                    
-                    // Titlise location
-                    title = titlise(l);
-
-                    // Set title
-                    document.title = title + (title == "") ? "" : " | " + "jumbledFox's Website";
-                    
-
-                    // This sets the url to the location and adds it to the history stack if it's not already there
-                    
-                    //window.history.pushState(l, "e", (l[0] == "/") ? "" : "/" + l);
-                    console.log("before");
-                    console.log(window.history.state);
-                    if (window.history.state?.urlPath != l) {
-                        console.log("YES");
-                        // window.history.pushState('page2', 'Title', '/page2.php'); https://stackoverflow.com/a/3503206
-                        window.history.pushState(l, title, (l[0] == "/") ? "" : "/" + l);
-                    } else {
-                        console.log("NO");
-                    }
-                    console.log("after");
-                    console.log(window.history.state);
-
-                    // Then, delete everything in #main and load the markdown file
-                    const md = new Remarkable({
-                        html:true
-                    });
-                    
-                    // TODO: This might not work, I'm not sure if it's the best way to do this
-                    
-                    fetch(loc).then(function(response) {
-                        response.text().then(function(text) {
-                            document.getElementById("main").innerHTML = md.render(text);
-                        });
-                    });
-
-                });
-            }
-
-            document.onclick = function(event) {
-                // If the event has a nodeName
-                if (event.target.nodeName != undefined) {
-                    // If the nodeName is a link
-                    if (event.target.nodeName.toLowerCase() == "a") {
-                        // Set pagepath to the href of the <a>
-                        pagepath = event.target.href;
-                        // If the pagepath is local
-                        if (pagepath.startsWith(window.location.origin)) {
-                            // Remove the origin 
-                            pagepath = pagepath.slice(window.location.origin.length);
-                            // Now if the link starts with "/" or is empty, load the page
-                            if (pagepath.startsWith("/") || pagepath == "") {
-                                // Load the page
-                                loadPage(pagepath);
-                                console.log(pagepath);
-                                // Prevent the default action
-                                return false;
-                            }
-                        }
-                    }
+            // Change the url of the page and put that in the history
+            // shamelessly stolen from https://github.com/rafgraph/spa-github-pages/blob/v6.0.0/index.html
+            (function(l) {
+                if (l.search[1] === '/' ) {
+                var decoded = l.search.slice(1).split('&').map(function(s) { 
+                    return s.replace(/~and~/g, '&')
+                }).join('?');
+                window.history.replaceState(null, null,
+                    l.pathname.slice(0, -1) + decoded + l.hash
+                );
                 }
-            }
-
-            window.onpopstate = function(event) {
-                // If the event has a state
-                if (event.state?.urlPath != undefined) {
-                    // If the state has a urlPath
-                    loadPage((event.state?.urlPath == null) ? "" : event.state?.urlPath);
-                }
-            }
-            
-            function titlise(l) {
-                return l.split("/").slice(-1)[0].split("-").map(
-                    function (w) { if (l.length != 0 && w != undefined) return w[0].toUpperCase() + w.substr(1); }
-                    ).join(" "); // this makes "poo/wee/page-three" into "Page Three"
-            }
-
+            }(window.location))
         </script>
     </head>
-    <body>
-        <div id="gradient"></div>
-
-        <div id="main"></div>
-    </body>
 </html>
