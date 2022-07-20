@@ -46,11 +46,10 @@
                 switch(response.status) {
                     case 200:
                         // Found the file, so render it
-                        pagetorender += markdownfileLocation;
                         break;
                     case 404:
                         // Didn't find the file, so render the 404 page
-                        pagetorender += "/errorpages/404.md";
+                        pagetorender = "/errorpages/404.md";
                         break;
                     default:
                         // Something else happened, so render the error page
@@ -62,12 +61,19 @@
                     html:true
                 });
 
-                console.log(pagetorender);
-                fetch(pagetorender).then(function(response) {
+                // Render the markdown file
+                if(pagetorender != window.location.origin) {
+                    fetch(pagetorender).then(function(response) {
+                        response.text().then(function(text) {
+                            document.getElementById("main").innerHTML = md.render(text);
+                        });
+                    });
+                } else {
                     response.text().then(function(text) {
                         document.getElementById("main").innerHTML = md.render(text);
                     });
-                });
+                }
+                
 
 
             });
