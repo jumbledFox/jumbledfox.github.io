@@ -1,5 +1,5 @@
 :root {
-    font-family: "eSimvoni", Arial;
+    font-family: Arial, sans-serif;
     color: white;
 
     --color-rainbow: 255, 0, 255;
@@ -18,6 +18,7 @@
 }
 
 a {color: rgb(var(--color-rainbow));}
+a:not(:hover)            {transition-duration: 100ms; filter: brightness(100%); text-shadow: 0 0 0px rgb(var(--color-rainbow));}
 a:hover, a:visited:hover {transition-duration: 100ms; filter: brightness(140%); text-shadow: 0 0 3px rgb(var(--color-rainbow));}
 a:visited {filter: brightness(70%);}
 
@@ -28,7 +29,7 @@ body{
     font:1.2em/1.62 sans-serif
 }
 
-h1,h2,h3 {
+h1,h2,h3,h4,h5,h6 {
     color: rgb(var(--color-rainbow));
     line-height:1.2
 }

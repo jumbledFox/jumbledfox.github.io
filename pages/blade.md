@@ -1,2 +1,0 @@
-# BLADE
-This is lawrence!!!!!!!!!!!!!
