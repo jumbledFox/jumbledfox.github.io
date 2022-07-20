@@ -35,7 +35,7 @@
                         break;
                 }
 
-
+                console.log(pagetorender);
                 fetch(pagetorender).then(function(response) {
                     response.text().then(function(text) {
                         document.body.innerHTML = text;
