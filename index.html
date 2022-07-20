@@ -36,7 +36,7 @@
                 }
             }(window.location));
 
-            let markdownfileLocation = "/markdownfiles" + ((window.location.pathname == "/") ? "index": window.location.pathname.replace(/\/$/, "")) + ".md";
+            let markdownfileLocation = "/markdownfiles" + ((window.location.pathname == "/") ? "/index" : window.location.pathname.replace(/\/$/, "")) + ".md";
             // Look for the markdown file
             fetch(window.location.origin  + markdownfileLocation).then(function(response) {
                 
