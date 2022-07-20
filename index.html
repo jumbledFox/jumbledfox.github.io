@@ -38,7 +38,7 @@
 
                 fetch(pagetorender).then(function(response) {
                     response.text().then(function(text) {
-                        document.body = text;
+                        document.body.innerHTML = text;
                     });
                 });
 
