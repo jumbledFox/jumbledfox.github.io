@@ -38,10 +38,6 @@
                             break;
                     }
 
-                    const md = new Remarkable({
-                        html:true
-                    });
-
                     // Render the markdown file
                     if(pagetorender != window.location.origin) {
                         fetch(pagetorender).then(function(response) { renderpage(response);});
@@ -51,6 +47,10 @@
                 });
 
                 function renderpage(response) {
+                    const md = new Remarkable({
+                        html:true
+                    });
+                    
                     response.text().then(function(text) {
                         textsplit = text.split("<script id=\"markdownscript\"");
                         document.getElementById("main").innerHTML = md.render(textsplit[0]);
