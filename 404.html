@@ -13,7 +13,7 @@
             var l = window.location;
 
             // If the first bit of the path is 'markdownpages', don't redirect and just 404
-            if (window.location.pathname.split("/")[1] != "markdownfiles") {
+            if (window.location.pathname.split("/")[1] != "pages") {
                 l.replace(
                 l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
                 l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +

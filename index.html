@@ -17,11 +17,10 @@
                     }
                 }(window.location));
 
-                let markdownfileLocation = "/markdownfiles" + ((window.location.pathname == "/") ? "/index" : window.location.pathname.replace(/\/$/, "")) + ".md";
+                let pagetorender = window.location.pathname.replace(/\/$/, "");
+                let path = window.location.origin + "/pages" + pagetorender + "/index.md";
                 // Look for the markdown file
-                fetch(window.location.origin  + markdownfileLocation).then(function(response) {
-                    
-                    let pagetorender = window.location.origin;
+                fetch(path).then(function(response) {
 
                     // Possible responses
                     switch(response.status) {
@@ -30,16 +29,18 @@
                             break;
                         case 404:
                             // Didn't find the file, so render the 404 page
-                            pagetorender = "/errorpages/404.md";
+                            pagetorender = "/404";
                             break;
                         default:
                             // Something else happened, so render the error page
-                            pagetorender += "/errorpages/error.md";
+                            pagetorender = "/error";
                             break;
                     }
 
+                    pagetorender = window.location.origin + "/pages" + pagetorender + "/index.md";
+
                     // Render the markdown file
-                    if(pagetorender != window.location.origin) {
+                    if(pagetorender != path) {
                         fetch(pagetorender).then(function(response) { renderpage(response);});
                     } else {
                         renderpage(response);
@@ -50,7 +51,7 @@
                     const md = new Remarkable({
                         html:true
                     });
-                    
+
                     response.text().then(function(text) {
                         textsplit = text.split("<script id=\"markdownscript\"");
                         document.getElementById("main").innerHTML = md.render(textsplit[0]);

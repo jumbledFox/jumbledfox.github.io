@@ -1,7 +1,7 @@
 # Test
 :)
 
-<a href="/index">Go Home</a>
+[Go Home](/index)
 
 <script id="markdownscript">
     console.log("test");

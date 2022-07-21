@@ -1,3 +1,4 @@
+// This loads all of the stuff like the style sheet, rainbow text, favicon, gradient, etc.
 document.writeln("<link rel='stylesheet' href='/css/style.css'>");
 document.writeln("<link rel='icon' type='image/x-icon' href='/images/favicon.png' id='favicon'>");
 
