@@ -47,14 +47,15 @@
                         fetch(pagetorender).then(function(response) {
                             response.text().then(function(text) {
                                 document.getElementById("main").innerHTML = md.render(text);
+                                eval(document.getElementById("markdownscript").innerHTML);
                             });
                         });
                     } else {
                         response.text().then(function(text) {
                             document.getElementById("main").innerHTML = md.render(text);
+                            eval(document.getElementById("markdownscript").innerHTML);
                         });
                     }
-                    eval(document.getElementById("markdownscript").innerHTML);
                 });
             }
         </script>
