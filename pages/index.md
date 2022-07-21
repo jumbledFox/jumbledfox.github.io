@@ -13,5 +13,3 @@ Here are some things I've made...
 [Trash and Lasers](/trash-and-lasers) - A game about destroying trash in the ocean with lasers! Made for the Polymars [SEAJAM](https://itch.io/jam/seajam) (This doesnt work yet!!! I'll fix it soon, but for now it works [here](/pages/trash-and-lasers))
 
 ---
-
-<img src="/images/foxhead.png">
