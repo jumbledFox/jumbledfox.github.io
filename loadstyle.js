@@ -29,5 +29,3 @@ function setup() {
     gradient.id = "gradient";
     document.body.appendChild(gradient);
 }
-
-window.addEventListener("load", setup);
