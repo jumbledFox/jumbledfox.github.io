@@ -1,12 +1,17 @@
 # Favibird
 This is a game I made in around a day called 'FaviBird', it's called that because it's flappy bird, played in the favicon. Good pun, I know.
+
 This is meant to be played in the favicon, however if it doesn't work (or if you're a loser!!), enable 'Loser Mode' below, you loser!! Also it's a bit janky, thats not usually seen unless you're in 'Loser Mode' (you loser!!!), but - not to sound dispassionate - I don't really care 
+
 Also, this may only work in some browsers (like Mircosoft Edge unfortunately), so if the favicon's not updating, and if you don't want to swallow your pride by enabling 'Loser Mode', Try a different browser!		
-<hr>
-Credit to <a href="https://www.mashpoe.com">Mashpoe</a> for the inspiration and some of the code! Couldn't've done it without you :)
-<hr>
+
+---
+
+Credit to [Mashpoe](https://www.mashpoe.com) for the inspiration and some of the code! Couldn't've done it without you :)
+
+---
 			
-<b>Loser Mode:</b> <label><input type="checkbox" onchange="toggleLoser(this)"></label>
+**Loser Mode:** <label><input type="checkbox" onchange="toggleLoser(this)"></label>
 
 <canvas id="myCanvas" width="16" height="16", style="display: none;"></canvas>
 
