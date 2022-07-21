@@ -1,9 +1,6 @@
 document.writeln("<link rel='stylesheet' href='css/style.css'>");
 document.writeln("<link rel='icon' type='image/x-icon' href='images/favicon.png'>");
 
-document.writeln("<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js'></script> <!-- GSAP - rainbow -->");
-document.writeln("<script src='https://cdn.jsdelivr.net/remarkable/1.7.1/remarkable.min.js'></script> <!-- Remarkable - markdown -->");
-
 for (let i in ["https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js", "https://cdn.jsdelivr.net/remarkable/1.7.1/remarkable.min.js"]) {
     var x = document.createElement('script');
     x.src = i;
