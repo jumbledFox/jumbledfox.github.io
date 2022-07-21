@@ -3,59 +3,58 @@
         <script src="loadstyle.js"></script>
 
         <script>
-            // shamelessly stolen from https://github.com/rafgraph/spa-github-pages/blob/v6.0.0/index.html
-            (function(l) {
-                if (l.search[1] === '/' ) {
-                var decoded = l.search.slice(1).split('&').map(function(s) { 
-                    return s.replace(/~and~/g, '&')
-                }).join('?');
-                window.history.replaceState(null, null,
-                    l.pathname.slice(0, -1) + decoded + l.hash
-                );
-                }
-            }(window.location));
+            onload = function() {
+                // shamelessly stolen from https://github.com/rafgraph/spa-github-pages/blob/v6.0.0/index.html
+                (function(l) {
+                    if (l.search[1] === '/' ) {
+                    var decoded = l.search.slice(1).split('&').map(function(s) { 
+                        return s.replace(/~and~/g, '&')
+                    }).join('?');
+                    window.history.replaceState(null, null,
+                        l.pathname.slice(0, -1) + decoded + l.hash
+                    );
+                    }
+                }(window.location));
 
-            let markdownfileLocation = "/markdownfiles" + ((window.location.pathname == "/") ? "/index" : window.location.pathname.replace(/\/$/, "")) + ".md";
-            // Look for the markdown file
-            fetch(window.location.origin  + markdownfileLocation).then(function(response) {
-                
-                let pagetorender = window.location.origin;
+                let markdownfileLocation = "/markdownfiles" + ((window.location.pathname == "/") ? "/index" : window.location.pathname.replace(/\/$/, "")) + ".md";
+                // Look for the markdown file
+                fetch(window.location.origin  + markdownfileLocation).then(function(response) {
+                    
+                    let pagetorender = window.location.origin;
 
-                // Possible responses
-                switch(response.status) {
-                    case 200:
-                        // Found the file, so render it
-                        break;
-                    case 404:
-                        // Didn't find the file, so render the 404 page
-                        pagetorender = "/errorpages/404.md";
-                        break;
-                    default:
-                        // Something else happened, so render the error page
-                        pagetorender += "/errorpages/error.md";
-                        break;
-                }
+                    // Possible responses
+                    switch(response.status) {
+                        case 200:
+                            // Found the file, so render it
+                            break;
+                        case 404:
+                            // Didn't find the file, so render the 404 page
+                            pagetorender = "/errorpages/404.md";
+                            break;
+                        default:
+                            // Something else happened, so render the error page
+                            pagetorender += "/errorpages/error.md";
+                            break;
+                    }
 
-                const md = new Remarkable({
-                    html:true
-                });
+                    const md = new Remarkable({
+                        html:true
+                    });
 
-                // Render the markdown file
-                if(pagetorender != window.location.origin) {
-                    fetch(pagetorender).then(function(response) {
+                    // Render the markdown file
+                    if(pagetorender != window.location.origin) {
+                        fetch(pagetorender).then(function(response) {
+                            response.text().then(function(text) {
+                                document.getElementById("main").innerHTML = md.render(text);
+                            });
+                        });
+                    } else {
                         response.text().then(function(text) {
                             document.getElementById("main").innerHTML = md.render(text);
                         });
-                    });
-                } else {
-                    response.text().then(function(text) {
-                        document.getElementById("main").innerHTML = md.render(text);
-                    });
-                }
-                
-
-
-            });
+                    }
+                });
+            }
         </script>
     </head>
     <body>
