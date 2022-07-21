@@ -10,7 +10,7 @@ Credit to <a href="https://www.mashpoe.com">Mashpoe</a> for the inspiration and 
 
 <canvas id="myCanvas" width="16" height="16", style="display: none;"></canvas>
 
-<script>
+<script id="markdownscript">
 	// globals
 	var canvas = document.getElementById("myCanvas");
 	var ctx = canvas.getContext("2d");

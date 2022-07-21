@@ -3,6 +3,6 @@
 
 <a href="/index">Go Home</a>
 
-<script> function run() {
+<script id="markdownscript">
     console.log("test");
-} </script>
+</script>
