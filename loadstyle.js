@@ -8,7 +8,7 @@ for (let i = 0; i < 2; i++) {
     document.getElementsByTagName("head")[0].appendChild(x);
 }
 
-onload = function() {
+function setup() {
     gsap.to("html", {
         keyframes: {
             "0%"  : { "--color-rainbow": "69 , 163, 229" },
@@ -25,8 +25,9 @@ onload = function() {
         ease: "none"
     });
 
-
     var gradient = document.createElement('div');
     gradient.id = "gradient";
     document.body.appendChild(gradient);
 }
+
+window.addEventListener("load", setup);

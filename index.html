@@ -3,7 +3,7 @@
         <script src="/loadstyle.js"></script>
 
         <script>
-            document.getElementById("main").onload = function() {
+            function loadsite() {
                 // shamelessly stolen from https://github.com/rafgraph/spa-github-pages/blob/v6.0.0/index.html
                 (function(l) {
                     if (l.search[1] === '/' ) {
@@ -55,6 +55,8 @@
                     }
                 });
             }
+
+            window.addEventListener("load", loadstuff);
         </script>
     </head>
     <body>
