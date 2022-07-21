@@ -83,8 +83,7 @@ Credit to [Mashpoe](https://www.mashpoe.com) for the inspiration and some of the
             
             // delete the first element of the array
             images.shift();
-            console.log("not start");
-
+            console.log("loaded image " + images.length);
         } else {
             console.log("start");
             start();
