@@ -58,7 +58,7 @@ Credit to [Mashpoe](https://www.mashpoe.com) for the inspiration and some of the
         var newImg = new Image();
         newImg.crossOrigin = "Anonymous";
         console.log("https://jumbledfox.github.io/pages/favibird/" + imgSrc);
-        images.push({img:newImg, src:"https://jumbledfox.github.io/favibird/images/" + imgSrc});
+        images.push({img:newImg, src:"https://jumbledfox.github.io/favibird/" + imgSrc});
 
         return newImg;
     }
