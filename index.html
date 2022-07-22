@@ -43,7 +43,7 @@
                             return l.toUpperCase();
                         });
                     }
-                    pathlist = window.location.pathname.split("/");
+                    pathlist = window.location.pathname.replace(/\/$/, "").split("/");
                     document.title = "jumbledFox" + ((window.location.pathname != "/") ? " - " : "") + pathlist[pathlist.length - 1];
 
                     pagetorender = window.location.origin + "/pages" + pagetorender + "/index.md";
