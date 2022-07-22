@@ -44,7 +44,7 @@
                         });
                     }
                     pathlist = window.location.pathname.replace(/\/$/, "").split("/");
-                    document.title = "jumbledFox" + ((window.location.pathname != "/") ? " - " : "") + pathlist[pathlist.length - 1];
+                    document.title = "jumbledFox" + ((window.location.pathname != "/") ? " - " : "") + titlise(pathlist[pathlist.length - 1]);
 
                     pagetorender = window.location.origin + "/pages" + pagetorender + "/index.md";
 
