@@ -37,7 +37,11 @@
                             break;
                     }
 
+                    pathlist = window.location.pathname.split("/");
+                    document.title = "jumbledFox" + ((window.location.pathname != "/") ? " - " : "") + pathlist[pathlist.length - 1];
+
                     pagetorender = window.location.origin + "/pages" + pagetorender + "/index.md";
+
 
                     // Render the markdown file
                     if(pagetorender != path) {
