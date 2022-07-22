@@ -54,7 +54,7 @@
 
                     for(var i = 0; i < pathlist.length; i++) {
                         var link = document.createElement("a");
-                        link.href = (i == 0) ? pathlist.slice(0, i + 1).join("/") : "/";
+                        link.href = (i != 0) ? pathlist.slice(0, i + 1).join("/") : "/";
                         link.innerHTML = titlise((i != 0) ? pathlist[i] : "Home");
                         linkbar.appendChild(link);
 
