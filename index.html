@@ -49,6 +49,10 @@
                     pagetorender = window.location.origin + "/pages" + pagetorender + "/index.md";
 
 
+                    // Set the link bar
+
+
+
                     // Render the markdown file
                     if(pagetorender != path) {
                         fetch(pagetorender).then(function(response) { renderpage(response);});
@@ -65,7 +69,9 @@
                     response.text().then(function(text) {
                         textsplit = text.split("<script id=\"markdownscript\"");
                         document.getElementById("main").innerHTML = md.render(textsplit[0]);
-                        document.getElementById("main").innerHTML += "<script id=\"markdownscript\"" + textsplit[1];
+                        try {
+                            document.getElementById("main").innerHTML += "<script id=\"markdownscript\"" + textsplit[1];
+                        } catch (Exception) {}
 
                         eval(document.getElementById("markdownscript").innerHTML);
                     });
