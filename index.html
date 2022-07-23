@@ -82,9 +82,9 @@
                         } catch (Exception) {}
 
                         try {
-                            window.clearInterval(intervalId);
+                            stopLoop();
                         } catch (Exception) {
-                            console.log("no interval to clear");
+                            console.log("no loop to stop");
                         }
                         setInnerHTML(document.getElementById("main"), inh);
                     });
