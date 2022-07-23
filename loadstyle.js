@@ -41,7 +41,7 @@ function setup() {
             // change it to not redirect anywhere and instead load the correct page
             console.log("updated " + anchors[i].href);
             const hr = anchors[i].href.split(window.location.origin)[1];
-            anchors[i].href = "javascript: loadpage(\"" + hr + "\");"
+            anchors[i].onclick = (event) => { event.preventDefault(); loadpage(hr); }
         }
     }
 
