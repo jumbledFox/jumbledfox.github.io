@@ -5,8 +5,6 @@
         <script>
 
             function loadpage(l) {
-                setup();
-
                 let pagetorender = l.replace(/\/$/, "");
                 let path = window.location.origin + "/pages" + pagetorender + "/index.md";
                 // Look for the markdown file
@@ -89,6 +87,7 @@
                             console.log("no loop to stop");
                         }
                         setInnerHTML(document.getElementById("main"), inh);
+                        setup();
                     });
                 }
             }
