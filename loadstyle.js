@@ -39,9 +39,10 @@ function setup() {
     for (var i = 0; i < anchors.length; i++) {
         if (anchors[i].href.startsWith(window.location.origin)) { // if the link is a local link
             if(!anchors[i].href.split(window.location.origin)[1].startsWith("/pages")) { // If it doesnt start with /pages
-            // change it to not redirect anywhere and instead load the correct page
-            const hr = anchors[i].href.split(window.location.origin)[1];
-            anchors[i].onclick = (event) => { event.preventDefault(); loadpage(hr); }
+                // change it to not redirect anywhere and instead load the correct page
+                const hr = anchors[i].href.split(window.location.origin)[1];
+                anchors[i].onclick = (event) => { event.preventDefault(); loadpage(hr); }
+            }
         }
     }
 
