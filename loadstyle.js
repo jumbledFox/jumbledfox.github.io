@@ -11,7 +11,6 @@ for (let i = 0; i < 2; i++) {
 
 var setuptimes = 0;
 function setup() {
-    
     if(setuptimes == 0) {
         gsap.to("html", {
             keyframes: {
@@ -34,6 +33,15 @@ function setup() {
         document.body.appendChild(gradient);
     }
     document.getElementById("favicon").href = "/images/favicon.png";
+
+    var anchors = document.getElementsByTagName("a");
+
+    for (var i = 0; i < anchors.length; i++) {
+        if (anchors[i].href[0] == "/") { // if the link is a local link
+            // change it to not redirect anywhere and instead load the correct page
+            anchors[i].onclick = loadpage(anchors[i].href);
+        }
+    }
 
     setuptimes++;
 }
