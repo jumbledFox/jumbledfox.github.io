@@ -34,4 +34,6 @@ function setup() {
         document.body.appendChild(gradient);
     }
     document.getElementById("favicon").href = "/images/favicon.png";
+
+    setuptimes++;
 }
