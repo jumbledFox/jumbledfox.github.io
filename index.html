@@ -5,6 +5,7 @@
         <script>
 
             function loadpage(l) {
+                l = l.toLowerCase();
                 let pagetorender = l.replace(/\/$/, "");
                 let path = window.location.origin + "/pages" + pagetorender + "/index.md";
                 // Look for the markdown file
