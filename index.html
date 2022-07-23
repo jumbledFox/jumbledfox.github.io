@@ -72,11 +72,13 @@
                     });
 
                     response.text().then(function(text) {
-                        textsplit = text.split("<script id=\"markdownscript\"");
+                        textsplit = text.split("<script");
                         let inh = "";
                         inh = md.render(textsplit[0]);
                         try {
-                            inh += "<script id=\"markdownscript\"" + textsplit[1];
+                            for (let i = 1; i < textsplit.length; i++) {
+                                inh += "<script" + textsplit[i];
+                            }
                         } catch (Exception) {}
 
                         setInnerHTML(document.getElementById("main"), inh);
