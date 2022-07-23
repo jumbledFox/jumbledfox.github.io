@@ -51,6 +51,7 @@
 
                     // Set the link bar
                     var linkbar = document.getElementById("linkbar");
+                    linkbar.innerHTML = "";
                     for(var i = 0; i < pathlist.length; i++) {
                         var link = document.createElement("a");
                         link.href = (i != 0) ? pathlist.slice(0, i + 1).join("/") : "/";
