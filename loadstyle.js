@@ -40,7 +40,7 @@ function setup() {
         if (anchors[i].href.startsWith(window.location.origin)) { // if the link is a local link
             // change it to not redirect anywhere and instead load the correct page
             console.log("updated " + anchors[i].href);
-            const hr = anchors[i].href.split(window.location.origin)[1].split("#")[0];
+            const hr = anchors[i].href.split(window.location.origin)[1];
             anchors[i].href = "javascript: loadpage(\"" + hr + "\");"
         }
     }
