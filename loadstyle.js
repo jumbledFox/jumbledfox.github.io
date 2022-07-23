@@ -41,6 +41,7 @@ function setup() {
             // change it to not redirect anywhere and instead load the correct page
             console.log("updated " + anchors[i].href);
             anchors[i].onclick = function() {console.log("clicked " + anchors[i].href); loadpage(anchors[i].href)};
+            anchors[i].href = "#";
         }
     }
 
