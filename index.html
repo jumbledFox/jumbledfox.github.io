@@ -59,6 +59,12 @@
                     } else {
                         renderpage(response);
                     }
+
+                    
+                    // Set url if not already
+                    if(window.location.pathname != l) {
+                        window.history.pushState(l, "", l);
+                    }
                 });
 
                 function renderpage(response) {
@@ -85,11 +91,6 @@
                         setup();
 
                         document.title = "jumbledFox" + ((l != "/") ? " - " : "") + titlise(pathlist[pathlist.length - 1]);
-
-                        // Set url if not already
-                        if(window.location.pathname != l) {
-                            window.history.pushState(l, "", l);
-                        }
                     });
                 }
             }
