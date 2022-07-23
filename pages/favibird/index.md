@@ -212,8 +212,6 @@ Credit to [Mashpoe](https://www.mashpoe.com) for the inspiration and some of the
         space = false;
     }
 
-
-
     function start() {
         console.log("started");
 
@@ -223,7 +221,7 @@ Credit to [Mashpoe](https://www.mashpoe.com) for the inspiration and some of the
         // Draw the 'Press Space' text, then start the game loop
         drawSpacePress();
         resetVars();
-        window.setInterval(function() {
+        var intervalId = window.setInterval(function() {
             gameLoop();
             setFavicon();
         }, 75);
