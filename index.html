@@ -26,11 +26,7 @@
                     }
 
                     // Change the title
-                    function titlise(t) { // An AI wrote this function... I hope it works properly
-                        return t.replace("-", " ").replace(/\b\w/g, function(l) {
-                            return l.toUpperCase();
-                        });
-                    }
+                    
                     pathlist = l.replace(/\/$/, "").split("/");
                     document.title = "jumbledFox" + ((l != "/") ? " - " : "") + titlise(pathlist[pathlist.length - 1]);
 
@@ -91,6 +87,12 @@
                         setup();
 
                         document.title = "jumbledFox" + ((l != "/") ? " - " : "") + titlise(pathlist[pathlist.length - 1]);
+                    });
+                }
+
+                function titlise(t) { // An AI wrote this function... I hope it works properly
+                    return t.replace("-", " ").replace(/\b\w/g, function(l) {
+                        return l.toUpperCase();
                     });
                 }
             }
