@@ -59,6 +59,11 @@
                     } else {
                         renderpage(response);
                     }
+
+                    // Set url if not already
+                    if(window.location.pathname != l) {
+                        window.history.pushState(l, "", l);
+                    }
                 });
 
                 function renderpage(response) {
@@ -93,6 +98,10 @@
 
                 loadpage(window.location.pathname);
                 
+            }
+
+            window.onpopstate = function(event) {
+                loadpage(window.location.pathname);
             }
         </script>
     </head>
