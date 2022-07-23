@@ -81,6 +81,11 @@
                             }
                         } catch (Exception) {}
 
+                        try {
+                            window.clearInterval(intervalId);
+                        } catch (Exception) {
+                            console.log("no interval to clear");
+                        }
                         setInnerHTML(document.getElementById("main"), inh);
                     });
                 }
