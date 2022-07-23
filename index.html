@@ -83,10 +83,11 @@
 
                         try {
                             stopLoop();
-                            setfavicon();
                         } catch (Exception) {
                             // No loop to stop
                         }
+                        setfavicon();
+
                         setInnerHTML(document.getElementById("main"), inh);
                         setup();
                     });
