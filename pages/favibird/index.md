@@ -15,7 +15,7 @@ Credit to [Mashpoe](https://www.mashpoe.com) for the inspiration and some of the
 
 <canvas id="myCanvas" width="16" height="16", style="display: none;"></canvas>
 
-<script id="markdownscript">
+<script>
 	// globals
 	var canvas = document.getElementById("myCanvas");
 	var ctx = canvas.getContext("2d");

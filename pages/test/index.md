@@ -3,6 +3,6 @@
 
 [Go Home](/)
 
-<script id="markdownscript">
+<script>
     console.log("test");
 </script>
