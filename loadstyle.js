@@ -32,6 +32,7 @@ function setup() {
         gradient.id = "gradient";
         document.body.appendChild(gradient);
     }
+    document.getElementById("favicon").href = "/images/favicon.png";
 
     var anchors = document.getElementsByTagName("a");
 
@@ -44,8 +45,4 @@ function setup() {
     }
 
     setuptimes++;
-}
-
-function setfavicon() {
-    document.getElementById("favicon").href = "/images/favicon.png";
 }
