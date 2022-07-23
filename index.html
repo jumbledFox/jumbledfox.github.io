@@ -73,12 +73,14 @@
 
                     response.text().then(function(text) {
                         textsplit = text.split("<script id=\"markdownscript\"");
-                        document.getElementById("main").innerHTML = md.render(textsplit[0]);
+                        let inh = "";
+                        inh = md.render(textsplit[0]);
                         try {
-                            document.getElementById("main").innerHTML += "<script id=\"markdownscript\"" + textsplit[1];
+                            inh += "<script id=\"markdownscript\"" + textsplit[1];
                         } catch (Exception) {}
 
-                        eval(document.getElementById("markdownscript").innerHTML);
+                        setInnerHTML(document.getElementById("main"), inh);
+                        //eval(document.getElementById("markdownscript").innerHTML);
                     });
                 }
             }
@@ -102,6 +104,18 @@
 
             window.onpopstate = function(event) {
                 loadpage(window.location.pathname);
+            }
+
+            // shamelessly stolen from https://stackoverflow.com/questions/2592092/executing-script-elements-inserted-with-innerhtml
+            var setInnerHTML = function(elm, html) {
+                elm.innerHTML = html;
+                Array.from(elm.querySelectorAll("script")).forEach( oldScript => {
+                    const newScript = document.createElement("script");
+                    Array.from(oldScript.attributes)
+                    .forEach( attr => newScript.setAttribute(attr.name, attr.value) );
+                    newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                    oldScript.parentNode.replaceChild(newScript, oldScript);
+                });
             }
         </script>
     </head>
