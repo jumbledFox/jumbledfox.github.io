@@ -3,21 +3,9 @@
         <script src="/loadstyle.js"></script>
 
         <script>
-            onload = function() {
-                setup();
-                // shamelessly stolen from https://github.com/rafgraph/spa-github-pages/blob/v6.0.0/index.html
-                (function(l) {
-                    if (l.search[1] === '/' ) {
-                    var decoded = l.search.slice(1).split('&').map(function(s) { 
-                        return s.replace(/~and~/g, '&')
-                    }).join('?');
-                    window.history.replaceState(null, null,
-                        l.pathname.slice(0, -1) + decoded + l.hash
-                    );
-                    }
-                }(window.location));
 
-                let pagetorender = window.location.pathname.replace(/\/$/, "");
+            function loadpage(l) {
+                let pagetorender = l.replace(/\/$/, "");
                 let path = window.location.origin + "/pages" + pagetorender + "/index.md";
                 // Look for the markdown file
                 fetch(path).then(function(response) {
@@ -43,8 +31,8 @@
                             return l.toUpperCase();
                         });
                     }
-                    pathlist = window.location.pathname.replace(/\/$/, "").split("/");
-                    document.title = "jumbledFox" + ((window.location.pathname != "/") ? " - " : "") + titlise(pathlist[pathlist.length - 1]);
+                    pathlist = l.replace(/\/$/, "").split("/");
+                    document.title = "jumbledFox" + ((l != "/") ? " - " : "") + titlise(pathlist[pathlist.length - 1]);
 
                     pagetorender = window.location.origin + "/pages" + pagetorender + "/index.md";
 
@@ -88,6 +76,23 @@
                         eval(document.getElementById("markdownscript").innerHTML);
                     });
                 }
+            }
+            onload = function() {
+                setup();
+                // shamelessly stolen from https://github.com/rafgraph/spa-github-pages/blob/v6.0.0/index.html
+                (function(l) {
+                    if (l.search[1] === '/' ) {
+                    var decoded = l.search.slice(1).split('&').map(function(s) { 
+                        return s.replace(/~and~/g, '&')
+                    }).join('?');
+                    window.history.replaceState(null, null,
+                        l.pathname.slice(0, -1) + decoded + l.hash
+                    );
+                    }
+                }(window.location));
+
+                loadpage(window.location.pathname);
+                
             }
         </script>
     </head>
