@@ -7,22 +7,11 @@
     --color-background-gradient: linear-gradient(to top, rgba(var(--color-background-gradient-color), 0.25), rgba(var(--color-background-gradient-color), 0.1));
 }
 
-@media (prefers-color-scheme: dark){
-    body {color:#fff;background:#000}
-}
-
-a {color: rgb(var(--color-rainbow));}
-a:not(:hover)            {transition-duration: 100ms; filter: brightness(100%); text-shadow: 0 0 0px rgb(var(--color-rainbow));}
-a:hover, a:visited:hover {transition-duration: 100ms; filter: brightness(140%); text-shadow: 0 0 3px rgb(var(--color-rainbow));}
+a {color: rgb(var(--color-rainbow));  text-decoration: none;}
+a:not(:hover)            {transition-duration: 100ms; filter: brightness(100%); text-shadow: 0 0 0px rgb(var(--color-rainbow)); border-bottom: 1px dotted;}
+a:hover, a:visited:hover {transition-duration: 100ms; filter: brightness(140%); text-shadow: 0 0 3px rgb(var(--color-rainbow)); border-bottom: 1px solid;}
 a:visited {filter: brightness(70%);}
 
-#linkbar a {
-    text-decoration: none;
-    border-bottom: 1px dotted;
-}
-#linkbar a:hover {
-    border-bottom: 1px solid;
-}
 
 #linkbar span {
     color: rgb(var(--color-rainbow));
