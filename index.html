@@ -29,7 +29,8 @@
                     // Change the title
                     
                     pathlist = l.replace(/\/$/, "").split("/");
-                    document.title = "jumbledFox" + ((l != "/") ? " - " : "") + titlise(pathlist[pathlist.length - 1]);
+                    document.title = (l == "/") ? "jumbledFox" : titlise(pathlist[pathlist.length - 1]);
+
 
                     pagetorender = window.location.origin + "/pages" + pagetorender + "/index.md";
 
@@ -86,8 +87,6 @@
                         }
                         setInnerHTML(document.getElementById("main"), inh);
                         setup();
-
-                        document.title = "jumbledFox" + ((l != "/") ? " - " : "") + titlise(pathlist[pathlist.length - 1]);
                     });
                 }
 

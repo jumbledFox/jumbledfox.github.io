@@ -20,7 +20,7 @@ function setup() {
                 "38%" : { "--color-rainbow": "255, 166, 2  " },
                 "50%" : { "--color-rainbow": "235, 103, 15 " },
                 "62%" : { "--color-rainbow": "255, 51 , 85 " },
-                "76%" : { "--color-rainbow": "134, 76 , 191" },
+                "76%" : { "--color-rainbow": "177, 270, 24 " },
                "100%": { "--color-rainbow": "69 , 163, 229" }
            },
            duration: 7,
