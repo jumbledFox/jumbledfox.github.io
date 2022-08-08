@@ -7,7 +7,10 @@
 
 ## The description on scratch
 "Move your mouse to aim, click to shoot
-Pressing numbers switches guns, 1 is a pistol, 2 is some kind of SMG, and 3 is a shotgun
+
+Pause the game by pressing the big blue pause button on the top
+
+Pressing the green buttons switches guns, however using the numbers on your keyboard feels a lot cooler
 
 CRED is your street cred, how many people you've killed - you start unlocking 'drip' at high enough amounts!
 
