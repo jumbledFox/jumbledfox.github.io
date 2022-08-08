@@ -1,6 +1,6 @@
 # Swag Weasels
 
-<iframe src="http://jumbledfox.github.io/pages/swag-weaselz/packaged" allowtransparency="true" width="720" height="540" frameborder="0" scrolling="no" allowfullscreen></iframe>
+<iframe src="https://jumbledfox.github.io/pages/swag-weaselz/packaged" allowtransparency="true" width="720" height="540" frameborder="0" scrolling="no" allowfullscreen></iframe>
 
 Move your mouse to aim, click to shoot
 
