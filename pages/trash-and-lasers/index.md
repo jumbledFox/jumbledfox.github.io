@@ -1,102 +1,15 @@
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <link rel="stylesheet" href="TemplateData/style.css">
-</head>
-<body>
-    <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=960 height=540></canvas>
-      <div id="unity-loading-bar">
-        <div id="unity-logo"></div>
-        <div id="unity-progress-bar-empty">
-          <div id="unity-progress-bar-full"></div>
-        </div>
-      </div>
-      <div id="unity-warning"> </div>
-      <div id="unity-footer">
-        <div id="unity-webgl-logo"></div>
-        <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">Trash And Lasers</div>
-      </div>
-    </div>
-    <script>
-      var container = document.querySelector("#unity-container");
-      var canvas = document.querySelector("#unity-canvas");
-      var loadingBar = document.querySelector("#unity-loading-bar");
-      var progressBarFull = document.querySelector("#unity-progress-bar-full");
-      var fullscreenButton = document.querySelector("#unity-fullscreen-button");
-      var warningBanner = document.querySelector("#unity-warning");
+# Trash and Lasers
+<div style="left:calc(50vw - 480px); width:100vw; position:absolute;">
+<iframe src="/pages/trash-and-lasers/packaged/index.html" allowtransparency="true" width="960" height="590" frameborder="0" scrolling="no" allowfullscreen></iframe>
+</div>
+<div style="height:590"></div> <!-- Compensation-->
 
-      // Shows a temporary message banner/ribbon for a few seconds, or
-      // a permanent error message on top of the canvas if type=='error'.
-      // If type=='warning', a yellow highlight color is used.
-      // Modify or remove this function to customize the visually presented
-      // way that non-critical warnings and error messages are presented to the
-      // user.
-      function unityShowBanner(msg, type) {
-        function updateBannerVisibility() {
-          warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
-        }
-        var div = document.createElement('div');
-        div.innerHTML = msg;
-        warningBanner.appendChild(div);
-        if (type == 'error') div.style = 'background: red; padding: 10px;';
-        else {
-          if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
-          setTimeout(function() {
-            warningBanner.removeChild(div);
-            updateBannerVisibility();
-          }, 1000);
-        }
-        updateBannerVisibility();
-      }
+[itch.io link](https://jumbledfox.itch.io/trash-and-lasers)
 
-      var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/Build 4.loader.js";
-      var config = {
-        dataUrl: buildUrl + "/Build 4.data.unityweb",
-        frameworkUrl: buildUrl + "/Build 4.framework.js.unityweb",
-        codeUrl: buildUrl + "/Build 4.wasm.unityweb",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "jumbledFox",
-        productName: "Trash And Lasers",
-        productVersion: "1.0",
-        showBanner: unityShowBanner,
-      };
+Trash and lasers is a game I made in around a week for the Polymars [SEAJAM](https://itch.io/jam/seajam). You place mirrors down to direct a laser beam across the level, making sure to hit all the floating trash and avoid any fish!
 
-      // By default Unity keeps WebGL canvas render target size matched with
-      // the DOM size of the canvas element (scaled by window.devicePixelRatio)
-      // Set this to false if you want to decouple this synchronization from
-      // happening inside the engine, and you would instead like to size up
-      // the canvas DOM size and WebGL render target sizes yourself.
-      // config.matchWebGLToCanvasSize = false;
+I don't really know what to write about this game too much, it exists and is quite a fun little puzzle game i guess...
 
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        container.className = "unity-mobile";
-        // Avoid draining fillrate performance on mobile devices,
-        // and default/override low DPI mode on mobile browsers.
-        config.devicePixelRatio = 1;
-        unityShowBanner('WebGL builds are not supported on mobile devices.');
-      } else {
-        canvas.style.width = "960px";
-        canvas.style.height = "540px";
-      }
-      loadingBar.style.display = "block";
+All of the assets were made by me, especially including the bloody splatters of exploded fish >:)
 
-      var script = document.createElement("script");
-      script.src = loaderUrl;
-      script.onload = () => {
-        createUnityInstance(canvas, config, (progress) => {
-          progressBarFull.style.width = 100 * progress + "%";
-        }).then((unityInstance) => {
-          loadingBar.style.display = "none";
-          fullscreenButton.onclick = () => {
-            unityInstance.SetFullscreen(1);
-          };
-        }).catch((message) => {
-          alert(message);
-        });
-      };
-      document.body.appendChild(script);
-    </script>
-</body>
+This game has no bugs I know of.. but if it does - not to sound dispassionate - I don't really care.

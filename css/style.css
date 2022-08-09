@@ -62,3 +62,7 @@ canvas {
     bottom:0px;
     left:0px;
 }
+
+.rainbow {
+    color: rgb(var(--color-rainbow));
+}
