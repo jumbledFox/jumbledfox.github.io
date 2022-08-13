@@ -140,40 +140,61 @@ function generateLevel(x, y) {
 
 var playerPos = [5, 5];
 var playerVel = [0, 0];
-var playerJump = false;
+var playerJump = true;
 var playerGrounded = true;
 
-function updatePlayer(dt) {
+var prevPos = [5, 5];
+var prevVel = [0, 0];
 
-    speed = (playerGrounded) ? 0.02 : 0.008;
+function updatePlayer(dt) {
+    // Set previous info
+    prevPos = [playerPos[0], playerPos[1]];
+    prevVel = [playerVel[0], playerVel[1]];
+    
+    let speed = 0.02//(playerGrounded) ? 0.02 : 0.008;
     if (keys[65]) {
         playerVel[0] = -speed;
     } else if (keys[68]) {
         playerVel[0] =  speed;
     }
 
-    playerPos[0] += playerVel[0] * dt;
-    playerPos[1] += playerVel[1] * dt;
     playerVel[0] *= ((playerGrounded) ? 10 : dt) * (1/dt);
 
-        
-    playerVel[1] += 0.001;
-    console.log([Math.round(playerPos[0]/1), Math.round(playerPos[1]/1)])
-    if(getSolid([Math.round(playerPos[0]/1), Math.round(playerPos[1]/1)+1])) {
-        playerVel[1] = 0;
-        playerGrounded = true;
-    } else {
-        playerGrounded = false;
-    }
-
-    // jump
     if (keys[87] && !playerJump) {
         playerVel[1] = -0.025;
         playerJump = true;
     } else if (!keys[87]) {
         playerJump = false;
     }
+    playerPos[0] += playerVel[0] * dt;
+    playerPos[1] += playerVel[1] * dt;
 
+        
+    playerVel[1] += 0.0005;
+    /*
+    console.log([Math.round(playerPos[0]/1), Math.round(playerPos[1]/1)])
+    
+    if(getSolid([Math.round(playerPos[0]/1), Math.round(playerPos[1]/1)+1])) {
+        playerVel[1] = 0;
+        playerGrounded = true;
+    } else {
+        playerGrounded = false;
+    }*/
+
+    // jump
+
+
+    // If touching anything, load previous info
+    if (getSolid([Math.round(playerPos[0]/1), Math.round(prevPos[1]/1)]) == 1) {
+        console.log("Solid!! X");
+        playerPos[0] = prevPos[0];
+        playerVel[0] = 0;
+    }
+    if (getSolid([Math.round(prevPos[0]/1), Math.round(playerPos[1]/1)]) == 1) {
+        console.log("Solid!! Y");
+        playerPos[1] = prevPos[1];
+        playerVel[1] = 0;
+    }
 }
 
 keys = {}
@@ -207,7 +228,7 @@ const loop = time => {
 
 update.pushUpdateTime = 0;
 function update(dt) {
-    console.log(dt)
+    //console.log(dt)
     // Float up and down with time
     Coin.fy = Math.sin(previousTime / 300) * 0.15 - 0.15;
 
@@ -247,11 +268,13 @@ function render() {
 
 function getSolid(pos) {
     tile = 1;
+    if (!(pos[0] < 1 || pos[0] >= generateLevel.map[0].length || pos[1] < 0 || pos[1] >= generateLevel.map.length)) {
     try {
         tile = generateLevel.map[pos[1] - 1][pos[0] - 1];
     } catch (error) {
         tile = 1;
     }
-    console.log(tile);
+}
+    //console.log(tile);
     return (tile == 1 || tile == PushOutVal);
 }
