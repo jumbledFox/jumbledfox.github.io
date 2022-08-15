@@ -85,7 +85,22 @@
                         } catch (Exception) {
                             // No loop to stop
                         }
+
+                        // Replace things
+                        inh = inh.replace(/<r>/g, "<span class='rainbow'>");
+                        inh = inh.replace(/<\/r>/g, "</span>");
+                        //inh = inh.replace(/<a/g, "<a target='_blank'");
+
                         setInnerHTML(document.getElementById("main"), inh);
+
+                        // For every link, if it's not a local link, open in a new tab
+                        for(var i = 0; i < document.getElementsByTagName("A").length; i++) {
+                            if(!document.getElementsByTagName("A")[i].href.startsWith(location.origin)) {
+                                document.getElementsByTagName("A")[i].target = "_blank";
+                            }
+                        }
+
+                        // Setup
                         setup();
                     });
                 }

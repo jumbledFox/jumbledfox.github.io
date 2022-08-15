@@ -15,7 +15,7 @@ Your first weapon of choice is a pistol, Moderately strong and quick to fire, ho
 
 Move your mouse around the screen to aim, and click (or tap) to shoot! You can switch guns by pressing the buttons at the top, or for the more speedy players out there, press the number keys on your keyboard. You can pause the game by the pressing the big blue pause button - click anywhere to resume.
 
-<span class="rainbow">CRED</span> is your street cred, how many people you've killed - you start unlocking some pretty sweet articles of clothing at high enough amounts! <span class="rainbow">SWAG</span> is your health - you gain some every now and then, but those pesky and pointy opponents will try their best to drain it!
+<r>CRED</r> is your street cred, how many people you've killed - you start unlocking some pretty sweet articles of clothing at high enough amounts! <r>SWAG</r> is your health - you gain some every now and then, but those pesky and pointy opponents will try their best to drain it!
 
 Powerups spawn every now and then, too! One of them makes bullets bouncy, and the other makes bullets more penetrative.
 
