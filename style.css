@@ -3,6 +3,7 @@
     color: white;
 
     --color-rainbow: 255, 0, 255;
+    --rainbow-hue: 0;
     --color-background-gradient-color: 239, 125, 87;
     --color-background-gradient: linear-gradient(to top, rgba(var(--color-background-gradient-color), 0.25), rgba(var(--color-background-gradient-color), 0.1));
 }
@@ -32,7 +33,7 @@ body{
 
 h1,h2,h3,h4,h5,h6 {
     color: rgb(var(--color-rainbow));
-    line-height:1.2
+    line-height:1;
 }
 
 @media print{
@@ -65,4 +66,56 @@ canvas {
 
 .rainbow {
     color: rgb(var(--color-rainbow));
+}
+
+.middle {
+    /*align these to the middle horizontally*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img.emoji {
+    height: 1.1em;
+    position: relative;
+    top: -0.2rem;
+    vertical-align: middle;
+    pointer-events: none;
+}
+.dl-button img.emoji {
+    top: 0rem;
+    height: 3em;
+    filter: hue-rotate( var(--rainbow-hue));
+}
+a.dl-button {
+    border-bottom: none;
+    transition-duration: 0ms;
+}
+.dl-button {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+hr {
+    color: rgb(var(--color-rainbow));
+    background-color: rgb(var(--color-rainbow));
+    border-color: rgb(var(--color-rainbow));
+}
+
+.foxbar {
+    position: static;
+    top: -1.1rem;
+}
+
+fieldset.foxhr {
+    border-top: 2px solid rgb(var(--color-rainbow));
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    display: block;
+    text-align: center;
+}
+
+fieldset.foxhr legend {
+    padding: 5px 10px;
 }

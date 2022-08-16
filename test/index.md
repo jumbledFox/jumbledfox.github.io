@@ -1,7 +1,7 @@
 # Test
 :)
 
-![Test Image](pages/test/test.png "Test")
+![Test Image](test.png "Test")
 
 [Go Home](/)
 

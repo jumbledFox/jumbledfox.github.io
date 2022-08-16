@@ -1,6 +1,6 @@
 # Swag Weasels
 <div style="left:calc(50vw - 360); width:100vw; position:absolute;">
-<iframe src="/pages/swag-weaselz/packaged" allowtransparency="true" width="720" height="540" frameborder="0" scrolling="no" allowfullscreen></iframe>
+<iframe src="/games/swag-weaselz/packaged" allowtransparency="true" width="720" height="540" frameborder="0" scrolling="no" allowfullscreen></iframe>
 </div>
 <div style="height:540"></div> <!-- Compensation-->
 

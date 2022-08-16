@@ -1,7 +1,7 @@
 # Favibird
 This is a game I made in around a day called 'FaviBird', it's called that because it's flappy bird, played in the favicon. Good pun, I know.
 
-This is meant to be played in the favicon, however if it doesn't work (or if you're a loser!!), enable 'Loser Mode' below, you loser!! Also it's a bit janky, thats not usually seen unless you're in 'Loser Mode' (you loser!!!), but - not to sound dispassionate - I don't really care.
+This is meant to be played in the favicon, however if it doesn't work (or if you're a loser!!), enable '<r>Loser Mode</r>' below, you loser!! Also it's a bit janky, thats not usually seen unless you're in 'Loser Mode' (you loser!!!), but - not to sound dispassionate - I don't really care.
 
 Also, this may only work in some browsers (like Microsoft Edge unfortunately), so if the favicon's not updating, and if you don't want to swallow your pride by enabling 'Loser Mode', Try a different browser!		
 

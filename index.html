@@ -1,13 +1,17 @@
 <html>
     <head>
+        <!-- Twemoji -->
+        <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+
         <script src="/loadstyle.js"></script>
 
         <script>
 
             function loadpage(l) {
+                let withlove = true;
                 l = l.toLowerCase();
                 let pagetorender = l.replace(/\/$/, "");
-                let path = window.location.origin + "/pages" + pagetorender + "/index.md";
+                let path = window.location.origin + pagetorender + "/index.md";
                 // Look for the markdown file
                 fetch(path).then(function(response) {
 
@@ -18,11 +22,13 @@
                             break;
                         case 404:
                             // Didn't find the file, so render the 404 page
+                            withlove = false;
                             pagetorender = "/404";
                             break;
                         default:
                             // Something else happened, so render the error page
                             pagetorender = "/error";
+                            withlove = false;
                             break;
                     }
 
@@ -32,7 +38,7 @@
                     document.title = (l == "/") ? "jumbledFox" : titlise(pathlist[pathlist.length - 1]);
 
 
-                    pagetorender = window.location.origin + "/pages" + pagetorender + "/index.md";
+                    let pagetorenderExact = window.location.origin + pagetorender + "/index.md";
 
 
                     // Set the link bar
@@ -52,8 +58,8 @@
                     }
 
                     // Render the markdown file
-                    if(pagetorender != path) {
-                        fetch(pagetorender).then(function(response) { renderpage(response);});
+                    if(pagetorenderExact != path) {
+                        fetch(pagetorenderExact).then(function(response) { renderpage(response);});
                     } else {
                         renderpage(response);
                     }
@@ -73,7 +79,7 @@
                     response.text().then(function(text) {
                         textsplit = text.split("<script");
                         let inh = "";
-                        inh = md.render(textsplit[0]);
+                        inh = md.render(textsplit[0] + "<foxhr>\nMade with " + ((withlove) ? "❤" : "😖") + " by [jumbledFox](/about) \n");
                         try {
                             for (let i = 1; i < textsplit.length; i++) {
                                 inh += "<script" + textsplit[i];
@@ -87,17 +93,35 @@
                         }
 
                         // Replace things
+
+                        inh = inh.replace(/<foxhr>/g, "<fieldset class='foxhr'><legend>🦊🏳️‍🌈🦊🏳️‍🌈🦊🏳️‍🌈🦊🏳️‍🌈🦊</legend></fieldset>");
+
                         inh = inh.replace(/<r>/g, "<span class='rainbow'>");
                         inh = inh.replace(/<\/r>/g, "</span>");
+                        inh = inh.replace(/<m>/g, "<span class='middle'>");
+                        inh = inh.replace(/<\/m>/g, "</span>");
                         //inh = inh.replace(/<a/g, "<a target='_blank'");
 
                         setInnerHTML(document.getElementById("main"), inh);
+                        
+                        twemoji.parse(document.getElementById("main"));
 
                         // For every link, if it's not a local link, open in a new tab
                         for(var i = 0; i < document.getElementsByTagName("A").length; i++) {
                             if(!document.getElementsByTagName("A")[i].href.startsWith(location.origin)) {
                                 document.getElementsByTagName("A")[i].target = "_blank";
                             }
+                        }
+
+                        // For every image, if its src starts with ., make it a relative path
+                        for(var i = 0; i < document.getElementsByTagName("IMG").length; i++) {
+                            //console.log(document.getElementsByTagName("IMG")[i].src);
+                            let imgSrc = document.getElementsByTagName("IMG")[i].src;
+                            let lastbit = l.split("/")[l.split("/").length-1];
+                            if(imgSrc.startsWith(window.location.origin)) {
+                                document.getElementsByTagName("IMG")[i].src = lastbit + "/" + imgSrc.split("/")[imgSrc.split("/").length-1];
+                            }
+                            //console.log(document.getElementsByTagName("IMG")[i].src);
                         }
 
                         // Setup
@@ -125,7 +149,6 @@
                 }(window.location));
 
                 loadpage(window.location.pathname);
-                
             }
 
             window.onpopstate = function(event) {
