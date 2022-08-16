@@ -15,6 +15,9 @@
                 // Look for the markdown file
                 fetch(path).then(function(response) {
 
+                    if (pagetorender == "/404") {
+                        withlove = false;
+                    }
                     // Possible responses
                     switch(response.status) {
                         case 200:
