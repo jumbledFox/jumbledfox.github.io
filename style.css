@@ -84,7 +84,7 @@ table td {
 }
 
 .rainbowoutline {
-    outline: 2px solid rgb(var(--color-rainbow));
+    outline: 4px solid rgb(var(--color-rainbow));
 }
 
 .dl-button img.emoji {
