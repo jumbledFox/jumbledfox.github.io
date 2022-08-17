@@ -70,7 +70,7 @@
                     if(window.location.pathname != l) {
                         window.history.pushState(l, "", l);
                     }
-                    
+
                     // Render the markdown file
                     if(pagetorenderExact != path) {
                         fetch(pagetorenderExact).then(function(response) { renderpage(response);});
@@ -122,17 +122,20 @@
                             }
                         }
 
-                        // If local
-                        if (location.origin == 'hettp://127.0.0.1:5500') {
-                            // For every image, if its src starts with ., make it a relative path
-                            for(var i = 0; i < document.getElementsByTagName("IMG").length; i++) {
-                                //console.log(document.getElementsByTagName("IMG")[i].src);
-                                let imgSrc = document.getElementsByTagName("IMG")[i].src;
-                                let lastbit = l.split("/")[l.split("/").length-1];
-                                if(imgSrc.startsWith(window.location.origin)) {
-                                    document.getElementsByTagName("IMG")[i].src = lastbit + "/" + imgSrc.split("/")[imgSrc.split("/").length-1];
+                        // For every image
+                        let images = document.getElementsByTagName("IMG");
+                        for (var i = 0; i < images.length; i++) {
+                            // Decode outerHTML to get the src
+                            let imgSrc = (images[i].outerHTML).split("src=\"")[1].split("\"")[0];
+                            // If the src is local
+                            if (!imgSrc.startsWith("https://") || imgSrc.startsWith("http://")) {
+                                if (imgSrc.startsWith("/")) {
+                                    // Absolute path
+                                    images[i].src = window.location.origin + imgSrc;
+                                } else {
+                                    // Relative path
+                                    images[i].src = window.location.href + "/" + imgSrc;
                                 }
-                                //console.log(document.getElementsByTagName("IMG")[i].src);
                             }
                         }
 
