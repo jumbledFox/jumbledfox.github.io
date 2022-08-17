@@ -8,9 +8,9 @@
     --color-background-gradient: linear-gradient(to top, rgba(var(--color-background-gradient-color), 0.25), rgba(var(--color-background-gradient-color), 0.1));
 }
 
-a {color: rgb(var(--color-rainbow));  text-decoration: none;}
-a:not(:hover)            {transition-duration: 100ms; filter: brightness(100%); text-shadow: 0 0 0px rgb(var(--color-rainbow)); border-bottom: 1px dotted;}
-a:hover, a:visited:hover {transition-duration: 100ms; filter: brightness(140%); text-shadow: 0 0 3px rgb(var(--color-rainbow)); border-bottom: 1px solid;}
+a {color: rgb(var(--color-rainbow));  text-decoration: none; transition: filter 100ms, text-shadow 100ms;}
+a:not(:hover)            {filter: brightness(100%); text-shadow: 0 0 0px rgb(var(--color-rainbow)); border-bottom: 1px dotted;}
+a:hover, a:visited:hover {filter: brightness(140%); text-shadow: 0 0 3px rgb(var(--color-rainbow)); border-bottom: 1px solid;}
 a:visited {filter: brightness(70%);}
 
 
@@ -46,6 +46,14 @@ canvas {
     image-rendering: pixelated;
 }
 
+table {
+    width: 100%;
+}
+/* Make all items in a table be in the middle horizontally*/
+table td {
+    text-align: center;
+}
+
 #gradient {
     position: fixed;
     background: var(--color-background-gradient);
@@ -75,22 +83,16 @@ canvas {
     align-items: center;
 }
 
-img.emoji {
-    height: 1.1em;
-    position: relative;
-    top: -0.2rem;
-    vertical-align: middle;
-    pointer-events: none;
+.rainbowoutline {
+    outline: 2px solid rgb(var(--color-rainbow));
 }
+
 .dl-button img.emoji {
     top: 0rem;
     height: 3em;
-    filter: hue-rotate( var(--rainbow-hue));
+    filter: hue-rotate( calc(var(--rainbow-hue) - 204deg));
 }
-a.dl-button {
-    border-bottom: none;
-    transition-duration: 0ms;
-}
+a.dl-button { border-bottom: none; }
 .dl-button {
     display: inline-block;
     vertical-align: middle;
@@ -102,18 +104,22 @@ hr {
     border-color: rgb(var(--color-rainbow));
 }
 
-.foxbar {
-    position: static;
-    top: -1.1rem;
+img.emoji {
+    height: 1.1em;
+    position: relative;
+    top: -0.2rem;
+    vertical-align: middle;
+    pointer-events: none;
 }
 
 fieldset.foxhr {
-    border-top: 2px solid rgb(var(--color-rainbow));
+    border: 2px solid rgb(var(--color-rainbow));
     border-bottom: none;
     border-left: none;
     border-right: none;
     display: block;
     text-align: center;
+    margin-bottom: -1.1em;
 }
 
 fieldset.foxhr legend {

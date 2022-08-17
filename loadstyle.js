@@ -14,14 +14,14 @@ function setup() {
     if(setuptimes == 0) {
         gsap.to("html", {
             keyframes: {
-                "0%"  : { "--color-rainbow": "69 , 163, 229", "--rainbow-hue": "0deg" },
-                "12%" : { "--color-rainbow": "51 , 204, 204", "--rainbow-hue": "45deg" },
-                "25%" : { "--color-rainbow": "102, 191, 57 ", "--rainbow-hue": "45deg" },
-                "38%" : { "--color-rainbow": "255, 166, 2  ", "--rainbow-hue": "90deg" },
-                "50%" : { "--color-rainbow": "235, 103, 15 ", "--rainbow-hue": "135deg" },
-                "62%" : { "--color-rainbow": "255, 51 , 85 ", "--rainbow-hue": "135deg" },
-                "76%" : { "--color-rainbow": "177, 270, 24 ", "--rainbow-hue": "135deg" },
-                "100%": { "--color-rainbow": "69 , 163, 229", "--rainbow-hue": "360deg" }
+                "0%"  : { "--color-rainbow": "69 , 163, 229", "--rainbow-hue": "204deg" },
+                "12%" : { "--color-rainbow": "51 , 204, 204", "--rainbow-hue": "180deg" },
+                "25%" : { "--color-rainbow": "102, 191, 57 ", "--rainbow-hue": "99deg"  },
+                "38%" : { "--color-rainbow": "255, 166, 2  ", "--rainbow-hue": "38deg"  },
+                "50%" : { "--color-rainbow": "235, 103, 15 ", "--rainbow-hue": "24deg"  },
+                "62%" : { "--color-rainbow": "255, 51 , 85 ", "--rainbow-hue": "-10deg" },
+                "76%" : { "--color-rainbow": "177, 270, 24 ", "--rainbow-hue": "80deg"  },
+                "100%": { "--color-rainbow": "69 , 163, 229", "--rainbow-hue": "204deg" }
            },
            duration: 7,
            repeat: -1,
@@ -38,7 +38,7 @@ function setup() {
 
     for (var i = 0; i < anchors.length; i++) {
         if (anchors[i].href.startsWith(window.location.origin)) { // if the link is a local link
-            if(!anchors[i].href.split(window.location.origin)[1].startsWith("/pages")) { // If it doesnt start with /pages
+            if(anchors[i].target != "_blank") { // If its not going to open in a new tab
                 // change it to not redirect anywhere and instead load the correct page
                 const hr = anchors[i].href.split(window.location.origin)[1];
                 anchors[i].onclick = (event) => { event.preventDefault(); loadpage(hr); }

@@ -1,5 +1,10 @@
 <html>
     <head>
+        <style>
+            html {
+                background-color: #000000;
+            }
+        </style>
         <!-- Twemoji -->
         <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
 
@@ -103,6 +108,7 @@
                         inh = inh.replace(/<\/r>/g, "</span>");
                         inh = inh.replace(/<m>/g, "<span class='middle'>");
                         inh = inh.replace(/<\/m>/g, "</span>");
+                        inh = inh.replace(/<ro><img/g, "<img class='rainbowoutline' ");
                         //inh = inh.replace(/<a/g, "<a target='_blank'");
 
                         setInnerHTML(document.getElementById("main"), inh);

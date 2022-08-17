@@ -15,3 +15,8 @@ Here are some things I've made...
 [Trash and Lasers](/games/trash-and-lasers) - A game about destroying trash in the ocean with lasers! Made for the Polymars [SEAJAM](https://itch.io/jam/seajam)
 
 [Swag Weaselz](/games/swag-weaselz) - Made in around a day, this simple scratch game about shooting blocky green enemies is weasel-tastic.
+
+<foxhr>
+## Other
+
+[Paint.net palette layouts](/other/pdn-palettes) - Better layouts for some of my favourite Paint.net palettes
