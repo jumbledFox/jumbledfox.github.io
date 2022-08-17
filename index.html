@@ -122,15 +122,18 @@
                             }
                         }
 
-                        // For every image, if its src starts with ., make it a relative path
-                        for(var i = 0; i < document.getElementsByTagName("IMG").length; i++) {
-                            //console.log(document.getElementsByTagName("IMG")[i].src);
-                            let imgSrc = document.getElementsByTagName("IMG")[i].src;
-                            let lastbit = l.split("/")[l.split("/").length-1];
-                            if(imgSrc.startsWith(window.location.origin)) {
-                                //document.getElementsByTagName("IMG")[i].src = lastbit + "/" + imgSrc.split("/")[imgSrc.split("/").length-1];
+                        // If local
+                        if (location.origin == 'hettp://127.0.0.1:5500') {
+                            // For every image, if its src starts with ., make it a relative path
+                            for(var i = 0; i < document.getElementsByTagName("IMG").length; i++) {
+                                //console.log(document.getElementsByTagName("IMG")[i].src);
+                                let imgSrc = document.getElementsByTagName("IMG")[i].src;
+                                let lastbit = l.split("/")[l.split("/").length-1];
+                                if(imgSrc.startsWith(window.location.origin)) {
+                                    document.getElementsByTagName("IMG")[i].src = lastbit + "/" + imgSrc.split("/")[imgSrc.split("/").length-1];
+                                }
+                                //console.log(document.getElementsByTagName("IMG")[i].src);
                             }
-                            //console.log(document.getElementsByTagName("IMG")[i].src);
                         }
 
                         // Setup
