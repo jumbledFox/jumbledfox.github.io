@@ -65,17 +65,17 @@
                         }
                     }
 
+                                       
+                    // Set url if not already
+                    if(window.location.pathname != l) {
+                        window.history.pushState(l, "", l);
+                    }
+                    
                     // Render the markdown file
                     if(pagetorenderExact != path) {
                         fetch(pagetorenderExact).then(function(response) { renderpage(response);});
                     } else {
                         renderpage(response);
-                    }
-
-                    
-                    // Set url if not already
-                    if(window.location.pathname != l) {
-                        window.history.pushState(l, "", l);
                     }
                 });
 
