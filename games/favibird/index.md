@@ -57,8 +57,8 @@ Credit to [Mashpoe](https://www.mashpoe.com) for the inspiration and some of the
     function addImage(imgSrc) {
         var newImg = new Image();
         newImg.crossOrigin = "Anonymous";
-        console.log("https://jumbledfox.github.io/pages/favibird/" + imgSrc);
-        images.push({img:newImg, src:"https://jumbledfox.github.io/pages/favibird/" + imgSrc});
+        console.log("https://jumbledfox.github.io/games/favibird/" + imgSrc);
+        images.push({img:newImg, src:"https://jumbledfox.github.io/games/favibird/" + imgSrc});
 
         return newImg;
     }
