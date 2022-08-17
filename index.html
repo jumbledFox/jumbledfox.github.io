@@ -128,7 +128,7 @@
                             let imgSrc = document.getElementsByTagName("IMG")[i].src;
                             let lastbit = l.split("/")[l.split("/").length-1];
                             if(imgSrc.startsWith(window.location.origin)) {
-                                document.getElementsByTagName("IMG")[i].src = lastbit + "/" + imgSrc.split("/")[imgSrc.split("/").length-1];
+                                //document.getElementsByTagName("IMG")[i].src = lastbit + "/" + imgSrc.split("/")[imgSrc.split("/").length-1];
                             }
                             //console.log(document.getElementsByTagName("IMG")[i].src);
                         }
