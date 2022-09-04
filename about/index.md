@@ -16,9 +16,9 @@ When I'm not programming (procrastinating) I like to play games like <r>Half-Lif
 
 I also like to collect vinyl records, it's not like they're durable, quick to use, or easy to store, I just like having __proper__ physical media, no matter _how_ obsolete!
 
-Speaking of music, I really like <r>Genesis</r>, <r>Supertramp</r>, and <r>Oingo Boingo</r>! I also like a lot of other groups, such as Pink Floyd, Men Without Hats, ELO, The Police, Radiohead, Kraftwerk, and The Beatles.
+Speaking of music, I really like <r>Genesis</r>, <r>Supertramp</r>, and <r>Oingo Boingo</r>! I also like a lot of other groups, such as Pink Floyd, Steventhedreamer, Men Without Hats, ELO, The Police, Radiohead, Kraftwerk, and The Beatles. Very cliche, I know.
 
-I love to go on long bike rides whilst listening to albums I like, I especially love to listen to <r>Jeff Wayne's Musical Version of War of The Worlds</r>.
+I love to go on long bike rides whilst listening to albums I like (Safely of course!!! Only having one earphone in!!!), I especially love to listen to <r>Jeff Wayne's Musical Version of War of The Worlds</r>.
 <foxhr>
 
 My discord is <r>jumbledFox#7214</r>, feel free to add me!
