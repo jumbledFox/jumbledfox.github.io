@@ -126,6 +126,8 @@
                         let images = document.getElementsByTagName("IMG");
                         for (var i = 0; i < images.length; i++) {
                             // Decode outerHTML to get the src
+
+                            // TODO: This doesnt work with hash fragments and ?'s, but, not to sound dispassionate, I don't really care
                             let imgSrc = (images[i].outerHTML).split("src=\"")[1].split("\"")[0];
                             // If the src is local
                             if (!imgSrc.startsWith("https://") || imgSrc.startsWith("http://")) {
