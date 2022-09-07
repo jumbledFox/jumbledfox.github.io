@@ -131,10 +131,10 @@
                             if (!imgSrc.startsWith("https://") || imgSrc.startsWith("http://")) {
                                 if (imgSrc.startsWith("/")) {
                                     // Absolute path
-                                    images[i].src = window.location.origin + imgSrc;
+                                    images[i].src = window.location.origin.split("?")[0].split("#")[0] + imgSrc;
                                 } else {
                                     // Relative path
-                                    images[i].src = window.location.href + "/" + imgSrc;
+                                    images[i].src = window.location.href.split("?")[0].split("#")[0] + "/" + imgSrc;
                                 }
                             }
                         }
