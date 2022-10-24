@@ -7,7 +7,7 @@ Each character is 10x20 pixels, with a 2 pixel gap between characters. For best 
 It's currently incomplete and will remain that way for a while..!
 
 Here's what it looks like in action:
-<m><imgrs>![jumbledFont in action](jumbledFont.png)</m>
+<m><imgrs>![jumbledFont in action](jumbledfont.png)</m>
 
 <foxhr>
 
