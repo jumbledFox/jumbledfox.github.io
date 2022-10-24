@@ -19,4 +19,6 @@ Here are some things I've made...
 <foxhr>
 ## Other
 
+[jumbledFont](/other/jumbledFont) - A neat pixely font I made a while ago
+
 [Paint.net palette layouts](/other/pdn-palettes) - Better layouts for some of my favourite Paint.net palettes
