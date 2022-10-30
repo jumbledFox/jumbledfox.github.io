@@ -8,9 +8,11 @@ It's built with GitHub pages, however it uses some custom scripts to dynamically
 This website also uses [Twemoji](https://twemoji.twitter.com/) to make emojis look better and consistent. ✨
 
 ## Awards
-This website has won many awards, including the <r>Cool4Catz Web Award of '06</r>, and the <r>sick as fox</r> trophy!
+This website has won many awards, including the <r>Cool4Catz Web Award of '06</r>, and the <r>sick as fox</r> trophy!<r>**</r>
 
 <imgrsm>![](awards/cool4catz.png) <imgrsm>![](awards/sickasfox.png)
+
+<sup><r>**This is an outright lie.</r></sup>
 
 <foxhr>
 
