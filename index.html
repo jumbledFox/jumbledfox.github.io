@@ -87,7 +87,7 @@
                     response.text().then(function(text) {
                         textsplit = text.split("<script");
                         let inh = "";
-                        inh = md.render(textsplit[0] + "<foxhr>\nMade with " + ((withlove) ? "❤" : "😖") + " by [jumbledFox](/about) \n");
+                        inh = md.render(textsplit[0] + "<div id='footer'> <foxhr>\nMade with " + ((withlove) ? "❤" : "😖") + " by <a href='/about'>jumbledFox</a> </div>\n");
                         try {
                             for (let i = 1; i < textsplit.length; i++) {
                                 inh += "<script" + textsplit[i];
@@ -103,6 +103,8 @@
                         // Replace things
 
                         inh = inh.replace(/<foxhr>/g, "<fieldset class='foxhr'><legend>🦊🏳️‍🌈🦊🏳️‍🌈🦊🏳️‍🌈🦊🏳️‍🌈🦊</legend></fieldset>");
+                        
+                        inh = inh.replace(/\!audio[(]/g, )
 
                         inh = inh.replace(/<r>/g, "<span class='rainbow'>");
                         inh = inh.replace(/<\/r>/g, "</span>");

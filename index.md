@@ -19,6 +19,8 @@ Here are some things I've made...
 <foxhr>
 ## Other
 
+[Music](/other/music) - A collection of "songs" I've made, they're not the best, but I love 'em!
+
 [jumbledFont](/other/jumbledFont) - A neat pixely font I made a while ago
 
 [Paint.net palette layouts](/other/pdn-palettes) - Better layouts for some of my favourite Paint.net palettes
