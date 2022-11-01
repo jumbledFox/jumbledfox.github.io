@@ -8,8 +8,13 @@
 
 Trash and lasers is a game I made in around a week for the Polymars [SEAJAM](https://itch.io/jam/seajam). You place mirrors down to direct a laser beam across the level, making sure to hit all the floating trash and avoid any fish!
 
-I don't really know what to write about this game too much, it exists and is quite a fun little puzzle game i guess...
+I don't really know what to write about this game too much, it exists and is quite a fun little puzzle game i suppose...
 
 All of the assets were made by me, especially including the bloody splatters of exploded fish >:)
 
 This game has no bugs I know of.. but if it does - not to sound dispassionate - I don't really care.
+
+<script>
+    document.getElementById("footer").innerHTML += "<span> - November 2021</span>"
+    // ~29/11/22
+</script>

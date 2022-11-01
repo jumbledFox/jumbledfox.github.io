@@ -27,3 +27,8 @@ This was a lot of fun to make, I really like the art and sounds (all made by me)
 This used to be up on scratch but I decided to keep it private and host it here instead, as it might be too gory for the community guidelines.
 
 Yes there are a few bugs, but - not to sound dispassionate - I don't really care.
+
+<script>
+    document.getElementById("footer").innerHTML += "<span> - July 2022</span>"
+    // ~07/08/22
+</script>

@@ -17,3 +17,8 @@ If you like the font and want to use it then be my guest, however all I ask is t
 
 <m><r>**Download**</r></m>
 <m><a class="dl-button" href="jumbledFont/jumbledFont.ttf" download="jumbledFont.ttf" target="_blank">⬇</a></m>
+
+<script>
+    document.getElementById("footer").innerHTML += "<span> - May 2022</span>"
+    // ~10/5/22
+</script>

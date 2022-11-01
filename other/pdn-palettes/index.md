@@ -18,3 +18,8 @@ Now, what I like to do is make custom layouts of the palettes we know and love, 
 ![Example of good layout](example-sulu-good.png "Example of good layout")
 
 The problem with these is that they require color picker to be in 'big mode', I always have it like this so its no problem for me, but also you dont really need advanced color picking / manipulating options when you're using a palette... Oh well! It's part of my workflow, hopefully this page will help _someone_...
+
+<script>
+    document.getElementById("footer").innerHTML += "<span> - August 2022</span>"
+    // ~16/8/22
+</script>
