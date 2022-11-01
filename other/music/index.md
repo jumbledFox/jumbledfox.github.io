@@ -11,7 +11,7 @@ I made these using lots of different (and probably quite goofy) methods. I use a
 
 ## Chippy.wav
 <audio controls>
-  <source src="other/music/chippy.wav" type="audio/wav">
+  <source src="chippy.wav" type="audio/wav">
 Why doesn't your browser support the little audio player thing?
 </audio> 
 
@@ -21,7 +21,7 @@ This is a little chiptune song I made quite some time ago, I used <r>Magical 8bi
 
 ## Map.mp3
 <audio controls>
-  <source src="other/music/map.mp3" type="audio/mp3">
+  <source src="map.mp3" type="audio/mp3">
 Come on.. what are you using that doesn't support an audio player? Netscape Navigator??
 </audio> 
 
@@ -31,7 +31,7 @@ This is a song I created for a Minecraft map younger me wanted to make but never
 
 ## Titlelaser.wav
 <audio controls>
-  <source src="other/music/titlelaser.wav" type="audio/wav">
+  <source src="titlelaser.wav" type="audio/wav">
 Why doesn't your browser support the little audio player thing?
 </audio> 
 
@@ -45,7 +45,7 @@ Yes, it's an mp4 file! A recording of FL Studio playing the track..
 I did it this way because I wanted you to see the layers that make up something like this, and not because <r>Magical 8bit Plug 2</r> was playing up and not exporting!
 
 <m><video controls style="width: 100%">
-  <source src="other/music/odd.mp4" type="video/mp4">
+  <source src="odd.mp4" type="video/mp4">
   Your browser does not support HTML video.
 </video></m>
 
@@ -59,7 +59,7 @@ Around this time I stopped using <r>Magical 8bit Plug 2</r> due to it always cra
 
 ## Klik.wav
 <audio controls>
-  <source src="other/music/klik.wav" type="audio/wav">
+  <source src="klik.wav" type="audio/wav">
 Why doesn't your browser support the little audio player thing?
 </audio> 
 
@@ -69,7 +69,7 @@ Inspired by popular youtuber <r>Kliksphilip</r> and his father's music, I made t
 
 ## Ringer.mp3
 <audio controls>
-  <source src="other/music/ringer.mp3" type="audio/mp3">
+  <source src="ringer.mp3" type="audio/mp3">
 I beg of you, get a better browser
 </audio> 
 
@@ -79,7 +79,7 @@ This was just me goofily messing around, but I like it enough to put it here.
 
 ## Hyper2.mp3
 <audio controls>
-  <source src="other/music/hyper2.mp3" type="audio/mp3">
+  <source src="hyper2.mp3" type="audio/mp3">
 I beg of you, get a better browser
 </audio> 
 
@@ -89,7 +89,7 @@ A nice little melody I made, again, all of these need to be seriously developed 
 
 ## Cassiooo.mp3
 <audio controls>
-  <source src="other/music/cassiooo.mp3" type="audio/mp3">
+  <source src="cassiooo.mp3" type="audio/mp3">
 I beg of you, get a better browser PLEASE
 </audio> 
 
@@ -99,7 +99,7 @@ I made this one for a [Swag Weasels](/games/swag-weaselz) sequel, its currently 
 
 ## Steventest.mp3
 <audio controls>
-  <source src="other/music/steventest.mp3" type="audio/mp3">
+  <source src="steventest.mp3" type="audio/mp3">
 I beg of you, get a better browser PLEASE
 </audio> 
 
@@ -109,7 +109,7 @@ Another one inspired by the style of <r>Kliksphilip</r>'s father, <r>Steventhedr
 
 ## Fox.mp3
 <audio controls>
-  <source src="other/music/fox.mp3" type="audio/mp3">
+  <source src="fox.mp3" type="audio/mp3">
 I beg of you, get a better browser PLEASE
 </audio> 
 
@@ -119,7 +119,7 @@ Wowzers, another one inspired by them.. it's almost like the songs I listen to a
 
 ## Amelodiuswave.mp3
 <audio controls>
-  <source src="other/music/amelodiuswave.mp3" type="audio/mp3">
+  <source src="amelodiuswave.mp3" type="audio/mp3">
 I beg of you, get a better browser PLEASE
 </audio> 
 
