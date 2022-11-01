@@ -42,7 +42,7 @@ I made this one during the Polymars SEAJAM for my submission: [Trash and Lasers]
 ## Odd.mp4?? mp4?
 Yes, it's an mp4 file! A recording of FL Studio playing the track..
 
-I did it this way because I wanted you to see the layers that make up something like this, and not because <r>Magical 8bit Plug 2</r> was playing up and not exporting!
+I did it this way because I wanted you to see the layers that make up something like this, and not because <r>Magical 8bit Plug 2</r> was playing up and not exporting properly..
 
 <m><video controls style="width: 100%">
   <source src="odd.mp4" type="video/mp4">
