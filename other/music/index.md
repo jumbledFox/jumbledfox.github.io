@@ -15,7 +15,7 @@ I made these using lots of different (and probably quite goofy) methods. I use a
 Why doesn't your browser support the little audio player thing?
 </audio> 
 
-This is a little chiptune song I made quite some time ago, I used <r>Magical 8bit Plug 2</r> for the lovely sound.
+This is a little chiptune song I made quite some time ago, I used <r>Neochip</r> for the lovely sound.
 
 <hr>
 
@@ -42,7 +42,7 @@ I made this one during the Polymars SEAJAM for my submission: [Trash and Lasers]
 ## Odd.mp4?? mp4?
 Yes, it's an mp4 file! A recording of FL Studio playing the track..
 
-I did it this way because I wanted you to see the layers that make up something like this, and not because <r>Magical 8bit Plug 2</r> was playing up and not exporting properly..
+I did it this way because I wanted you to see the layers that make up something like this, and not because <r>Neochip</r> was playing up and not exporting properly..
 
 <m><video controls style="width: 100%">
   <source src="/other/music/odd.mp4" type="video/mp4">
@@ -53,7 +53,7 @@ I did it this way because I wanted you to see the layers that make up something 
 
 # _THE LATER YEARS_
 ## This stuff is more recent!
-Around this time I stopped using <r>Magical 8bit Plug 2</r> due to it always crashing!!! I switched over to a lovely synthesiser called <r>Prophanity</r>.
+Around this time I stopped using <r>Neochip</r> due to it always crashing!!! I switched over to a lovely synthesiser called <r>Prophanity</r>.
 
 <hr>
 
