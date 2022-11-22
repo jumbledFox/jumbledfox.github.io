@@ -19,7 +19,7 @@ Here are some things I've made...
 <foxhr>
 ## Other
 
-[Music](/other/music) - A collection of "songs" I've made, they're not the best, but I love 'em!
+[Music](/other/music) - A collection of chiptune songs I've made
 
 [jumbledFont](/other/jumbledFont) - A neat pixely font I made a while ago
 
