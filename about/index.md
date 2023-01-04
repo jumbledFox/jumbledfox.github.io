@@ -19,7 +19,7 @@ This website also uses [Twemoji](https://twemoji.twitter.com/) to make emojis lo
 <foxhr>
 
 # About Me ![](/images/transparent.png)
-My name is <r>jumbledFox</r>, and I'm a 15 year old programmer from the UK.
+My name is <r>jumbledFox</r>, and I'm a 16 year old programmer from the UK.
 
 When I'm not programming (procrastinating) I like to play games like <r>Half-Life</r>, <r>CS:GO</r>, and <r>Portal</r> - I love Valve games!
 

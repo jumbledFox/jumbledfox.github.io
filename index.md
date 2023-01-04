@@ -1,7 +1,7 @@
 # jumbledFox's website
 ## Welcome to my website!
 
-Hello, I'm jumbledFox! I'm a 15 year old programmer from the UK. [More Info](/about)
+Hello, I'm jumbledFox! I'm a 16 year old programmer from the UK. [More Info](/about)
 
 This is the janky website I made to show people my projects - I hope you like it!
 
