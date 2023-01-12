@@ -11,8 +11,7 @@
             }
         </style>
         <!-- Twemoji -->
-        <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
-
+        <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>     
         <script src="/loadstyle.js"></script>
 
         <script>
@@ -122,8 +121,7 @@
 
                         setInnerHTML(document.getElementById("main"), inh);
                         
-                        twemoji.parse(document.getElementById("main"));
-
+                        twemoji.parse(document.getElementById("main"), { base: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/' });
                         // For every link, if it's not a local link, open in a new tab
                         for(var i = 0; i < document.getElementsByTagName("A").length; i++) {
                             if(!document.getElementsByTagName("A")[i].href.startsWith(location.origin)) {
