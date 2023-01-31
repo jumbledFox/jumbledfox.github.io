@@ -21,7 +21,7 @@ This website also uses [Twemoji](https://twemoji.twitter.com/) to make emojis lo
 # About Me ![](/images/transparent.png)
 My name is <r>jumbledFox</r>, and I'm a 16 year old programmer from the UK.
 
-When I'm not programming (procrastinating) I like to play games like <r>Half-Life</r>, <r>CS:GO</r>, and <r>Portal</r> - I love Valve games! I've also been having cold showers for <span id="cold-showers">over a year</span> now!
+When I'm not programming (procrastinating) I like to play games like <r>Half-Life</r>, <r>CS:GO</r>, and <r>Portal</r> - I love Valve games! I've also been having cold showers for <span id="cold-showers">over a year</span> now.
 
 I also like to collect vinyl records, it's not like they're durable, quick to use, or easy to store, I just like having __proper__ physical media, no matter _how_ obsolete!
 
