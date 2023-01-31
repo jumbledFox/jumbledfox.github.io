@@ -21,7 +21,7 @@ This website also uses [Twemoji](https://twemoji.twitter.com/) to make emojis lo
 # About Me ![](/images/transparent.png)
 My name is <r>jumbledFox</r>, and I'm a 16 year old programmer from the UK.
 
-When I'm not programming (procrastinating) I like to play games like <r>Half-Life</r>, <r>CS:GO</r>, and <r>Portal</r> - I love Valve games!
+When I'm not programming (procrastinating) I like to play games like <r>Half-Life</r>, <r>CS:GO</r>, and <r>Portal</r> - I love Valve games! I've also been having cold showers for <span id="cold-showers">over a year</span> now!
 
 I also like to collect vinyl records, it's not like they're durable, quick to use, or easy to store, I just like having __proper__ physical media, no matter _how_ obsolete!
 
@@ -33,3 +33,17 @@ I love to go on long bike rides whilst listening to albums I like (Safely of cou
 My discord is <r>jumbledFox#7214</r>, feel free to add me!
 
 [Github](https://github.com/jumbledFox) - [Youtube](https://www.youtube.com/channel/UCT43846u33Nr688JELaGMmQ) - [Twitter](https://twitter.com/jumbledFox) - [Reddit](https://reddit.com/u/jumbledFox)
+
+<script>
+    // Live cold shower update
+    var date1 = new Date("10/22/2021");
+    var date2 = new Date();
+      
+    // To calculate the time difference of two dates
+    var Difference_In_Time = date2.getTime() - date1.getTime();
+      
+    // To calculate the no. of days between two dates
+    var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+
+    document.getElementById("cold-showers").innerHTML = Math.floor(Difference_In_Days) + " days";
+</script>
