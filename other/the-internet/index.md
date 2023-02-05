@@ -45,7 +45,7 @@ To hold the button on the back in place, I used a mess of hot glue.
 
 <foxhr>
 
-This is being given to my friend Jacob for his birthday, as he likes The IT Crowd, and it costed about a tenner.
+This is being given to my close friend Jacob for his birthday, as he likes The IT Crowd.
 
 <script>
     document.getElementById("footer").innerHTML += "<span> - January 2023</span>"
