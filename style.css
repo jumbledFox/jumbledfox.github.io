@@ -1,4 +1,6 @@
 :root {
+    image-rendering: pixelated;
+
     font-family: Arial, sans-serif;
     color: white;
 
@@ -18,8 +20,18 @@ a:visited {filter: brightness(70%);}
     color: rgb(var(--color-rainbow));
 }
 
+.gray {
+    -moz-filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    filter: gray; /* IE6-9 */
+    filter: grayscale(100%);
+}
+
 html {
     width: 100vw;
+    transition: -moz-filter 0.2s;
+    transition: -webkit-filter 0.2s;
+    transition: filter 0.2s;
 }
 
 body{

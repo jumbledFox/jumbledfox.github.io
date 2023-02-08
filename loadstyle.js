@@ -9,6 +9,7 @@ for (let i = 0; i < 2; i++) {
     document.getElementsByTagName("head")[0].appendChild(x);
 }
 
+
 var setuptimes = 0;
 function setup() {
     if(setuptimes == 0) {

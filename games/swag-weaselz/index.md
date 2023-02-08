@@ -10,6 +10,12 @@ You play as a hip and trendy weasel being barraged by an onslaught of cubic kill
 
 ---
 
+Here's the epic box art I made!!!
+
+<m>![SWAG DOOM](swagdoom.png)</m>
+
+---
+
 ## How to play
 Your first weapon of choice is a pistol, Moderately strong and quick to fire, however not to be outdone, your seconds weapon, an SMG, fires in infinite burts of accelerated auricular glory; however it's not as damaging as the former. Your third firearm packs quite a penetrative punch, this hefty shotgun may take some time to reload but boy does it fire, six times to be exact!
 

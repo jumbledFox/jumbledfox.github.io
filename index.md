@@ -1,26 +1,23 @@
-# jumbledFox's website
-## Welcome to my website!
+# Welcome to my website
 
-Hello, I'm jumbledFox! I'm a 16 year old programmer from the UK. [More Info](/about)
+Hello! I'm jumbledFox, a 16 year old programmer from the UK. [*ABOUT ME*](/about)
 
-This is the janky website I made to show people my projects - I hope you like it!
-
-Here are some things I've made...
+This is my website.
 
 <foxhr>
-## Games
+## [Games](/games)
 
-[Favibird](/games/favibird) - A flappy bird game played in the favicon
+[Favibird](/games/favibird) - A flappy bird game played in the favicon.
 
-[Trash and Lasers](/games/trash-and-lasers) - A game about destroying trash in the ocean with lasers! Made for the Polymars [SEAJAM](https://itch.io/jam/seajam)
+[Trash and Lasers](/games/trash-and-lasers) - A game about destroying trash in the ocean with lasers! Made for the Polymars [SEAJAM](https://itch.io/jam/seajam).
 
-[Swag Weaselz](/games/swag-weaselz) - Made in around a day, this simple scratch game about shooting blocky green enemies is weasel-tastic.
+[Swag Weaselz](/games/swag-weaselz) - Made in around a day, this simple scratch game about shooting blocky green enemies is weasel-tastic. <r>Now featuring some epic doom-style box art I drew!</r>
 
 <foxhr>
-## Other
+## [Other](/other)
 
-[Music](/other/music) - A collection of chiptune songs I've made
+[The Internet](/other/the-internet) - My homemade prop of The Internet from The IT Crowd.
 
-[jumbledFont](/other/jumbledFont) - A neat pixely font I made a while ago
+[jumbledFont](/other/jumbledFont) - A neat pixely font I made a while ago.
 
-[Paint.net palette layouts](/other/pdn-palettes) - Better layouts for some of my favourite Paint.net palettes
+[Music](/other/music) - A collection of chiptune songs I've made.

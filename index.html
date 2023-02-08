@@ -11,15 +11,16 @@
                 background-color: #000000;
             }
         </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
         <!-- Twemoji -->
         <script src="https://cdn.jsdelivr.net/npm/twemoji@12.0.0/2/twemoji.min.js" crossorigin="anonymous"></script>     
         <script src="/loadstyle.js"></script>
 
         <script>
-
             function loadpage(l) {
                 let withlove = true;
                 l = l.toLowerCase();
+                //if (l == "/other") {l = "/";}
                 let pagetorender = l.replace(/\/$/, "");
                 let path = window.location.origin + pagetorender + "/index.md";
                 // Look for the markdown file
@@ -192,6 +193,28 @@
                     oldScript.parentNode.replaceChild(newScript, oldScript);
                 });
             }
+
+            var addEvent = document.addEventListener ? function(target,type,action){
+                if(target){
+                    target.addEventListener(type,action,false);
+                }
+            } : function(target,type,action){
+                if(target){
+                    target.attachEvent('on' + type,action,false);
+                }
+            }
+
+            addEvent(document,'keydown',function(e){
+                e = e || window.event;
+                var key = e.which || e.keyCode;
+                if(key===84 && e.repeat == false){
+                    if (document.querySelector(':root').classList.contains("gray")) {
+                        document.querySelector(':root').classList.remove("gray");
+                    } else {
+                        document.querySelector(':root').classList.add("gray");
+                    }
+                }
+            });
         </script>
     </head>
     <body>
