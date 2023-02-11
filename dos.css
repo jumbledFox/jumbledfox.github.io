@@ -60,6 +60,16 @@ a.dl-button { border-bottom: none; }
     font-family: DOS, Monaco, Menlo, Consolas, "Courier New", monospace;
 }
 
+::-moz-selection { /* Code for Firefox */
+    color: darkblue;
+    background: cyan; 
+}
+  
+::selection {
+    color: darkblue;
+    background: cyan; 
+}
+
 img.emoji {
     height: 1.1em;
     position: relative;
