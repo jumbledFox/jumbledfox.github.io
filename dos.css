@@ -9,6 +9,7 @@
 html, body { 
     background-color: blue;
     margin: 0;   /* Remove body margins */
+    cursor : url(images/cursor.png), auto
 }
 #main-container {
     min-height: calc(100% - 2.2em);
@@ -91,7 +92,22 @@ a {
 }
 a:hover {
     background-color: white;
-    cursor: pointer;
+    cursor : url(images/pointer.png) 10 0, auto !important
+}
+p:hover {
+    cursor : url(images/textselect.png), auto
+}
+
+fieldset {
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 fieldset.foxhr {
