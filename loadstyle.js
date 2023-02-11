@@ -1,5 +1,6 @@
 // This loads all of the stuff like the style sheet, rainbow text, favicon, gradient, etc.
-document.writeln("<link rel='stylesheet' href='/style.css'>");
+document.writeln("");
+//document.writeln("<link rel='stylesheet' href='/dos.css'>");
 document.writeln("<link rel='icon' type='image/x-icon' href='' id='favicon'>");
 
 let scripts = ["https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js", "https://cdn.jsdelivr.net/remarkable/1.7.1/remarkable.min.js"];

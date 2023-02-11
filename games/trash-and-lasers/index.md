@@ -1,5 +1,5 @@
 # Trash and Lasers
-<div style="left:calc(50vw - 480px); width:100vw; position:absolute;">
+<div style="left:calc(50vw - 480px); width:1vw; position:absolute;">
 <iframe src="/games/trash-and-lasers/packaged/index.html" allowtransparency="true" width="960" height="590" frameborder="0" scrolling="no" allowfullscreen></iframe>
 </div>
 <div style="height:590"></div> <!-- Compensation-->

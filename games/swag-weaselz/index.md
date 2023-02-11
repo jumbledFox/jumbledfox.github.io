@@ -1,8 +1,7 @@
 # Swag Weasels
-<div style="left:calc(50vw - 360); width:100vw; position:absolute;">
-<iframe src="/games/swag-weaselz/packaged" allowtransparency="true" width="720" height="540" frameborder="0" scrolling="no" allowfullscreen></iframe>
+<div>
+<iframe style="display: block; margin-left: auto; margin-right: auto;" src="/games/swag-weaselz/packaged" allowtransparency="true" width="720" height="540" frameborder="0" scrolling="no" allowfullscreen></iframe>
 </div>
-<div style="height:540"></div> <!-- Compensation-->
 
 Swag Weasels is a quick little shoot-em-up I made in around a day for a friend of mine's birthday.
 
