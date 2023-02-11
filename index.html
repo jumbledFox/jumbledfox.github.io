@@ -210,10 +210,21 @@
                 e = e || window.event;
                 var key = e.which || e.keyCode;
                 if(key===84 && e.repeat == false){
-                    if (document.querySelector(':root').classList.contains("gray")) {
-                        document.querySelector(':root').classList.remove("gray");
-                    } else {
-                        document.querySelector(':root').classList.add("gray");
+                    var theme = document.getElementById('stylsht');
+                    if (theme.getAttribute('href') == '/style.css') {
+                        if (document.querySelector(':root').classList.contains("gray")) {
+                            window.location.reload();
+                            //document.querySelector(':root').classList.remove("gray");
+                        } else {
+                            document.querySelector(':root').classList.add("gray");
+                        }
+                        // console.log(document.getElementById("main").innerHTML.split(' '));
+                        // $("p").each(function()
+                        // {
+                        //     let s = this.innerHTML;
+                        //     console.log($('<p>test</p>').text());
+                        //     console.log($(s.split(' ')));
+                        // });
                     }
                 }
                 if(key===68 && e.repeat == false){

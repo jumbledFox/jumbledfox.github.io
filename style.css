@@ -29,9 +29,9 @@ a:visited {filter: brightness(70%);}
 
 html {
     width: 100vw;
-    transition: -moz-filter 0.2s;
+    /*transition: -moz-filter 0.2s;
     transition: -webkit-filter 0.2s;
-    transition: filter 0.2s;
+    transition: filter 0.2s;*/
 }
 
 body{
