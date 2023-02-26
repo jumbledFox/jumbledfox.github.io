@@ -21,3 +21,7 @@ This is my website.
 [jumbledFont](/other/jumbledFont) - A neat pixely font I made a while ago.
 
 [Music](/other/music) - A collection of chiptune songs I've made.
+
+<foxhr>
+
+[![Github](/images/githubbanner.gif)](https://www.github.com/jumbledFox)
