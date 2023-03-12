@@ -9,6 +9,25 @@ I made these using lots of different (and probably quite goofy) methods. I use a
 
 <foxhr>
 
+<r>/* This part of the page is new and cool!! */</r>
+# Tracker stuff
+
+Recently I've been using music tracker software instead of FL Studio, and I'm loving it! I use Schism Tracker.
+
+This is my first track, made in a few hours over a few days. (The video compressed to 4mb, making it even more authentic to the era!)
+
+<m><video controls style="width: 100%">
+  <source src="/other/music/oh.mp4" type="video/mp4">
+  In this day and age, your browser still does not support HTML video. I'm not mad, just disappointed.
+</video></m>
+
+<foxhr>
+
+<r>/* This part of the page older but still mostly cool. not enough to warrant exclamation marks though. */</r>
+
+
+# FL Studio stuff
+
 ## Chippy.wav
 <audio controls>
   <source src="/other/music/chippy.wav" type="audio/wav">
