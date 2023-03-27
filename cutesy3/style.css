@@ -4,8 +4,12 @@ body {
     overflow: hidden;
 }
 
+:root {
+    --grad: url("images/gradients/rainbow.png");
+}
+
 #background {
-    background: url("images/grad.png");
+    background: var(--grad);
     background-size: cover;
     background-repeat:round;
     width: 110%;
@@ -76,5 +80,10 @@ div.box>.body>*:not(.passthrough) {
     
 }
 
-.passthrough {
+img {
+    isolation: isolate;
+}
+
+.imgborder {
+    box-shadow: 0 0 6px 6px #777;
 }
