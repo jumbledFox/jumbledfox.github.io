@@ -1,0 +1,80 @@
+body {
+    margin : 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#background {
+    background: url("images/grad.png");
+    background-size: cover;
+    background-repeat:round;
+    width: 110%;
+    height: 100%;
+    position: fixed;
+    z-index: 0;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+}
+
+#checker {
+    background-image: url("images/background.png");
+    background-position: right 36px top 20px;
+    width: 110%;
+    height: 100%;
+    position: fixed;
+    z-index: -1;
+}
+
+#all {
+    height: 100%;
+    overflow-y: scroll;
+
+}
+
+#content {
+    overflow-x: hidden;
+    margin:0em auto;
+    max-width:40em;
+    padding:0 .62em;
+    font:1.2em/1.62 sans-serif;
+}
+
+div.box {
+    box-shadow: 0 0 6px 6px #444;
+}
+
+div.box>.title p {
+    color: #1A1C2C;
+    font-size: 2em;
+    margin: 0 0 0 .75em;
+    word-wrap:break-word;
+    font-weight: bold;
+}
+div.box>.title {
+    margin: 1.5em 0 0 0;
+
+    /*box-shadow: 15px 0 15px -4px #444, -15px 0 15px -4px #444, 0 -15px 15px -4px #444;*/
+
+    border: #fff solid 7px;
+
+    background-color: #fff;
+}
+div.box>.body {
+    margin: 0 0 2em 0;
+    padding: 1em 1.4em 1em 1.4em;
+    font-size: 1.2em;
+
+    /*box-shadow: 15px 0 15px -8px #444, -15px 0 15px -8px #444, 0 15px 15px -4px #444;*/
+    border: #fff solid 7px;
+    border-top: none;
+
+    background-color: #1A1C2C;
+}
+
+div.box>.body>*:not(.passthrough) {
+    color:white;
+    
+}
+
+.passthrough {
+}
