@@ -1,7 +1,8 @@
 body {
     margin : 0;
     padding: 0;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 :root {
@@ -22,7 +23,7 @@ body {
 
 #checker {
     background-image: url("images/background.png");
-    background-position: right 36px top 20px;
+    background-position: left 36px top 20px;
     width: 110%;
     height: 100%;
     position: fixed;
@@ -32,7 +33,6 @@ body {
 #all {
     height: 100%;
     overflow-y: scroll;
-
 }
 
 #content {
@@ -65,20 +65,24 @@ div.box>.title {
 }
 div.box>.body {
     margin: 0 0 2em 0;
-    padding: 1em 1.4em 1em 1.4em;
-    font-size: 1.2em;
+    padding: 0.2em 1.4em 1em 1.4em;
+    font-size: 1em;
 
     /*box-shadow: 15px 0 15px -8px #444, -15px 0 15px -8px #444, 0 15px 15px -4px #444;*/
     border: #fff solid 7px;
-    border-top: none;
 
     background-color: #1A1C2C;
+    background-color: #16192B;
 }
 
-div.box>.body>*:not(.passthrough) {
+.box>.body>*:not(.passthrough) {
     color:white;
-    
 }
+
+.body>:last-child {
+    margin-bottom: 0.5em;
+}
+
 
 img {
     isolation: isolate;
@@ -86,4 +90,18 @@ img {
 
 .imgborder {
     box-shadow: 0 0 6px 6px #777;
+    display: inline-block;
 }
+
+.container {
+    display: flex;
+  }
+.container_box {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+  
+.container_box:first-child > span { margin-left: auto; margin-right: 0;}
+  
+.container_box:last-child  > span { margin-right: auto; margin-left: 0; }
