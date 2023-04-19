@@ -65,10 +65,9 @@ div.box {
 
 }
 
-div.box>.title p {
+div.box>.title h1 {
     color: #1A1C2C;
-    font-size: 2em;
-    margin: 0em 0 -0.2em .75em;
+    margin: 0em 0em 0em .75em;
     word-wrap:break-word;
     font-weight: bold;
 }
