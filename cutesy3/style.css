@@ -26,6 +26,10 @@ div.box>:last-child {
     border-bottom-right-radius: 1.5em;
 }
 
+img {
+    isolation: isolate;
+}
+
 #background {
     background: var(--grad);
     background-size: cover;
@@ -89,6 +93,69 @@ div.box>.body {
     background-color: #1A1C2C;
     background-color: #16192B;
 }
+div.box>.breadcrumbs>p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+div.box>.breadcrumbs {
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+    border-radius: 20px;
+}
+
+ul.breadcrumb {
+    list-style: none;
+    margin-top: 0.5em;
+    padding: 0;
+    -webkit-user-select: none; /* Safari */        
+-moz-user-select: none; /* Firefox */
+-ms-user-select: none; /* IE10+/Edge */
+user-select: none; /* Standard */
+  }
+
+  
+#topnav {
+    overflow: hidden;
+    background-color: #16192B;
+    padding-left: 1em;
+    padding-top: .5em;
+    border-bottom: 7px #fff solid;
+}
+
+ul.breadcrumb> :last-child {
+    color:white;
+    -webkit-user-select:text; /* Safari */        
+    -moz-user-select: text; /* Firefox */
+    -ms-user-select: text; /* IE10+/Edge */
+    user-select: text; /* Standard */
+}
+  
+/* Display list items side by side */
+ul.breadcrumb li {
+    font:1.2em/1.62 sans-serif;
+    display: inline;
+}
+  
+/* Add a slash symbol (/) before/behind each list item */
+ul.breadcrumb li+li:before {
+    padding: 8px;
+    color: white;
+    content: "/\00a0";
+}
+  
+/* Add a color to all links inside the list */
+a, a:visited {
+    color: white;
+    text-decoration: underline;
+    text-decoration-color: #aaa;
+}
+  
+/* Add a color on mouse-over */
+a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
 
 .box>.body>*:not(.passthrough) {
     color:white;
@@ -96,11 +163,6 @@ div.box>.body {
 
 .body>:last-child {
     margin-bottom: 0.5em;
-}
-
-
-img {
-    isolation: isolate;
 }
 
 .imgborder {
