@@ -1,3 +1,0 @@
-# Error!
-## Something went wrong...
-:/

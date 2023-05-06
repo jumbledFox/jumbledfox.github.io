@@ -1,269 +1,77 @@
 <html>
     <head>
-        <meta name="google-site-verification" content="nRiiahgtB9hyxu967VfkDK6JiH_zwYynhnK9bcj1c7M" />
-        <link id="stylsht" rel='stylesheet' href='/style.css'>
-        <script src="/loadstyle.js"></script>
-
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-        <title>jumbledFox</title>
-        <meta content="jumbledFox's Website" property="og:title" />
-        <meta content="Hello, I'm jumbledFox! I'm a 16 year old programmer from the UK." property="og:description" />
-        <meta content="https://jumbledFox.github.io/images/favicon.png" property="og:image" />
-        <meta content="#EF7D57" data-react-helmet="true" name="theme-color" />
+        <title>Home</title>
+        <meta name="description" content="This is my website, home to projects and programs, and some of them work!">
+        <meta name="author" content="jumbledFox">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link id="favicon" rel="icon" type="image/png" href="/res/images/rainbow.png">
+        <link rel="stylesheet" href="/res/style.css">
         <style>
-            html {
-                background-color: #000000;
+            :root {
+                --grad: url("/res/images/gradients/rainbow.png");
             }
         </style>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-        <!-- Twemoji -->
-        <script src="https://cdn.jsdelivr.net/npm/twemoji@12.0.0/2/twemoji.min.js" crossorigin="anonymous"></script>     
-        
-        <script>
-            function loadpage(l) {
-                let withlove = true;
-                l = l.toLowerCase();
-                //if (l == "/other") {l = "/";}
-                let pagetorender = l.replace(/\/$/, "");
-                let path = window.location.origin + pagetorender + "/index.md";
-                // Look for the markdown file
-                fetch(path).then(function(response) {
-
-                    if (pagetorender == "/404") {
-                        withlove = false;
-                    }
-                    // Possible responses
-                    switch(response.status) {
-                        case 200:
-                            // Found the file, so render it
-                            break;
-                        case 404:
-                            // Didn't find the file, so render the 404 page
-                            withlove = false;
-                            pagetorender = "/404";
-                            break;
-                        default:
-                            // Something else happened, so render the error page
-                            pagetorender = "/error";
-                            withlove = false;
-                            break;
-                    }
-
-                    // Change the title
-                    
-                    pathlist = l.replace(/\/$/, "").split("/");
-                    document.title = (l == "/") ? "jumbledFox" : titlise(pathlist[pathlist.length - 1]);
-
-
-                    let pagetorenderExact = window.location.origin + pagetorender + "/index.md";
-
-
-                    // Set the link bar
-                    var linkbar = document.getElementById("linkbar");
-                    linkbar.innerHTML = "";
-                    for(var i = 0; i < pathlist.length; i++) {
-                        var link = document.createElement("a");
-                        link.href = (i != 0) ? pathlist.slice(0, i + 1).join("/") : "/";
-                        link.innerHTML = titlise((i != 0) ? pathlist[i] : "Home");
-                        linkbar.appendChild(link);
-
-                        if(i < pathlist.length - 1) {
-                            var separator = document.createElement("span");
-                            separator.innerHTML = " / ";
-                            linkbar.appendChild(separator);
-                        }
-                    }
-
-                                       
-                    // Set url if not already
-                    if(window.location.pathname != l) {
-                        window.history.pushState(l, "", l);
-                    }
-
-                    // Render the markdown file
-                    if(pagetorenderExact != path) {
-                        fetch(pagetorenderExact).then(function(response) { renderpage(response);});
-                    } else {
-                        renderpage(response);
-                    }
-                });
-
-                function renderpage(response) {
-                    const md = new Remarkable({
-                        html:true
-                    });
-
-                    response.text().then(function(text) {
-                        textsplit = text.split("<script");
-                        let inh = "";
-                        inh = md.render(textsplit[0] + "<div id='footer'> <foxhr>\nMade with " + ((withlove) ? "❤" : "😖") + " by <a href='/about'>jumbledFox</a> </div>\n");
-                        try {
-                            for (let i = 1; i < textsplit.length; i++) {
-                                inh += "<script" + textsplit[i];
-                            }
-                        } catch (Exception) {}
-
-                        try {
-                            stopLoop();
-                        } catch (Exception) {
-                            // No loop to stop
-                        }
-
-                        // Replace things
-
-                        inh = inh.replace(/<foxhr>/g, "<fieldset class='foxhr'><legend>🦊🏳️‍🌈🦊🏳️‍🌈🦊🏳️‍🌈🦊🏳️‍🌈🦊</legend></fieldset>");
-                        
-                        inh = inh.replace(/\!audio[(]/g, )
-
-                        inh = inh.replace(/<r>/g, "<span class='rainbow'>");
-                        inh = inh.replace(/<\/r>/g, "</span>");
-                        inh = inh.replace(/<m>/g, "<span class='middle'>");
-                        inh = inh.replace(/<\/m>/g, "</span>");
-                        inh = inh.replace(/<ro><img/g, "<img class='rainbowoutline' ");
-                        inh = inh.replace(/<imgrs><img/g, "<img style='width: 100%; height: auto;'")
-                        inh = inh.replace(/<imgrs50><img/g, "<img style='width: 50%; height: auto;'")
-                        inh = inh.replace(/<imgrsm><img/g, "<img style='width: 20%; height: auto;'")
-                        //inh = inh.replace(/<a/g, "<a target='_blank'");
-
-                        setInnerHTML(document.getElementById("main"), inh);
-                        
-                        twemoji.parse(document.getElementById("main"), { base: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/' });
-                        // For every link, if it's not a local link, open in a new tab
-                        for(var i = 0; i < document.getElementsByTagName("A").length; i++) {
-                            if(!document.getElementsByTagName("A")[i].href.startsWith(location.origin)) {
-                                document.getElementsByTagName("A")[i].target = "_blank";
-                            }
-                        }
-
-                        // For every image
-                        let images = document.getElementsByTagName("IMG");
-                        for (var i = 0; i < images.length; i++) {
-                            // Decode outerHTML to get the src
-
-                            // TODO: This doesnt work with hash fragments and ?'s, but, not to sound dispassionate, I don't really care
-                            let imgSrc = (images[i].outerHTML).split("src=\"")[1].split("\"")[0];
-                            // If the src is local
-                            if (!imgSrc.startsWith("https://") || imgSrc.startsWith("http://")) {
-                                if (imgSrc.startsWith("/")) {
-                                    // Absolute path
-                                    images[i].src = window.location.origin.split("?")[0].split("#")[0] + imgSrc;
-                                } else {
-                                    // Relative path
-                                    images[i].src = window.location.href.split("?")[0].split("#")[0] + "/" + imgSrc;
-                                }
-                            }
-                        }
-
-                        // Setup
-                        setup();
-                    });
-                }
-
-                function titlise(t) { // An AI wrote this function... I hope it works properly
-                    return t.replace("-", " ").replace(/\b\w/g, function(l) {
-                        return l.toUpperCase();
-                    });
-                }
-            }
-            onload = function() {
-                // shamelessly stolen from https://github.com/rafgraph/spa-github-pages/blob/v6.0.0/index.html
-                (function(l) {
-                    if (l.search[1] === '/' ) {
-                    var decoded = l.search.slice(1).split('&').map(function(s) { 
-                        return s.replace(/~and~/g, '&')
-                    }).join('?');
-                    window.history.replaceState(null, null,
-                        l.pathname.slice(0, -1) + decoded + l.hash
-                    );
-                    }
-                }(window.location));
-
-                loadpage(window.location.pathname);
-            }
-
-            window.onpopstate = function(event) {
-                loadpage(window.location.pathname);
-            }
-
-            // shamelessly stolen from https://stackoverflow.com/questions/2592092/executing-script-elements-inserted-with-innerhtml
-            var setInnerHTML = function(elm, html) {
-                elm.innerHTML = html;
-                Array.from(elm.querySelectorAll("script")).forEach( oldScript => {
-                    const newScript = document.createElement("script");
-                    Array.from(oldScript.attributes)
-                    .forEach( attr => newScript.setAttribute(attr.name, attr.value) );
-                    newScript.appendChild(document.createTextNode(oldScript.innerHTML));
-                    oldScript.parentNode.replaceChild(newScript, oldScript);
-                });
-            }
-
-            var addEvent = document.addEventListener ? function(target,type,action){
-                if(target){
-                    target.addEventListener(type,action,false);
-                }
-            } : function(target,type,action){
-                if(target){
-                    target.attachEvent('on' + type,action,false);
-                }
-            }
-
-            addEvent(document,'keydown',function(e){
-                e = e || window.event;
-                var key = e.which || e.keyCode;
-                if(key===84 && e.repeat == false){
-                    var theme = document.getElementById('stylsht');
-                    if (theme.getAttribute('href') == '/style.css') {
-                        if (document.querySelector(':root').classList.contains("gray")) {
-                            window.location.reload();
-                            //document.querySelector(':root').classList.remove("gray");
-                        } else {
-                            document.querySelector(':root').classList.add("gray");
-                        }
-                        // console.log(document.getElementById("main").innerHTML.split(' '));
-                        // $("p").each(function()
-                        // {
-                        //     let s = this.innerHTML;
-                        //     console.log($('<p>test</p>').text());
-                        //     console.log($(s.split(' ')));
-                        // });
-                    }
-                }
-                if(key===68 && e.repeat == false){
-                    var theme = document.getElementById('stylsht');
-                    
-                    if (theme.getAttribute('href') == '/style.css') {
-                        theme.setAttribute('href', '/dos.css');
-                    } else {
-                        theme.setAttribute('href', '/style.css');
-                    }
-                }
-            });
-        </script>
     </head>
     <body>
-        <!--
-        #
-        #
-        #
-        # My god-awful code lies above
-        # Please... for your own good
-        #
-        #
-        #
-        #
-        #
-        #
-        #
-        #
-        #
-        #
-        #
-        #
+        <div id="background"></div>
+        <div id="all">
+        <div id="checker"></div>
+        <div id="topnav"><ul class="breadcrumb"><li>Welcome to my website!</li></ul>
+</div>
+        <div id="content">
+            <div class="box">
+<div class="title">
+<h1>Hello! :3</h1>
+</div><div class="body">
+<p>Hello! I'm jumbledFox, a 16 year old programmer from the UK.
+This is my epic website.</p>
+</div></div>
+<div class="box">
+<div class="body">
+<h1>THINGS I'VE DONE</h1>
+<h2><em>GAMES</em></h2>
+<p>I've made a few games in my time, some more than others.. Here they are in all their glory.</p>
+<p><a href="/games/swag-weaselz">Swag Weaselz</a> - Made in around a day, this simple scratch game about shooting blocky green enemies is weasel-tastic. Now featuring some epic doom-style box art I drew!</p>
+<p><a href="/games/trash-and-lasers">Trash and Lasers</a> -  A game about destroying trash in the ocean with lasers! Made for the Polymars <a href="https://itch.io/jam/seajam">SEAJAM</a>.</p>
+<p><a href="/games/favibird">Favibird</a> - A flappy bird game played in the favicon.</p>
+</div><div class="body">
+<h2><em>Electronics</em></h2>
+<p>From gizmos to gadgets, I like to tinker. Here are some physical things I've made, more to come in the future.</p>
+<p><a href="/projects/the-internet">The Internet</a> - My homemade prop of The Internet from The IT Crowd.</p>
+<p><a href="/projects/led-flashing-light-mask">LED Flashing Light Mask</a> - An eye mask that flashes red light at a user-defined speed and brightness. Made for my mum</p>
+<h2><em>Other various projects</em></h2>
+<p><a href="/projects/jumbledfont">jumbledFont</a> - A neat pixely font I made a while ago.</p>
+</div></div>
+<div class="box">
+<div class="body">
+<h1>ABOUT ME</h1>
+<p>Hello!!! You can call me jumbledFox. I program in Rust, Python, and C++, as well as the occasional website overhaul.</p>
+<p>I'm only recently learning Rust after a good few years of C++, getting used to it is going to take some time!</p>
+<p>My favourite bands are probably The Police and Genesis currently, however recently I've been getting into artists like 100 gecs, and I really love them!!!!</p>
+<p>I love Half-Life, CS:GO, and Portal, they're some of my favourite games and huge inspirations in my projects :3</p>
+<p>I've been having cold showers for <span id="coldshowers">---</span> days now</p>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    // Live cold shower update
+    var date1 = new Date("10/22/2021");
+    var date2 = new Date();
 
-        -->
-        <div id="linkbar"></div>
-        <div id="main-container">
-        <div id="main"></div>
+    var Difference_In_Time = date2.getTime() - date1.getTime();
+
+    var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+
+    document.getElementById("coldshowers").innerHTML = Math.floor(Difference_In_Days) + " days";
+});
+</script>
+<p>My discord is <r>jumbledFox#7214</r>, feel free to add me!</p>
+<p><a href="https://github.com/jumbledFox">Github</a></p>
+</div><div class="body">
+<h1>ABOUT THIS WEBSITE</h1>
+<p>This website was generated with my static website generator <a href="https://github.com/jumbledFox/Sting">Sting</a>, named after Sting of 'The Police' fame.</p>
+<p>I designed it myself, it uses the css mix-blend-mode multiply to make anything the background image, which I think looks really nice!!</p>
+</div></div>
+
+        </div>
         </div>
     </body>
 </html>
