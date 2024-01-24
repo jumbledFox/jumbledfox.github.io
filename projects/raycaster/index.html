@@ -1,0 +1,118 @@
+<html>
+    <head>
+        <title>Raycaster</title>
+        <meta name="description" content="Little rust raycaster, work in progress">
+        <meta name="author" content="jumbledFox">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link id="favicon" rel="icon" type="image/png" href="/res/images/rainbow.png">
+        <link rel="stylesheet" href="/res/style.css">
+        <style>
+            :root {
+                --grad: url("/res/images/gradients/rainbow.png");
+            }
+        </style>
+    </head>
+    <body>
+        <div id="background"></div>
+        <div id="all">
+        <div id="checker"></div>
+        <div id="topnav">
+<ul class="breadcrumb">
+<li><a href="/">Home</a></li><li><a href="/projects/">Projects</a></li><li>Raycaster</li>
+</ul></div>
+        <div id="content">
+            <div class="box">
+<div class="title">
+<h1>Raycaster</h1>
+</div><div class="body">
+<p>After a pretty large creative drought, I decided to start work on a little raycaster. It's not finished yet (and may never be..)</p>
+<p>Here's what I've got so far!
+<img src="untextured.gif" alt="Walking around the scene" /></p>
+</div></div>
+<div class="box">
+<div class="title">
+<h1>Programming...</h1>
+</div><div class="body">
+<h2>The beginning...</h2>
+<p>I wanted to make this in the (in my (correct) opinion) best programming language, Rust.</p>
+<p>To start off with, I'd have to make a window. I'm not gonna make this in the console, am I? Who do you take me for??</p>
+<p>So, I had to pick a graphics library. I rifled through the <em>many</em> Rust graphics libraries and settled on <a href="https://github.com/parasyte/pixels">Pixels</a>, which should be good as I'm making a software renderer and don't need things like sprites and fancy abstractions. Pixels basically gives you an array of colour values to do whatever you want with, which is perfect.</p>
+<p>So, with pixels installed, I made my first window, nothing to write home about but, it works!</p>
+<p><img src="firstwindow.JPG" alt="A window filled with blue" /></p>
+<h2>Drawing a map</h2>
+<p>Before I can make it 3D and all that jazz, I should first make a 2d top-down view of the world. This made debugging and figuring out what to do much easier.</p>
+<p>To draw shapes I used a nice crate called <a href="https://github.com/fekie/pixels-primitives">pixels_primitives</a>, however the rect function used floats and I didn't want to have to convert between my PURE integer values EACH FRAME, so I made my own little rect function, doesn't have bounds checking, but I trust myself not to mess up.</p>
+<p><img src="draw_rect.PNG" alt="My own draw_rect function" /></p>
+<h2>Casting a ray</h2>
+<p>I made a simple 2D map with a player, and rendered it all with those lovely functions from before. The player (a green circle) points towards the mouse (a red circle) and casts a ray (it's hit point being shown as a grey circle). The smaller grey circles represent each step the ray takes forward.</p>
+<p><img src="naive.PNG" alt="The map being rendered with the player casting a ray towards the mouse" /></p>
+<p>Currently, this is a pretty naive approach. The ray moves a fixed amount forward each time, which works, but is bad!! It can easily miss corners and other parts of the map like so...</p>
+<p><img src="naivemissing.PNG" alt="A ray being shot and passing through some geometry, due to it's fixed step size" /></p>
+<p>What we NEED is something that takes the largest amount of steps possible, without missing any squares, some kind of.. <a href="https://www.youtube.com/watch?v=NbSee-XM7WA">Algorithm</a>, <a href="https://www.permadi.com/tutorial/raycast/rayc1.html">but where to find</a> such a thing <a href="https://lodev.org/cgtutor/raycasting.html">on the internet?</a></p>
+<p>All kidding aside, those three pages linked above, among many others, were a massive help in understanding the maths behind this. They use an algorithm called DDA, which steps through a grid optimally without missing any cells. I'm not even going to try to explain it myself as any attempt will be a futile bastardisation of the formers.</p>
+<p>With the DDA algorithm implemented, we now have this! No misses! (I also drew the players direction vector and camera plane, as well as added coloured cells)
+<img src="dda.PNG" alt="New DDA algorithm not missing a single cell" /></p>
+<p>just LOOK at the way it handles corners! Beautiful!
+<img src="ddacorner.PNG" alt="New DDA algorithm not missing a single cell" /></p>
+<h2>THREE DIMENSIONS</h2>
+<h3>(Not really, just some maths)</h3>
+<p>Ok.. we have a reliable raycasting function, plus some general boilerplate, now to make it look 3D!</p>
+<p>At first things were a bit goofy...
+<img src="3d-goof.PNG" alt="Goofy drawing" /></p>
+<p>But I ended up with this! It looks great!
+<img src="first-3d.PNG" alt="3D view &quot;working&quot;" />
+<img src="first-3d2.PNG" alt="3D view &quot;working&quot;, showcasing bulge" /></p>
+<p>Ok.. I'm lying, that doesn't look good. It looks pretty awful! Aside from the poor choice of colours (I just wrote down hex codes without using a colour picker haha), it's all bulgy!!</p>
+<p>What to do??
+Well, this is because we're getting the distance from the player to the wall, as opposed to the camera plane to the wall.</p>
+<p>I drew a diagram and wrote an explanation, the diagram is nice so I'll keep it, but my explanation was awful, <a href="https://www.permadi.com/tutorial/raycast/rayc8.html">click here for a GOOD one</a>.
+<img src="length-diagram.PNG" alt="Diagram of what I (poorly) explained above" /></p>
+<p>To get the correct distance, some trigonometry tells us that we should divide the distorted distance by the cosine of the angle. Thank you, <a href="https://permadi.com">permadi.com</a>!</p>
+<p>After applying this fix, as well as making the colours look way nicer, we have this! Beautiful! (This is using a modified version of the Sweetie 16 colour palette)
+<img src="no-bulge-beautiful.PNG" alt="3D view with much nicer colours and no distortion!" /></p>
+<p>And here it is in motion, with lovely head bobbing smooth movement! (The gif is a little bit choppy)
+<img src="untextured.gif" alt="Walking around the scene" /></p>
+</div><div class="body">
+<h2>Silly bit before I delve into textures</h2>
+<p>I remembered a <a href="https://youtu.be/svLzmFuSBhk?si=G3pMY1OmrFuBGO4J&amp;t=231">video by Codeparade about raymarching</a>, and how you can make a world infinite by simply taking the modulus of the position of the ray. And then I remembered I have free will! I am human!! I could do the same!!!! The world is my oyster!!!!!</p>
+<p>So yeah, for a brief period worlds looped indefinitely which was quite silly I think :3
+<img src="modworld.gif" alt="Walking around the INFINITE scene" /></p>
+</div><div class="body">
+<h2>A brief bit of text before I add textures</h2>
+<p>Ok, I'm gonna level with you, I think the plain version looks way nicer. It's so clean and stylised! However, textures are a super useful thing, and I might as well at least attempt to add them.</p>
+<p>You might notice that at the START of the page, I'm showing off the untextured version. This is because I think it looks nicer, and the code for textures is still a little bit choppy (tried to revamp headbob and some other polish, now they don't work haha).</p>
+<h2>Textures</h2>
+<p>I made this weird debug texture (hadn't implemented texture loading yet so it was literally just an array of rgba values lol) and did some funny code and it works!
+<img src="texture-notworking1.PNG" alt="Standing in scene with weird debug texture" /></p>
+<p>Wait.. no it doesn't
+<img src="texture-notworking2.PNG" alt="Standing in scene with weird debug texture, NOT working" /></p>
+<p>This was a simple fix however (I'm lying)</p>
+<p>Here's it fixed, with a much nicer texture that I drew :3 (plus a NEW minimap!)
+<img src="texture-working.PNG" alt="Looking at nice brick texture" /></p>
+<h2>Mirrors</h2>
+<p>I also tried adding mirrors, however this was in the span of about an hour, and I was tired and hungry. It's a wonder it even sort of works!</p>
+<p>It also has weird graphics from when I was trying to debug things haha.
+<img src="mirror.PNG" alt="Looking into a &quot;mirror&quot;" /></p>
+<p>Honestly the mirror code was so awful, I'm gonna revert to the last commit and not even attempt to salvage it.</p>
+</div></div>
+<div class="box">
+<div class="title">
+<h1>Next steps</h1>
+</div><div class="body">
+<p>I'll be adding more to this soon, although this page might not update for a while.</p>
+<p>Currently the github is private because I'm still working on it, and the code is AWFUL, however if you really want to see the code do shoot me a message on discord or reddit and I'll make it public, just for you!!</p>
+</div></div>
+<div class="box">
+<div class="title">
+<h1>Addendum</h1>
+</div><div class="body">
+<p>I know the explanations and examples are a little bit crude, I mention raycasting-related phrases and buzzwords like you automatically know what I'm talking about.</p>
+<p>This page isn't meant as a tutorial to anyone, more to document something I've been working on and make sure it doesn't just rot on my hard drive forever!</p>
+<p>Please do check out the many links scattered around this page for intuitive and all round better explanations. &lt;3</p>
+<p>January 2024</p>
+</div></div>
+
+        </div>
+        </div>
+    </body>
+</html>
