@@ -67,7 +67,7 @@
 Well, this is because we're getting the distance from the player to the wall, as opposed to the camera plane to the wall.</p>
 <p>I drew a diagram and wrote an explanation, the diagram is nice so I'll keep it, but my explanation was awful, <a href="https://www.permadi.com/tutorial/raycast/rayc8.html">click here for a GOOD one</a>.
 <img src="length-diagram.png" alt="Diagram of what I (poorly) explained above" /></p>
-<p>To get the correct distance, some trigonometry tells us that we should divide the distorted distance by the cosine of the angle. Thank you, <a href="https://permadi.com">permadi.com</a>!</p>
+<p>To get the correct distance, some trigonometry tells us that we should multiply the distorted distance by the cosine of the angle. Thank you, <a href="https://permadi.com">permadi.com</a>!</p>
 <p>After applying this fix, as well as making the colours look way nicer, we have this! Beautiful! (This is using a modified version of the Sweetie 16 colour palette)
 <img src="no-bulge-beautiful.PNG" alt="3D view with much nicer colours and no distortion!" /></p>
 <p>And here it is in motion, with lovely head bobbing smooth movement! (The gif is a little bit choppy)
