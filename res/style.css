@@ -5,10 +5,6 @@ body {
     overflow-y: hidden;
 }
 
-:root {
-    --grad: url("images/gradients/rainbow.png");
-}
-
 canvas {
     image-rendering: pixelated;
 }
@@ -66,7 +62,7 @@ img {
 }
 
 #content {
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     margin:0em auto;
     max-width:40em;
     padding:0 .62em;
@@ -92,6 +88,7 @@ div.box>.title {
 
     background-color: #fff;
 }
+
 div.box>.body {
     padding: 0.2em 1.4em 1em 1.4em;
     font-size: 1em;
@@ -102,10 +99,12 @@ div.box>.body {
     background-color: #1A1C2C;
     background-color: #16192B;
 }
+
 div.box>.breadcrumbs>p {
     margin-top: 0;
     margin-bottom: 0;
 }
+
 div.box>.breadcrumbs {
     padding-top: 0.3em;
     padding-bottom: 0.3em;
@@ -113,15 +112,11 @@ div.box>.breadcrumbs {
 }
 
 ul.breadcrumb {
+    color: #fff;
     list-style: none;
     margin-top: 0.5em;
     padding: 0;
-    -webkit-user-select: none; /* Safari */        
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* IE10+/Edge */
-    user-select: none; /* Standard */
 }
-
   
 #topnav {
     overflow: hidden;
@@ -129,14 +124,6 @@ ul.breadcrumb {
     padding-left: 1em;
     padding-top: .5em;
     border-bottom: 7px #fff solid;
-}
-
-ul.breadcrumb> :last-child {
-    color:white;
-    -webkit-user-select:text; /* Safari */        
-    -moz-user-select: text; /* Firefox */
-    -ms-user-select: text; /* IE10+/Edge */
-    user-select: text; /* Standard */
 }
   
 /* Display list items side by side */

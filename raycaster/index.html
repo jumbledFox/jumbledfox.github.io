@@ -1,0 +1,115 @@
+<html>
+    <head>
+        <link id="favicon" rel="icon" type="image/png" href="/res/images/favicon.png">
+
+        <title>Raycaster</title>
+        <meta name="description" content="A little work-in-progress raycaster written in Rust, not finished but one day I'd love to get back to it!">
+        <meta name="author"      content="jumbledFox">
+        <link rel="stylesheet" href="/res/style.css">
+        <style>:root { --grad: url("/res/images/gradients/rainbow.png"); }</style>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div id="background"></div>
+        <div id="all">
+        <div id="checker"></div>
+        <div id="topnav">
+            <ul class="breadcrumb"><li><a href="/">Home</a></li><li>Raycaster</li> </ul>
+        </div>
+        <div id="content">
+            <base href="/raycaster/"><div class="box">
+<div class="title">
+<h1>Raycaster</div></h1>
+<div class="body">
+<p>After a pretty large creative drought, I decided to start work on a little raycaster. It's not finished yet (and may never be..)</p>
+<p>Here's what I've got so far!
+<img src="untextured.gif" alt="Walking around the scene" /></p>
+</div>
+</div>
+<div class="box">
+<div class="title">
+<h1>Programming</div></h1>
+<div class="body">
+<h2>The beginning...</h2>
+<p>I wanted to make this in my favourite programming language, Rust.</p>
+<p>To start off with, I'd have to make a window. So, I had to pick a library.</p>
+<p>I rifled through the many Rust libraries for this kind of thing, and settled on Pixels, which should be good as I'm making a software renderer and don't need things like sprites and other fancy abstractions.</p>
+<p>Pixels basically gives you an array of colour values to do whatever you want with, which is perfect.</p>
+<p>So, with pixels installed, I made my first window, nothing to write home about but, it works!</p>
+<p><img src="firstwindow.jpg" alt="A screenshot of an empty window." /></p>
+<hr />
+<h2>Drawing a map</h2>
+<p>Before I made it 3D and all that jazz, I first implemented a 2d top-down view of the world. This made debugging and figuring out what to do much easier.</p>
+<p>To draw shapes I used a nice crate called <a href="https://github.com/fekie/pixels-primitives">pixels_primitives</a>, which has a bunch of handy functions!</p>
+<hr />
+<h2>Casting a ray</h2>
+<p>So, I have a simple 2d map implemented and rendered with all those lovely functions from before. The player (the green circle) points towards the mouse (the red circle) and casts a ray (it's hit point being shown as the larger, empty gray circle).</p>
+<p>The smaller gray circles along the ray represent each step it takes forward to see if it's intersecting with the map.</p>
+<p><img src="naive.png" alt="A screenshot of the player in the 2d top-down map, casting a ray." /></p>
+<p>Currently, this is a pretty naive approach. The ray moves a fixed amount forward each time, which works, but is bad!! It can easily miss corners and other parts of the map like so...</p>
+<p><img src="naivemissing.png" alt="A screenshot of a ray passing through some geometry due to it's fixed step size." /></p>
+<p>What we NEED is something that steps through a grid, taking the smallest number of steps without missing any squares, some kind of algorithm, and thankfully, such an algorithm exists! It's called the DDA algorithm, and many people much smarter than I have written about this exact topic.</p>
+<p>Here are some links I found very useful:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=NbSee-XM7WA">javidx9 (AKA One Lone Coder)'s YouTube video</a></li>
+<li><a href="https://lodev.org/cgtutor/raycasting.html">This brilliant article by Lode Vandevenne</a></li>
+<li><a href="https://www.permadi.com/tutorial/raycast/rayc1.html">This equally brilliant article on permadi.com</a></li>
+</ul>
+<p>After implementing the DDA algorithm, the ray now never misses!</p>
+<p>I also took the liberty of adding coloured cells and drawing some more useful debug info.</p>
+<p><img src="dda.png" alt="A screenshot of the DDA algorithm implemented and working." /></p>
+<p>Just look at the way it handles corners, beautiful!</p>
+<p><img src="ddacorner.png" alt="A screenshot of a ray being cast, not missing a corner due to the epic DDA algorithm." /></p>
+<hr />
+<h2>Three dimensions!</h2>
+<p>Ok.. we have a reliable raycasting function, plus some general boilerplate, now to make it look 3D!</p>
+<p>At first things were a bit goofy...
+<img src="3d-goof.png" alt="The 3D view all goofy." /></p>
+<p>But I ended up with this! It looks great!
+<img src="first-3d.png" alt="The 3D view working." /></p>
+<p><img src="first-3d2.png" alt="The 3D view working, with weird perspective bulge." /></p>
+<p>Ok.. I'm lying, that doesn't look good. It looks pretty awful actually! Aside from the poor choice of colours (I just wrote down hex codes without using a colour picker), it's all bulgy!!</p>
+<p>What to do? Well, this is because we're getting the distance from the player to the wall, as opposed to the camera plane to the wall.</p>
+<p>I drew a diagram and wrote an explanation, the diagram is nice so I'll keep it, but my explanation was awful. <a href="https://www.permadi.com/tutorial/raycast/rayc8.html">Click here for a good one</a></p>
+<p><img src="length-diagram.png" alt="Diagram of what I (poorly) explained above" /></p>
+<p>After applying this fix, as well as making the colours look way nicer, we have this! Beautiful! (This is using a modified version of the Sweetie 16 colour palette)</p>
+<p><img src="no-bulge-beautiful.png" alt="3D view with much nicer colours and no distortion!" /></p>
+<p>And here it is in motion, with lovely head bobbing smooth movement! (The gif is a little bit choppy)</p>
+<p><img src="untextured.gif" alt="A gif of the player walking around the world." /></p>
+<hr />
+<h2>Brief tangent</h2>
+<p>I remembered a <a href="https://www.youtube.com/watch?t=231&amp;v=svLzmFuSBhk&amp;feature=youtu.be">video by Codeparade about raymarching</a>, and how you can make a world infinite by simply taking the modulus of the position of the ray.</p>
+<p>I implemented this, making the world loop indefinitely, and thought it made a very neat effect! :3</p>
+<p><img src="modworld.gif" alt="A gif of the player walking around the infinitely looping world." /></p>
+<hr />
+<h2>Textures</h2>
+<p>I'm gonna level with you, I think the plain version looks way nicer. It's so clean and stylised! However, textures are a super useful thing, and present in most raycasters, so I might as well at least attempt to add them.</p>
+<p>You might notice that at the start of the page I'm showing off the untextured version. This is because I think it looks nicer, and the code for textures is still a little bit choppy (I tried to revamp the head-bobbing effect and some other polish, and now they don't work).</p>
+<p>I made this weird debug texture (hadn't implemented texture loading yet so it was literally just an array of rgba values) and did some funny code and it works!</p>
+<p><img src="texture-notworking1.png" alt="A screenshot of the world with the weird debug texture." /></p>
+<p>Wait.. no it doesn't</p>
+<p><img src="texture-notworking2.png" alt="A screenshot of the world with the weird debug texture, being incorrectly stretched due to clipping." /></p>
+<p>This was a simple fix however, so I implemented it, added a nicer texture that I drew, and a minimap.</p>
+<p><img src="texture-working.png" alt="A screenshot of the world with the nice brick texture" /></p>
+<hr />
+<h2>Mirrors</h2>
+<p>I also tried adding mirrors, however this was in the span of about an hour, and I was tired and hungry. It's a wonder it even sort of works!</p>
+<p>It also has weird graphics from when I was trying to debug things.</p>
+<p><img src="mirror.png" alt="A screenshot of the weird buggy mirrors." /></p>
+<p>Honestly the mirror code was so awful, I reverted to the last commit and pretended it never happened.</p>
+</div>
+</div>
+<div class="box">
+<div class="title">
+<h1>Conclusion</div></h1>
+<div class="body">
+<p>I know the explanations and examples are a little bit crude, I mention raycasting-related phrases and buzzwords and expect you to automatically know what I'm going on about.</p>
+<p>This page isn't meant as a tutorial to anyone, more to document something I've been working on and make sure it doesn't just rot on my hard drive forever!</p>
+<p>Please do check out the many links scattered around this page for intuitive and all round better explanations. &lt;3</p>
+<p>January 2024</p>
+</div>
+</div>
+        </div>
+        </div>
+    </body>
+</html>

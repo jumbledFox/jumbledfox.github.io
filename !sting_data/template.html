@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <link id="favicon" rel="icon" type="{!sting_config_favicon_type}" href="{!sting_config_favicon_href}">
+
+        <title>{!sting_config_title}</title>
+        <meta name="description" content="{!sting_config_description}">
+        <meta name="author"      content="{!sting_config_author}">
+        <link rel="stylesheet" href="/res/style.css">
+        <style>:root { --grad: url("{!sting_config_background}"); }</style>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div id="background"></div>
+        <div id="all">
+        <div id="checker"></div>
+        <div id="topnav">
+            {!sting_breadcrumbs}
+        </div>
+        <div id="content">
+            {!sting_replace}
+        </div>
+        </div>
+    </body>
+</html>
