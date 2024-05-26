@@ -14,7 +14,52 @@
         <div id="all">
         <div id="checker"></div>
         <div id="topnav">
-            <ul class="breadcrumb"><li><a href="/">Home</a></li><li>Favibird</li> </ul>
+            <script>
+                // Dear god, I hate JS.
+                let topnav = document.getElementById("topnav");
+                let breadcrumbs = document.createElement("ul");
+                breadcrumbs.classList.add("breadcrumb");
+
+                function titleCase(str) {
+                    return str.replace(/-/g, ' ').toLowerCase().split(' ').map(function (word) {
+                        return (word.charAt(0).toUpperCase() + word.slice(1));
+                    }).join(' ');
+                }
+
+                let split_path = window.location.pathname.split('/').filter(p => p !== "");
+
+                if (split_path.length === 0) {
+                    let li = document.createElement("li");
+                    li.textContent = "Welcome to my website!";
+                    breadcrumbs.appendChild(li);
+                } else {
+                    let home_li = document.createElement("li");
+                    let home_a = document.createElement("a");
+                    home_a.href = "/";
+                    home_a.textContent = "Home";
+                    home_li.appendChild(home_a);
+                    breadcrumbs.appendChild(home_li);
+
+                    for (let i = 0; i < split_path.length; i++) {
+                        let li_name = titleCase(split_path[i]);
+
+                        let li = document.createElement("li");
+
+                        if (i == split_path.length - 1) {
+                            li.textContent = li_name;
+                        } else {
+                            let a = document.createElement("a");
+                            a.href = "/" + split_path.slice(0, i+1).join("/");
+                            a.textContent = li_name;
+                            li.appendChild(a);
+                        }
+                        
+                        breadcrumbs.appendChild(li);
+                    }
+                }
+
+                topnav.appendChild(breadcrumbs);
+            </script>
         </div>
         <div id="content">
             <base href="/favibird/"><div class="box">
