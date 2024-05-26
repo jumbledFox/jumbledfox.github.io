@@ -7,7 +7,7 @@ Sting is a program a I wrote in Rust that turns a bunch of markdown files into a
 
 I use it to generate my website! Writing a bunch of HTML files is awful as there's loads of boilerplate, Sting makes this so much easier for me!
 
-It automatically generates the [breadcrumbs](https://en.wikipedia.org/wiki/Breadcrumb_navigation) at the top of the page, too.
+It doesn't generate the [breadcrumbs](https://en.wikipedia.org/wiki/Breadcrumb_navigation) at the top of the page, I do that with javascript (which I HATE).
 
 ---
 
