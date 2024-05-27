@@ -15,7 +15,7 @@ This is my epic website.
 {body}
 # Projects
 <!-- maybe put cute icons next to these? -->
-<!--[Minesweeper](minesweeper) - A minesweeper clone, written in Rust with the Macroquad framework.-->
+[Minesweeper](minesweeper) - A minesweeper clone, written in Rust with the Macroquad framework. Play online!
 <!--[Terminal](terminal)-->
 
 [Swag Weaselz](swag-weaselz) - A silly scratch game made in around a day for a friend's birthday.

@@ -1,0 +1,176 @@
+<html>
+    <head>
+        <link id="favicon" rel="icon" type="image/png" href="/res/images/favicon.png">
+
+        <title>Minesweeper</title>
+        <meta name="description" content="A minesweeper clone, written in Rust with the Macroquad framework. Play online!">
+        <meta name="author"      content="jumbledFox">
+        <link rel="stylesheet" href="/res/style.css">
+        <style>:root { --grad: url("/res/images/gradients/rainbow.png"); }</style>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div id="background"></div>
+        <div id="all">
+        <div id="checker"></div>
+        <div id="topnav">
+            <script>
+                // Dear god, I hate JS.
+                let topnav = document.getElementById("topnav");
+                let breadcrumbs = document.createElement("ul");
+                breadcrumbs.classList.add("breadcrumb");
+
+                function titleCase(str) {
+                    return str.replace(/-/g, ' ').toLowerCase().split(' ').map(function (word) {
+                        return (word.charAt(0).toUpperCase() + word.slice(1));
+                    }).join(' ');
+                }
+
+                let path = window.location.pathname;
+                if (path.endsWith("/index.html")) {
+                    path = path.slice(0, -11)
+                }
+                let split_path = path.split('/').filter(p => p !== "");
+
+                if (split_path.length === 0) {
+                    let li = document.createElement("li");
+                    li.textContent = "Welcome to my website!";
+                    breadcrumbs.appendChild(li);
+                } else {
+                    let home_li = document.createElement("li");
+                    let home_a = document.createElement("a");
+                    home_a.href = "/";
+                    home_a.textContent = "Home";
+                    home_li.appendChild(home_a);
+                    breadcrumbs.appendChild(home_li);
+
+                    for (let i = 0; i < split_path.length; i++) {
+                        let li_name = titleCase(split_path[i]);
+
+                        let li = document.createElement("li");
+
+                        if (i == split_path.length - 1) {
+                            li.textContent = li_name;
+                        } else {
+                            let a = document.createElement("a");
+                            a.href = "/" + split_path.slice(0, i+1).join("/");
+                            a.textContent = li_name;
+                            li.appendChild(a);
+                        }
+                        
+                        breadcrumbs.appendChild(li);
+                    }
+                }
+
+                topnav.appendChild(breadcrumbs);
+            </script>
+        </div>
+        <div id="content">
+            <base href="/minesweeper/"><div class="box">
+<div class="title">
+<h1>Minesweeper</div></h1>
+<div class="body">
+<style>
+/* when not fullscreen */
+.iframe {
+  width: 100%;
+  height: 450px;
+  position: relative;
+  margin-top: 1em;
+}
+
+/* when fullscreen */
+/* data-open is a data attribute. doesn't do anything magic, just another way to target elements */
+.iframe[data-open="true"] {
+  position: fixed;
+  inset: 0; /* shorthand for top, left, bottom, right */
+  width: 100%;
+  height: 100%;
+  z-index: 99999; /* if you want on top of everything this z-index needs to be highest of all */
+  margin-top: 0;
+}
+
+/* iframe itself should fill the parent div */
+.iframe iframe {
+  width: 100%;
+  height: 100%;
+}
+
+/* put the toggle button in the bottom right of iframe */
+.iframe-toggle {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+</style>
+<script>
+// https://codepen.io/sscooba/pen/OJwjOKP
+/* Use a Class so it can easily be used multiple times per page */
+class IFrameToggle {
+  constructor(iframe) {
+    this.iframe = iframe;
+    this.toggleButton = this.iframe.querySelector(".js-iframe-toggle");
+    this.open = false;
+
+    this.eventHandlers();
+    this.update();
+  }
+
+  eventHandlers() {
+    this.toggleButton.addEventListener("click", () => this.toggle());
+  }
+
+  toggle() {
+    this.open = !this.open;
+    this.update();
+  }
+
+  update() {
+    // set the data attribute on the HTML element
+    this.iframe.dataset.open = this.open;
+  }
+}
+
+// https://www.reddit.com/r/learnjavascript/comments/114tnlp/comment/j8xwnor/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
+document.addEventListener("DOMContentLoaded", function(arg) {
+    /* using a different class to target this than using in CSS. Just to separate concerns */
+    document.querySelectorAll(".js-iframe").forEach((iframe) => {
+        new IFrameToggle(iframe);
+    });
+});
+
+</script>
+<div class="iframe js-iframe" style="width: 100%;">
+<iframe style="image-rendering: pixelated; isolation: isolate; display: block; margin-left: auto; margin-right: auto;"
+src="minesweeper.html" allowtransparency="true" frameborder="0" scrolling="no" allowfullscreen></iframe>
+<button class="iframe-toggle js-iframe-toggle">Toggle full screen</button>
+</div>
+<p>This is a game of minesweeper that took around TWO MONTHS for me to make! Two whole months!!!</p>
+<p>I learned an awful lot in those two months however, and rewrote it from the ground up a good 3 or so times, so I'd say they weren't two wasted months :3</p>
+<p>Left click to dig, right click to flag, and either middle mouse or left + right click to <a href="https://en.wikipedia.org/wiki/Chording#Minesweeper_tactic">chord</a>!</p>
+<p>(pleeeaase, if anyone knows how to disable middle mouse autoscrolling on the minesweeper iframe tell me!!!)</p>
+</div>
+</div>
+<div class="box">
+<div class="body">
+<h2>About</h2>
+<p>This was made in Rust, with the <a href="https://github.com/not-fl3/macroquad/">Macroquad</a> framework, <a href="https://github.com/jumbledFox/minesweeper/">The source is on Github</a>!</p>
+<p>The hardest part about this project was definitely the GUI. I eventually settled on what's called an 'immediate-mode' GUI, which is basically where everything is rebuilt every frame. This made the code so much easier at the cost of some performance, but meh, it's not the 80s anymore! At least this site isn't mining bitcoin on your cpu... or is it?</p>
+<hr />
+<h2>Explosions</h2>
+<p>One part I'm really proud of is the cool circular explosion effect!</p>
+<video width="50%" controls>
+    <source src="explosions.mp4" type="video/mp4">
+    Your browser does not support the video tag, you pillock!
+</video>
+<p>This was achieved with a bunch of cool optimisations, such as using the squared distance rather than a pesky and slow square root calculation, and precalculating all of the distances to the center for each bomb.</p>
+<p>Check it out <a href="https://github.com/jumbledFox/minesweeper/blob/master/src/ui/minesweeper_element/exploder.rs">here</a>, I'm really proud of it!</p>
+<hr />
+<p>I used <a href="https://codepen.io/sscooba/pen/OJwjOKP">this codepen project</a>'s code to make the game's iframe go fullscreen, thank you Stephen Cronin!</p>
+<p>Overall this project was a brilliant learning experience, I'm so excited to make more web-based things with Macroquad :3</p>
+<p>May 2024</p>
+</div></div>
+        </div>
+        </div>
+    </body>
+</html>

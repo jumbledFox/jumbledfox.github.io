@@ -35,6 +35,13 @@ img {
     margin-right: auto;
 }
 
+video {
+    isolation: isolate;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #background {
     background: var(--grad);
     background-size: cover;
