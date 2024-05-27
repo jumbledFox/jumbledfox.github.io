@@ -163,10 +163,36 @@ src="minesweeper.html" allowtransparency="true" frameborder="0" scrolling="no" a
     <source src="explosions.mp4" type="video/mp4">
     Your browser does not support the video tag, you pillock!
 </video>
-<p>This was achieved with a bunch of cool optimisations, such as using the squared distance rather than a pesky and slow square root calculation, and precalculating all of the distances to the center for each bomb.</p>
-<p>Check it out <a href="https://github.com/jumbledFox/minesweeper/blob/master/src/ui/minesweeper_element/exploder.rs">here</a>, I'm really proud of it!</p>
+<p>This was achieved with a bunch of cool optimisations, such as using the squared distance rather than a pesky and slow square root calculation, precalculating all of the distances to the center for each bomb, and using an IndexMap (ordered HashMap) and sorting it by distance to make sure I check the minimum amount of bombs as possible when updating the radius.</p>
+<p>Check out the source <a href="https://github.com/jumbledFox/minesweeper/blob/master/src/ui/minesweeper_element/exploder.rs">here</a>, I'm really proud of it!</p>
 <hr />
-<p>I used <a href="https://codepen.io/sscooba/pen/OJwjOKP">this codepen project</a>'s code to make the game's iframe go fullscreen, thank you Stephen Cronin!</p>
+<h2>The Face In The Button</h2>
+<p>My code allows me to easily add faces, shown below is part of the spritesheet for them!</p>
+<img src="facesprites.png" style="width: 100%; image-rendering: crisp-edges;">
+<p>I would add more faces (and may do in the future!) but drawing is hard :c</p>
+<p>Originally there was just gonna be a fox in the button, here are some of my first attempts at drawing it....</p>
+<div style="margin-bottom: 1em; display: flex; align-items: left;">
+<img src="faceattempt1.png" style="max-width: 20%; object-fit: contain; image-rendering: crisp-edges; margin-left: 0; margin-right: 1em;">
+<p>Not a fan of this one, too lumpy!</p>
+</div>
+<div style="margin-bottom: 1em; display: flex; align-items: left;">
+<img src="faceattempt2.png" style="max-width: 20%; object-fit: contain; image-rendering: crisp-edges; margin-left: 0; margin-right: 1em;">
+<p>The shocked version of the one above, for when you were about to dig up a tile</p>
+</div>
+<div style="margin-bottom: 1em; display: flex; align-items: left;">
+<img src="faceattempt3.png" style="max-width: 20%; object-fit: contain; image-rendering: crisp-edges; margin-left: 0; margin-right: 1em;">
+<p>This one's literally just eyes lol</p>
+</div>
+<div style="margin-bottom: 1em; display: flex; align-items: left;">
+<img src="faceattempt4.png" style="max-width: 20%; object-fit: contain; image-rendering: crisp-edges; margin-left: 0; margin-right: 1em;">
+<p>Ehh... better, but still not very good!!</p>
+</div>
+<p>The fox was originally going to look back and forth, this proved to be too distracting and didn't look very good however, so I removed it.</p>
+<img src="faceturning.gif" style="max-width: 25%; object-fit: contain; image-rendering: crisp-edges;">
+<p>They were also going to be much cooler when you won, sporting an epic pair of shades! However I didn't think it was as cute as the '^^' eyes present in the final release :3</p>
+<img src="faceunusedwin.png" style="max-width: 25%; object-fit: contain; image-rendering: crisp-edges;">
+<hr />
+<p>I used <a href="https://codepen.io/sscooba/pen/OJwjOKP">this codepen project</a>'s code to add a fullscreen button, thank you Stephen Cronin!</p>
 <p>Overall this project was a brilliant learning experience, I'm so excited to make more web-based things with Macroquad :3</p>
 <p>May 2024</p>
 </div></div>
