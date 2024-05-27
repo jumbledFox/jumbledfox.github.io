@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
         var favicon = document.getElementById("favicon");
 
         favicon.setAttribute("href", canvas.toDataURL());
-        history.replaceState(null, null, window.location.hash == "#jumbledFox#" ? "#fumbledJox#" : "#jumbledFox#");
+        // history.replaceState(null, null, window.location.hash == "#jumbledFox#" ? "#fumbledJox#" : "#jumbledFox#");
     }
 
     
@@ -50,8 +50,8 @@ document.addEventListener("DOMContentLoaded", () => {
     function addImage(imgSrc) {
         var newImg = new Image();
         newImg.crossOrigin = "Anonymous";
-        console.log("https://jumbledfox.github.io/games/favibird/" + imgSrc);
-        images.push({img:newImg, src:"https://jumbledfox.github.io/games/favibird/" + imgSrc});
+        // console.log("https://jumbledfox.github.io/favibird/" + imgSrc);
+        images.push({img:newImg, src:"https://jumbledfox.github.io/favibird/" + imgSrc});
 
         return newImg;
     }
