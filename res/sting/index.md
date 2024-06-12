@@ -13,7 +13,7 @@ It doesn't generate the [breadcrumbs](https://en.wikipedia.org/wiki/Breadcrumb_n
 
 Here's an example of a Sting markdown file. At the top you define configs, like the page title and the background.
 
-These configs get replaced with their value (or a default value, specified in [default_config.md](/!sting_data/default_config.md))
+These configs get replaced with their value (or a default value, specified in [default_config.md](/res/default_config.md))
 
 Below that is the actual page content, specified with a mixture of regular markdown and special tags like '\{box}' and '\{body}'.
 
@@ -34,11 +34,11 @@ Example page with some text and stuff.
 ```
 </div>
 
-This would result in a page that looks like [this](example-sting-page)!
+This would result in a page that looks like [this](/sting/example-sting-page)!
 
 ---
 
-You can see this page's markdown file [here](/!sting_data/sting/index.md)!
+You can see this page's markdown file [here](/res/sting/index.md)!
 
 {end}
 {end-box}

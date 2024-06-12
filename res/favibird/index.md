@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
         var newImg = new Image();
         newImg.crossOrigin = "Anonymous";
         // console.log("https://jumbledfox.github.io/favibird/" + imgSrc);
-        images.push({img:newImg, src:"https://jumbledfox.github.io/favibird/" + imgSrc});
+        images.push({img:newImg, src:"https://jumbledfox.github.io/res/favibird/" + imgSrc});
 
         return newImg;
     }
