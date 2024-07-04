@@ -42,7 +42,7 @@ I mainly program in Rust, although I occasionally use Python and C++, as well as
 I love to cycle, as well as swim in the sea every now and then, both of which are very fun :3
 
 I like all sorts of music, but my favourite genre is prog rock!!!
-<a href="https://github.com/kittinan/spotify-github-profile"><img src="https://spotify-github-profile.vercel.app/api/view?uid=zcgnpai3parsngbo51dc6k1c2&cover_image=true&theme=novatorem&show_offline=false&background_color=121212&interchange=false&bar_color=53b14f&bar_color_cover=false" style="width: auto;"></a>
+<a href="https://github.com/kittinan/spotify-github-profile"><img src="https://spotify-github-profile.kittinanx.com/api/view?uid=zcgnpai3parsngbo51dc6k1c2&cover_image=true&theme=novatorem&show_offline=false&background_color=121212&interchange=false&bar_color=53b14f&bar_color_cover=false" style="width: auto;"></a>
 
 I go by 'jumbledFox' on basically every platform.
 
