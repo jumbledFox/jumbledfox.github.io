@@ -14,6 +14,8 @@ This is my epic website.
 {box}
 {body}
 # Projects
+
+[Breakout](/breakout) - A breakout game with custom levels and an editor, written in Rust with Macroquad. Play online! Make your own levels!
 <!-- maybe put cute icons next to these? -->
 [Minesweeper](/minesweeper) - A minesweeper clone, written in Rust with the Macroquad framework. Play online!
 <!--[Terminal](terminal)-->
