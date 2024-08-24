@@ -41,7 +41,7 @@ window.onload = function() {
 // Will be called when wasm_exports and wasm_memory will be available
 function on_init() {
     // Add the default files
-    var default_levels = ["SPACE.brk", "ALBUMS I LIKE.brk", "ANIMALS.brk"]
+    var default_levels = ["SPACE.brk", "ALBUMS I LIKE.brk", "GAMES.brk", "ANIMALS.brk"]
     for (var i = 0; i < default_levels.length; i++) {
         let name = default_levels[i];
         const url = "packs/" + name;
