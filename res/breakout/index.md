@@ -117,7 +117,7 @@ description: A breakout game with custom levels and an editor, written in Rust w
 
 If you make any cool level packs, send them to me on like discord or email and I could feature them on this page!
 
-I've already got one from my lovely friend TheSycamore (who made this [really epic game](https://funktactic.itch.io/pico-power-prix) by the way), thank you!
+I've recieved two now! One of which from my good friend TheSycamore (who made this [really epic game](https://funktactic.itch.io/pico-power-prix) by the way), thank you! Seeing other peoples level packs on here really brightens my day.
 
 Not mentioned in the actual game, but you can pause mid-play by pressing ESC!
 
