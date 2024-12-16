@@ -40,12 +40,16 @@ window.onload = function() {
 
 // Will be called when wasm_exports and wasm_memory will be available
 function on_init() {
+   load_levels();
+}
+
+async function load_levels() {
     // Add the default files
-    var default_levels = ["SPACE.brk", "ALBUMS I LIKE.brk", "ANIMALS.brk", "GAMES.brk", "RETRO VIDEOGAMES.brk"]
+    var default_levels = ["CHRISTMAS.brk", "SPACE.brk", "ALBUMS I LIKE.brk", "ANIMALS.brk", "GAMES.brk", "RETRO VIDEOGAMES.brk"]
     for (var i = 0; i < default_levels.length; i++) {
         let name = default_levels[i];
         const url = "packs/" + name;
-        load_level_file(url, i == 0);
+        await load_level_file(url, i == 0);
     }
 
     // Make it so the file input can set the array to something whenever it's loaded a new file!!!
