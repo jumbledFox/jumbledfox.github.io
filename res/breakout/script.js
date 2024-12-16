@@ -45,7 +45,7 @@ function on_init() {
 
 async function load_levels() {
     // Add the default files
-    var default_levels = ["CHRISTMAS.brk", "SPACE.brk", "ALBUMS I LIKE.brk", "ANIMALS.brk", "GAMES.brk", "RETRO VIDEOGAMES.brk"]
+    var default_levels = ["CHRISTMAS.brk", "SPACE.brk", "ALBUMS I LIKE.brk", "GAMES.brk", "ANIMALS.brk", "RETRO VIDEOGAMES.brk"]
     for (var i = 0; i < default_levels.length; i++) {
         let name = default_levels[i];
         const url = "packs/" + name;
