@@ -4,7 +4,7 @@ description: Welcome to my website!
 {box}
 {title}# Hello!{end}
 {body}
-I'm jumbledFox, a 17 year old programmer from the UK.
+I'm jumbledFox, an 18 year old programmer from the UK.
 
 This is my epic website.
 <a href="https://jumbledfox.github.io"><img src="button.gif" style="width: auto; image-rendering: crisp-edges;"></a>
