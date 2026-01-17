@@ -1,1 +1,0 @@
-./../sting/target/release/sting
