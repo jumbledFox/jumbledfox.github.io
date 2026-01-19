@@ -45,7 +45,7 @@ body {
     position: fixed;
 
     /* background: url("rainbow.png"); */
-    background: url("images/gradients/rainbow.png");
+    background: var(--grad);
     background-size:100%;
     background-position: center;
     background-repeat: round;
