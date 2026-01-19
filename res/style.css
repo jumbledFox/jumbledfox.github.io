@@ -39,7 +39,8 @@ body {
     background-color: black;
     margin: 0em auto;
     margin-bottom: 1em;
-    max-width: 50em;
+    max-width: 55em;
+    padding: 0em 1em;
     /* padding: 0 .62em; */
     font: 1.5em monospace;
     z-index: 1;
@@ -52,9 +53,9 @@ body {
 
     /* background: url("rainbow.png"); */
     background: var(--grad);
-    background-size:100%;
+    background-size: 100% 100%;
     background-position: center;
-    background-repeat: round;
+    background-repeat: repeat;
     background-attachment: fixed;
 
     pointer-events: none;
@@ -117,7 +118,8 @@ div.box div.title * {
 }
 
 #nav a {
-    width: calc(33.33% - 0.2em);
+    /* width: calc(33.33% - 0.2em); */
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -127,7 +129,11 @@ div.box div.title * {
     text-decoration: none;
     background-color: white;
     color: black;
-    user-select: none;
+    /* user-select: none; */
+}
+
+#nav a span.edge {
+    font-size: 1.4em;
 }
 
 #nav a:hover {

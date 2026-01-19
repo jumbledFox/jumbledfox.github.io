@@ -16,122 +16,90 @@
                 <h1>jumbledFox's website.</h1>
     
                 <div id="nav">
-                    <a href="">
-                        <span>▒▒</span>
-                        <span>jumbledfox.github.io</span>
-                        <span>▒▒</span>
-                    </a>
-                    <a href="">
-                        <span>▒▒</span>
-                        <span>projects</span>
-                        <span>▒▒</span>
-                    </a>
-                    <a href="">
-                        <span>▒▒</span>
-                        <span>blah</span>
-                        <span>▒▒</span>
-                    </a>
-                    <a href="">
-                        <span>▒▒</span>
-                        <span>Blah</span>
-                        <span>▒▒</span>
-                    </a>
-                    <a href="">
-                        <span>▒▒</span>
-                        <span>Blah</span>
-                        <span>▒▒</span>
-                    </a>
+                    <script>
+                        // guhh... i don't like js :P
+                        let nav = document.getElementById("nav");
+                        
+                        // let path = "/swag_weaselz/blah";
+                        let path = window.location.pathname;
+                        if (path.endsWith("/index.html")) {
+                            path = path.slice(0, -11);
+                        }
+                        let split_path = path.split('/').filter(p => p != "");
+                        split_path.splice(0, 0, "");
+
+                        for (let i = 0; i < split_path.length; i++) {
+                            let button = document.createElement("a");
+                            button.href = split_path.slice(0, i+1).join("/");
+
+                            let edge_l = document.createElement("span");
+                            let edge_r = document.createElement("span");
+                            edge_l.textContent = "▒▒";
+                            edge_r.textContent = "▒▒";
+                            edge_l.classList.add("edge");
+                            edge_r.classList.add("edge");
+                            
+                            let text = document.createElement("span");
+                            text.textContent = split_path[i];
+                            if (i === 0) {
+                                text.textContent = "jumbledfox.github.io";
+                            }
+                            
+                            button.appendChild(edge_l);
+                            button.appendChild(text);
+                            button.appendChild(edge_r);
+                            nav.appendChild(button);
+                        }
+                    </script>
                 </div>
     
                 <div class="box">
                     <div class="title">
                         <h1>Hello!</h1>
                     </div>
-                    <!-- <img src="oldres/raycaster/untextured.gif" alt="blah" class="nobleed"> -->
                     <p>
-    
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies, ex non tincidunt egestas, dui nulla sodales mi, sit amet bibendum dolor tortor a urna. Mauris congue ut nunc a molestie. Sed sit amet orci quis ex tempus eleifend eget congue sapien. Etiam nec tellus in ante pellentesque tempus. </p>
-                </div>
-    
-                <div class="box">
-                    <p>
-    
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies, ex non tincidunt egestas, dui nulla sodales mi, sit amet bibendum dolor tortor a urna. Mauris congue ut nunc a molestie. Sed sit amet orci quis ex tempus eleifend eget congue sapien. Etiam nec tellus in ante pellentesque tempus. </p>
-                </div>
-                <div class="box">
-                    <div class="title">
-                        <h1>Hello!</h1>
-                    </div>
-                    <p>
-    
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies, ex non tincidunt egestas, dui nulla sodales mi, sit amet bibendum dolor tortor a urna. Mauris congue ut nunc a molestie. Sed sit amet orci quis ex tempus eleifend eget congue sapien. Etiam nec tellus in ante pellentesque tempus. </p>
-                </div>
-    
-                <div class="box">
-                    <p>
-    
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies, ex non tincidunt egestas, dui nulla sodales mi, sit amet bibendum dolor tortor a urna. Mauris congue ut nunc a molestie. Sed sit amet orci quis ex tempus eleifend eget congue sapien. Etiam nec tellus in ante pellentesque tempus. </p>
+                        I'm jumbledFox, a 19 year old programmer from the UK. This is my website :3
+                    </p>
                 </div>
 
                 <div class="box">
-                    <div class="title">
-                        <h1>Hello!</h1>
-                    </div>
+                    <h1>Projects</h1>
                     <p>
-    
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies, ex non tincidunt egestas, dui nulla sodales mi, sit amet bibendum dolor tortor a urna. Mauris congue ut nunc a molestie. Sed sit amet orci quis ex tempus eleifend eget congue sapien. Etiam nec tellus in ante pellentesque tempus. </p>
-                </div>
-    
-                <div class="box">
-                    <p>
-    
-                        <h1>Hello!</h1>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies, ex non tincidunt egestas, dui nulla sodales mi, sit amet bibendum dolor tortor a urna. Mauris congue ut nunc a molestie. Sed sit amet orci quis ex tempus eleifend eget congue sapien. Etiam nec tellus in ante pellentesque tempus. </p>
+                        [Breakout](/breakout) - A breakout game with custom levels and an editor, written in Rust with Macroquad. Play online! Make your own levels!
+                        <!-- maybe put cute icons next to these? -->
+                        [Minesweeper](/minesweeper) - A minesweeper clone, written in Rust with the Macroquad framework. Play online!
+                        <!--[Terminal](terminal)-->
+
+                        [Swag Weaselz](/swag-weaselz) - A silly scratch game made in around a day for a friend's birthday.
+
+                        [Favibird](/favibird) - A flappy bird game played in the favicon.
+
+                        [Trash and Lasers](/trash-and-lasers) - A game about destroying trash in the ocean with lasers! Made for the Polymars [SEAJAM](https://itch.io/jam/seajam).
+
+                        [Raycaster](/raycaster) - A little work-in-progress raycaster written in Rust, not finished but one day I'd love to get back to it!
+
+                        [Sting](/sting) - A Rust program that generates my website from markdown files.
+
+                        [Misc](/misc) - Other miscellaneous projects that don't really need their own page.
+                    </p>
                 </div>
 
                 <div class="box">
-                    <div class="title">
-                        <h1>Hello!</h1>
-                    </div>
+                    <h1>About me</h1>
                     <p>
-    
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies, ex non tincidunt egestas, dui nulla sodales mi, sit amet bibendum dolor tortor a urna. Mauris congue ut nunc a molestie. Sed sit amet orci quis ex tempus eleifend eget congue sapien. Etiam nec tellus in ante pellentesque tempus. </p>
-                </div>
-    
-                <div class="box">
-                    <p>
-    
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies, ex non tincidunt egestas, dui nulla sodales mi, sit amet bibendum dolor tortor a urna. Mauris congue ut nunc a molestie. Sed sit amet orci quis ex tempus eleifend eget congue sapien. Etiam nec tellus in ante pellentesque tempus. </p>
-                </div>
+                        # About me
 
-                <div class="box">
-                    <div class="title">
-                        <h1>Hello!</h1>
-                    </div>
-                    <p>
-    
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies, ex non tincidunt egestas, dui nulla sodales mi, sit amet bibendum dolor tortor a urna. Mauris congue ut nunc a molestie. Sed sit amet orci quis ex tempus eleifend eget congue sapien. Etiam nec tellus in ante pellentesque tempus. </p>
-                </div>
-    
-                <div class="box">
-                    <p>
-    
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies, ex non tincidunt egestas, dui nulla sodales mi, sit amet bibendum dolor tortor a urna. Mauris congue ut nunc a molestie. Sed sit amet orci quis ex tempus eleifend eget congue sapien. Etiam nec tellus in ante pellentesque tempus. </p>
-                </div>
+                        I mainly program in Rust, although I occasionally use Python and C++, as well as web stuff (which I do NOT enjoy).
 
-                <div class="box">
-                    <div class="title">
-                        <h1>Hello!</h1>
-                    </div>
-                    <p>
-    
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies, ex non tincidunt egestas, dui nulla sodales mi, sit amet bibendum dolor tortor a urna. Mauris congue ut nunc a molestie. Sed sit amet orci quis ex tempus eleifend eget congue sapien. Etiam nec tellus in ante pellentesque tempus. </p>
-                </div>
-    
-                <div class="box">
-                    <p>
-    
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies, ex non tincidunt egestas, dui nulla sodales mi, sit amet bibendum dolor tortor a urna. Mauris congue ut nunc a molestie. Sed sit amet orci quis ex tempus eleifend eget congue sapien. Etiam nec tellus in ante pellentesque tempus. </p>
+                        I love to cycle, as well as swim in the sea every now and then, both of which are very fun :3
+
+                        I like all sorts of music, but my favourite genre is prog rock!!!
+                        <a href="https://github.com/kittinan/spotify-github-profile"><img src="https://spotify-github-profile.kittinanx.com/api/view?uid=zcgnpai3parsngbo51dc6k1c2&cover_image=true&theme=novatorem&show_offline=false&background_color=121212&interchange=false&bar_color=53b14f&bar_color_cover=false" style="width: auto;"></a>
+
+                        I go by 'jumbledFox' on basically every platform.
+
+                        [Github](https://github.com/jumbledfox)
+                    </p>
                 </div>
             </div>
         </div>
