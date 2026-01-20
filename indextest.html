@@ -27,10 +27,12 @@
                         }
                         let split_path = path.split('/').filter(p => p != "");
                         split_path.splice(0, 0, "");
+                        console.log(split_path);
 
                         for (let i = 0; i < split_path.length; i++) {
                             let button = document.createElement("a");
                             button.href = split_path.slice(0, i+1).join("/");
+                            console.log(button.href);
 
                             let edge_l = document.createElement("span");
                             let edge_r = document.createElement("span");

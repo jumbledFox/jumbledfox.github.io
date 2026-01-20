@@ -28,7 +28,7 @@ body {
 
 #main {
     filter:
-        blur(0.6px)
+        blur(0.4px)
         saturate(1.2)
         brightness(1.2);
     background-color: black;
@@ -124,7 +124,7 @@ div.box div.title * {
     justify-content: space-between;
     align-items: center;
 
-    padding: 0;
+    padding: 0.2em 0em;
     margin: 0.1em;
     text-decoration: none;
     background-color: white;
@@ -133,7 +133,7 @@ div.box div.title * {
 }
 
 #nav a span.edge {
-    font-size: 1.4em;
+    padding: 0em 0.25em;
 }
 
 #nav a:hover {
