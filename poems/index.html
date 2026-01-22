@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <link id="favicon" rel="icon" type="image/png" href="/res/fomxpfp.png">
+        <title>jumbledFox | poems</title>
+        <meta name="description" content="poems I've written">
+        <meta name="author"      content="jumbledFox">
+        <style>:root { --grad: url("/res/images/gradients/rainbow.png"); }</style>
+        <link rel="stylesheet" href="/res/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="darkreader-lock">
+    </head>
+    <body>
+        <div id="main">
+            <div id="background"></div>
+            <div id="grid"></div>
+            <div id="content">
+                <h1>jumbledFox's website.</h1>
+                <div id="nav">
+                    <script>
+                        // guhh... i don't like js :P
+                        let nav = document.getElementById("nav");
+                        
+                        // let path = "/swag_weaselz/blah";
+                        let path = window.location.pathname;
+                        if (path.endsWith("/index.html")) {
+                            path = path.slice(0, -11);
+                        }
+                        let split_path = path.split('/').filter(p => p != "");
+                        split_path.splice(0, 0, "");
+
+                        for (let i = 0; i < split_path.length; i++) {
+                            let button = document.createElement("a");
+                            button.href = split_path.slice(0, i+1).join("/");
+
+                            let edge_l = document.createElement("span");
+                            let edge_r = document.createElement("span");
+                            edge_l.textContent = "│││";
+                            edge_r.textContent = "│││";
+                            edge_l.classList.add("edge");
+                            edge_r.classList.add("edge");
+                            
+                            let text = document.createElement("span");
+                            text.textContent = split_path[i];
+                            if (i === 0) {
+                                text.textContent = "jumbledfox.github.io";
+                                button.href = "/";
+                            } else if (i === split_path.length-1 && "poems" != "404") {
+                                // meh.. kinda works
+                                text.textContent = "poems";
+                            }
+                            
+                            button.appendChild(edge_l);
+                            button.appendChild(text);
+                            button.appendChild(edge_r);
+                            nav.appendChild(button);
+                        }
+                    </script>
+                </div>
+                <base href="/res/poems/">
+                <div class="box">
+<div class="title">
+<h1>Poems...</h1>
+</div>
+I like to write poems sometimes. It's a good bit of self-expression and a fun hobby that's not as technical as programming.
+I only have two so far...
+<p><a href="/poems/my_pleasure-dome">my pleasure-dome</a></p>
+</div>
+            </div>
+        </div>
+    </body>
+</html>
