@@ -22,25 +22,38 @@ body {
     min-height: 100%;
     overflow-x: hidden;
     /* overflow-y: hidden; */
-    background-color: black;
+    /* background-color: black; */
     color: white;
+    background: #ffffff url("images/stars.gif") repeat right top;
 }
 
-#main {
-    filter:
-        blur(0.4px)
+.lowkey a {
+    color: rgb(60, 60, 60);
+}
+
+#crt-layer {
+    /* background: red !important; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter:
+        blur(0.35px)
         saturate(1.2)
-        brightness(1.2);
-    background-color: black;
+        brightness(1.1);
+    pointer-events: none;
+    z-index: 1024;
 }
 
 #content {
     /* overflow-x: hidden; */
-    background-color: black;
+    /* background-color: black; */
     margin: 0em auto;
-    margin-bottom: 1em;
+    /* margin-bottom: 1em; */
     max-width: 55em;
     padding: 0em 1em;
+    padding-bottom: 1em;
     /* padding: 0 .62em; */
     font: 1.5em monospace;
     z-index: 1;
@@ -106,6 +119,7 @@ div.box {
     padding: 0em 1em 0em 1em;
     width: auto;
     border: 0.25em solid white;
+    background-color: black;
     /* box-shadow: white 0 0 20px; */
 }
 
@@ -149,7 +163,9 @@ a:hover {
     text-decoration: none;
     background-color: white;
     color: black;
-    /* user-select: none; */
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }
 
 #nav a span.edge {

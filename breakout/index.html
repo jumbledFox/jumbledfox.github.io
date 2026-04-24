@@ -10,54 +10,53 @@
         <meta name="darkreader-lock">
     </head>
     <body>
-        <div id="main">
-            <div id="background"></div>
-            <div id="grid"></div>
-            <div id="content">
-                <h1>jumbledFox's website.</h1>
-                <div id="nav">
-                    <script>
-                        // guhh... i don't like js :P
-                        let nav = document.getElementById("nav");
+        <div id="background"></div>
+        <div id="grid"></div>
+        <div id="content">
+            <h1 style="margin-top: 0; padding-top: .6em">jumbledFox's website.</h1>
+            <div id="nav">
+                <script>
+                    // guhh... i don't like js :P
+                    let nav = document.getElementById("nav");
+                    
+                    // let path = "/swag_weaselz/blah";
+                    let path = window.location.pathname;
+                    if (path.endsWith("/index.html")) {
+                        path = path.slice(0, -11);
+                    }
+                    let split_path = path.split('/').filter(p => p != "");
+                    split_path.splice(0, 0, "");
+
+                    for (let i = 0; i < split_path.length; i++) {
+                        let button = document.createElement("a");
+                        button.href = split_path.slice(0, i+1).join("/");
+
+                        let edge_l = document.createElement("span");
+                        let edge_r = document.createElement("span");
+                        edge_l.textContent = "│││";
+                        edge_r.textContent = "│││";
+                        edge_l.classList.add("edge");
+                        edge_r.classList.add("edge");
                         
-                        // let path = "/swag_weaselz/blah";
-                        let path = window.location.pathname;
-                        if (path.endsWith("/index.html")) {
-                            path = path.slice(0, -11);
+                        let text = document.createElement("span");
+                        text.textContent = split_path[i];
+                        if (i === 0) {
+                            text.textContent = "jumbledfox.github.io";
+                            button.href = "/";
+                        } else if (i === split_path.length-1 && "breakout" != "404") {
+                            // meh.. kinda works
+                            text.textContent = "breakout";
                         }
-                        let split_path = path.split('/').filter(p => p != "");
-                        split_path.splice(0, 0, "");
-
-                        for (let i = 0; i < split_path.length; i++) {
-                            let button = document.createElement("a");
-                            button.href = split_path.slice(0, i+1).join("/");
-
-                            let edge_l = document.createElement("span");
-                            let edge_r = document.createElement("span");
-                            edge_l.textContent = "│││";
-                            edge_r.textContent = "│││";
-                            edge_l.classList.add("edge");
-                            edge_r.classList.add("edge");
-                            
-                            let text = document.createElement("span");
-                            text.textContent = split_path[i];
-                            if (i === 0) {
-                                text.textContent = "jumbledfox.github.io";
-                                button.href = "/";
-                            } else if (i === split_path.length-1 && "breakout" != "404") {
-                                // meh.. kinda works
-                                text.textContent = "breakout";
-                            }
-                            
-                            button.appendChild(edge_l);
-                            button.appendChild(text);
-                            button.appendChild(edge_r);
-                            nav.appendChild(button);
-                        }
-                    </script>
-                </div>
-                <base href="/res/breakout/">
-                <div class="box">
+                        
+                        button.appendChild(edge_l);
+                        button.appendChild(text);
+                        button.appendChild(edge_r);
+                        nav.appendChild(button);
+                    }
+                </script>
+            </div>
+            <base href="/res/breakout/">
+            <div class="box">
 <div class="title">
 <h1>Breakout</h1>
 </div>
@@ -190,7 +189,8 @@
 <hr />
 <p>Also, this was made in a week and the GUI code gets rather shabby, I wasn't in the mood for making a whole GUI library (yet) so I used a few hacky solutions, but they're relatively harmless, self-contained, and they WORK!</p>
 </div>
-            </div>
         </div>
+        <div id="crt-layer"></div>
+
     </body>
 </html>

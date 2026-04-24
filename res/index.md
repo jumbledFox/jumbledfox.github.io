@@ -19,12 +19,32 @@ I'm jumbledFox, a 19 year old programmer from the UK. This is my website :3
 
 [Favibird](/favibird) - A flappy bird game played in the favicon.
 
-[Trash and Lasers](/trash-and-lasers) - A game about destroying trash in the ocean with lasers! Made for the Polymars [SEAJAM](https://itch.io/jam/seajam).
-
 [Raycaster](/raycaster) - A little work-in-progress raycaster written in Rust, not finished but one day I'd love to get back to it!
-
-[Sting](/sting) - A Rust program that generates my website from markdown files.
+[Trash and Lasers](/trash-and-lasers) - A game about destroying trash in the ocean with lasers! Made for the Polymars [SEAJAM](https://itch.io/jam/seajam).
 
 [Misc](/misc) - Other miscellaneous projects that don't really need their own page.
 
+<!-- [M](/sting) - A Rust program that generates my website from markdown files. -->
 {/box}
+
+{box}
+# About me
+
+I mainly program in Rust, although I occasionally use Python and C++, as well as web stuff.
+
+I love to cycle in the summertime and go for walks.
+
+I like all sorts of music, but my favourite genre is prog rock!!!
+
+My favourite artists are Frank Zappa, Emerson Lake & Palmer, and Genesis :3
+
+<a href="https://github.com/kittinan/spotify-github-profile"><img src="https://spotify-github-profile.kittinanx.com/api/view?uid=zcgnpai3parsngbo51dc6k1c2&cover_image=true&theme=novatorem&show_offline=false&background_color=121212&interchange=false&bar_color=53b14f&bar_color_cover=false" style="width: auto;"></a>
+
+I go by 'jumbledFox' on basically every platform.
+
+[Github](https://github.com/jumbledfox)
+
+<span class="lowkey">[poems](/poems)</span>
+
+{/box}
+

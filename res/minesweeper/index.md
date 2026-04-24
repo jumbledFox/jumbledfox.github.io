@@ -19,8 +19,8 @@ description: A minesweeper clone, written in Rust with the Macroquad framework. 
   position: fixed;
   inset: 0; /* shorthand for top, left, bottom, right */
   width: 100%;
-  height: 100%;
-  z-index: 99999; /* if you want on top of everything this z-index needs to be highest of all */
+  height: 100vh;
+  z-index: 9; /* if you want on top of everything this z-index needs to be highest of all */
   margin-top: 0;
 }
 
