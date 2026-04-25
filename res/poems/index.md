@@ -10,4 +10,6 @@ I like to write poems sometimes. It's a good bit of self-expression and a fun ho
 
 [my pleasure-dome](/poems/my_pleasure-dome)
 
+[rat](/poems/rat)
+
 {/box}
