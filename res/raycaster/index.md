@@ -1,3 +1,4 @@
+title: raycaster
 description: A little work-in-progress raycaster written in Rust, not finished but one day I'd love to get back to it!
 ---
 {box}
