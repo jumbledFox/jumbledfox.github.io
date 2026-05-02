@@ -5,6 +5,9 @@ description: welcome to my website!
 {title}# Hello!{/title}
 
 I'm jumbledFox, a 19 year old programmer from the UK. This is my website :3
+
+<a href="https://jumbledfox.github.io"><img src="images/button.gif" style="width: 88px;"></a>
+
 {/box}
 
 {box}
