@@ -123,7 +123,7 @@ One of which from my good friend TheSycamore (who made this [really epic game](h
 
 One from [Voxd_56](https://www.youtube.com/channel/UCPC8U9a_QynXTqxltuER9ZA), who I met on a discord server about [somebody](https://www.youtube.com/@TomInbound) remaking the old video game PLOK!
 
-And one from [Phi](https://phi.rip/)! Who made a lovely level pack, including renditions of the two of us :3 (and also she has [SUCH a cool website](https://phi.rip/))
+And two from [Phi](https://phi.rip/)! Who made a lovely level pack of animals, including renditions of us :3 and an epic pride month pack!! (and also she has [SUCH a cool website](https://phi.rip/))
 
 Seeing other peoples level packs on here really brightens my day.
 
