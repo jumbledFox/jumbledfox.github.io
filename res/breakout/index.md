@@ -115,9 +115,17 @@ description: A breakout game with custom levels and an editor, written in Rust w
 
 <script>load("breakout.wasm");</script></body>
 
-If you make any cool level packs, send them to me on like discord or email and I could feature them on this page!
+If you make any cool level packs, send them to me on discord and I could feature them on this page!
 
-I've recieved two now! One of which from my good friend TheSycamore (who made this [really epic game](https://funktactic.itch.io/pico-power-prix) by the way), thank you! Seeing other peoples level packs on here really brightens my day.
+I've recieved three level packs now!!! :3
+
+One of which from my good friend TheSycamore (who made this [really epic game](https://funktactic.itch.io/pico-power-prix) by the way), thank you!
+
+One from [Voxd_56](https://www.youtube.com/channel/UCPC8U9a_QynXTqxltuER9ZA), who I met on a discord server about [somebody](https://www.youtube.com/@TomInbound) remaking the old video game PLOK!
+
+And one from [Phi](https://phi.rip/)! Who made a lovely level pack, including renditions of the two of us :3 (and also she has [SUCH a cool website](https://phi.rip/))
+
+Seeing other peoples level packs on here really brightens my day.
 
 Not mentioned in the actual game, but you can pause mid-play by pressing ESC!
 
